@@ -1,0 +1,398 @@
+
+
+#div_mappa{
+	height: 400px;
+	width: 100%;
+	z-index: 1;
+	position: relative;
+}
+#div_catalogo{
+	height: 100% !important;
+	width: 100%;
+	z-index: 1000;
+	position: absolute;
+	background-color: #fff;
+}
+
+
+ul.dynatree-container{
+  border: 1px solid #ccc;
+  margin: 0;
+}
+.mq-layermanager-toolbar{
+  background-color: #ccc;
+}
+#layman_tree ul{
+	margin: 0;
+}
+#layman_tree ul li{
+	background-image: none;
+	overflow: visible;
+	/*width: 285px;*/
+	text-wrap: normal;
+}
+#layman_tree ul li a{
+	text-decoration: none;
+}
+.dynatree-title{
+	width: 200px;
+}
+
+
+#buttonToc{
+    position: absolute;
+    right: 3px;
+    top: 0;
+    z-index: 5001;
+}
+
+/* CSS PER PULSANTI NE BANNER */
+/* GEOPORTALE RP */
+
+/*
+ .ui-widget-content{
+  background-image: none;
+  background-color: #EAEAEA;
+}
+*/
+
+#layman_accordion{
+	background-color: #002E3C;
+}
+
+#banner{
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+}
+	#logo_unico{
+		background-image: url(img_geoportale/logo.jpg);
+		position: absolute;
+		width: 530px;
+		height: 99px;
+		top:0px;
+		left:0px;
+		z-index: 95;
+	}
+	#logo_geoportale{
+		background-image: url(img_geoportale/logo_geoportale.jpg);
+		position: absolute;
+		width: 293px;
+		height: 169px;
+		top:0px;
+		left:0px;
+		z-index: 95;
+	}
+	#logo_regione{
+		background-image: url(img_geoportale/logo_regione.jpg);
+		position: absolute;
+		width: 187px;
+		height: 169px;
+		top:-35px;
+		right:10px;
+		z-index: 95;
+	}
+	
+	#barra_verde{
+		background-image: url(img_geoportale/barra_verde.png);
+		background-repeat: repeat-x;
+		position: absolute;
+		width: 100%;
+		height: 47px;
+		top:89px;
+		z-index: 100;
+	}
+	.geopulsante{
+		height:108px;
+		width:100px;
+		position:absolute;
+		top:40px;
+		text-decoration:none;
+		z-index: 105;
+	}
+	.geopulsante_0{
+		background-image: url(img_geoportale/geoportale_disabled.png);
+		right:262px;
+	}
+	.geopulsante_0_selezionato{ 
+		background-image: url(img_geoportale/geoportale_active.png);
+		right:274px; 
+	}
+	.geopulsante_0:hover{ background-image: url(img_geoportale/geoportale_active.png); }
+	
+	.geopulsante_1{
+		background-image: url(img_geoportale/catalogo_disabled.png);
+		right:142px;
+	}
+	.geopulsante_1_selezionato{
+		 background-image: url(img_geoportale/catalogo_active.png);
+		 right:142px; 
+	}
+	.geopulsante_1:hover{ background-image: url(img_geoportale/catalogo_active.png); }
+	
+	.geopulsante_2{
+		background-image: url(img_geoportale/mappe_disabled.png);
+		right:30px;
+	}
+	.geopulsante_2_selezionato{ 
+		background-image: url(img_geoportale/mappe_active.png);
+		right:30px; 
+	}
+	.geopulsante_2:hover{ background-image: url(img_geoportale/mappe_active.png); }
+	
+.ui-accordion .ui-accordion-content{
+  padding: 0;
+}
+
+.ui-accordion-header {
+  background: url("../lib/jquery/jquery-ui-1.10.0/css/geoportale/images/ui-bg_highlight-soft_75_cccccc_1x100.png") repeat-x scroll 50% 50% #CCCCCC;
+    border: 1px solid #AAAAAA;
+    color: #222222;
+    font-weight: bold;
+}
+.csi_genericPane{
+  /*background-color: #CCCCCC;*/
+  
+}
+
+
+.ui-jqgrid tr td{
+  color: #333;
+  white-space: normal;
+}
+.ui-priority-secondary, .ui-widget-content .ui-priority-secondary, .ui-widget-header .ui-priority-secondary {  
+  opacity: 1;
+}
+
+#dia_metadata_iframe{
+  width: 100%;
+  height: 100%;
+  border: 1px solid #ccc;
+  background: #fff;
+}
+
+
+/* ACCROCCHI PER FAR FUNZIONARE IL LAYOUT */
+.ui-layout-center{
+  /*height: 100% !important;*/
+}
+
+
+
+#layman_acc_mappe .ui-widget-content{
+  background-image: none;
+  background-color: #002E3C;
+  border: 1px solid #fff;
+  border-bottom: none;
+}
+
+
+#box_legenda{
+	background-color: #fff;
+}
+
+
+/* RICERCA */
+#buttonFind{
+    position: absolute;
+    left: 3px;
+    top: 1px;
+    z-index: 5002;
+}
+#div_find{
+	position: absolute;
+	bottom: 6px;
+	left: 10px;
+	/*background-color:#002E3C;*/
+	width: 470px;
+	height: 30px;
+	z-index: 500001;
+	border-radius: 5px;
+	border: none;
+	color: #fff;
+	padding: 0px;
+}
+
+#sexy-bookmarks{display: none;}
+
+#infoResult h3{
+	font-size: 12px;
+}
+
+#maintoolbar{
+	/*width: 150px;*/
+	position: absolute;
+	z-index: 5001;
+	top: 5px;
+	left: 5px;
+}
+#maintoolbar2{
+	/*width: 150px;*/
+	position: absolute;
+	z-index: 5001;
+	top: 5px;
+	right: 5px;
+}
+
+#introduzione{
+	/*width: 150px;*/
+	position: absolute;
+	z-index: -1;
+  padding-left: 160px;
+  padding-right: 10px;
+  padding-top: 2px;
+  color: #f5f5f5 !important;
+  font-family: helvetica;
+  font-size: 11px;
+}
+
+#buttonFind, #buttonToc{
+	/*background-color: #002E3C;*/
+	/*background-image: none;*/
+	/*color: #fff;*/
+	/*font-weight: bold;*/
+}
+
+
+#layermanagergn {
+    right: 5px;
+    top: 30px;
+}
+
+
+
+#mappa2{
+	width: 100%;
+	height: 100%;
+}
+
+
+#nome_comune{
+	/* height: 20px; */
+}
+/* CORREZIONI AGLI STILI GIà DEFINITI PER ADEGUARE IL PROGETTO */
+
+.ui-widget-content{
+	/*background-image: none;*/
+}
+ul.dynatree-container{
+	height: 264px;
+}
+.olControlPanPanel{
+	top: 38px;
+}
+.olControlScaleLine{
+	left: 5px;
+	bottom: 5px;
+}
+.ui-helper-clearfix {
+    min-height: 16px;
+}
+
+.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default{
+	/*border: 1px solid #002E3C;*/
+}
+
+.ui-button-text-only .ui-button-text {
+    padding: 1px 7px;
+}
+.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default {
+    /*background-image: url(../css/img/rossa_spezzata.jpg);*/
+}
+
+.ui-slider-horizontal .ui-slider-handle {
+    margin-left: -15px;
+}
+
+#mappa_extra{
+	position:relative;
+	width: 500px;
+	height: 400px;
+	border: 1px solid #3d3d3d;
+}
+
+
+
+
+/* SPECIFICO DEL PRGETTO RADEX */
+#banner {
+	background-color: #FFFFFF;
+    background-image: url("../img/logo_provincia.png");
+    border: 1px solid #D4D4D4;
+    border-radius: 5px;
+    height: 105px;
+    margin: 10px auto;
+    padding: 0;
+    width: 950px;
+}
+#div_mappa{
+	margin: 10px auto;
+}
+.ui-layout-south {
+	bottom: 4px !important;
+}
+.ui-layout-north{
+	top: 4px !important;
+}
+.ui-layout-center{
+	border-right: 1px solid #888;
+}
+#loginPanel{
+	position:absolute;
+	top: 5px;
+	left: 50%;
+}
+#btn_login{
+	position: absolute;
+	top:0px;
+}
+#loginLock{
+	margin-top:-9px;
+}
+#loginPanel table{
+	margin: 0px;
+	padding: 0px;
+}
+#loginPanel table tr td{
+	margin: 0px;
+	padding: 0px;
+}
+.dia_geoest_content{
+	position: relative;
+	background-color: #fff;
+	color: #333;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;	
+	padding: 10px;	
+}
+.geoest_desc{
+	font-size: 10px;
+	color: #4d4d4d;
+	font-style: italic;
+}
+.pcentra{
+	text-align: center;
+}
+#dia_geoest h1{
+	font-size: 18px;
+	margin-top: 4px;
+}
+#wiz_elenco_lay{
+	font-size: 12px;
+}
+#wiz_elenco_lay li{
+	list-style: none;
+}
+#dia_geoest a{
+	color: #d00;
+}
+
+#dia_geoest input{
+	border: 1px solid #333;
+	background-color: #eee;
+}
+#dia_geoest textarea{
+	border: 1px solid #333;
+	background-color: #eee;
+}

@@ -1,0 +1,157 @@
+<ivy-module version="1.0">
+  <info organisation="csipiemonte" module="testivy"/>
+  <dependencies>
+  
+    <dependency org="csipiemonte" name="csi" rev="1.4.6" transitive="false"/><!-- ATTENZIONE RIMUOVERE QUESTA LIBRERIA PER IL DEPLOY IN PRODUZIONE, COLLAUDO, TEST E SVILUPPO, E' UTILIZZATA SOLO IN LOCALE -->
+
+    <dependency org="postgresql" name="postgresql-jdbc" rev="9.0-801.jdbc3"/><!-- ATTENZIONE RIMUOVERE QUESTA LIBRERIA PER IL DEPLOY IN PRODUZIONE, COLLAUDO, TEST E SVILUPPO, E' UTILIZZATA SOLO IN LOCALE -->
+
+	<dependency org="csipiemonte" name="weblogic-client" rev="3.1.0" transitive="false">
+		<artifact name="weblogic-client-3.1.0" type="jar" />
+	</dependency>
+    <dependency org="apache" name="log4j" rev="1.2.15" >
+      <artifact name="log4j-1.2.15" type="jar" />
+    </dependency>
+    <dependency org="sun" name="jaxp" rev="1.1" >
+      <artifact name="jaxp-1.1" type="jar" />
+    </dependency>
+    <dependency org="sun" name="jsse" rev="1.0.3">
+      <artifact name="jsse-1.0.3" type="jar" />
+    </dependency>
+    <dependency org="sun" name="mail" rev="1.2">
+      <artifact name="mail-1.2" type="jar" />
+    </dependency>
+    <dependency org="csipiemonte" name="htmpl" rev="1.3.2" >
+      <artifact name="htmpl-1.3.2" type="jar" />
+    </dependency>
+    <dependency org="csipiemonte" name="tram" rev="1.5.0" >
+      <artifact name="tram-1.5.0" type="jar" />
+    </dependency>
+    <dependency org="inetsoft" name="stylereportpro" rev="9.5">
+      <artifact name="xreport_pro-9.5" type="jar" />
+      <!--artifact name="xtools-9.5" type="jar" /-->
+    </dependency>
+    <dependency org="csipiemonte" name="shibboleth" rev="1.0.0" >
+      <artifact name="shibboleth-shibfilter-1.0.0" type="jar" />
+    </dependency>
+    <dependency org="csipiemonte" name="smrgaasrv" rev="5.5.0" transitive="false">
+      <artifact name="smrgaasrv-client-5.5.0" type="jar" />
+    </dependency>
+    <dependency org="csipiemonte" name="sian-ws-anagrafe-at" rev="1.0.0"  transitive="false">
+      <artifact name="sian-ws-anagrafe-at-1.0.0" type="jar" />
+    </dependency>
+    <dependency org="apache" name="axis" rev="1.2.1" transitive="false" >
+		<artifact name="axis-1.2.1" type="jar" />
+    </dependency>
+	<dependency org="csipiemonte" name="smrcommsrv" rev="4.1.1" transitive="false" >
+      <artifact name="smrcommsrv-client-4.1.1" type="jar" />
+    </dependency>
+    <!--dependency org="csipiemonte" name="sigwgssrv-sigwgssrv-client" rev="1.0.0" >
+		<artifact name="sigwgssrv-sigwgssrv-client-1.0.0" type="jar" />
+	</dependency -->
+	<dependency org="csipiemonte" name="coop-trace" rev="1.1.0" transitive="false">
+		<artifact name="coop-trace-1.1.0" type="jar" />
+	</dependency>  	
+	<dependency org="csipiemonte" name="coop-diag" rev="1.2.1" transitive="false">
+		<artifact name="coop-diag-1.2.1" type="jar" />
+	</dependency>
+	<dependency org="csipiemonte" name="util-perf" rev="1.0.0" transitive="false">
+		<artifact name="util-perf-1.0.0" type="jar" />
+	</dependency>
+	
+	<!-- librerie per funzioni GIS -->
+	<!--dependency org="csipiemonte" name="grease-jeegfw" rev="2.6.2" transitive="false">
+		<artifact name="jeegfw-2.6.2" type="jar" />
+	</dependency -->
+	<dependency org="apache" name="commons-codec" rev="1.3">
+		<artifact name="commons-codec-1.3" type="jar"/>
+	</dependency>	
+	
+	<dependency transitive="false" org="others" name="jboss" force="true" rev="eap-6.0">
+			<artifact name="jboss-ejb-api_3.1_spec-1.0.2.Final-redhat-1" type="jar" />
+			<artifact name="jboss-jsp-api_2.2_spec-1.0.1.Final-redhat-1" type="jar" />
+			<artifact name="jboss-el-api_2.2_spec-1.0.2.Final-redhat-1" type="jar" />
+			<artifact name="jboss-servlet-api_3.0_spec-1.0.1.Final-redhat-1" type="jar" />
+			<artifact name="validation-api-1.0.0.GA-redhat-1" type="jar" />
+			<artifact name="jboss-transaction-api_1.1_spec-1.0.1.Final-redhat-1" type="jar" />
+			<artifact name="jackson-core-asl-1.9.2-redhat-1" type="jar" />
+			<artifact name="jackson-mapper-asl-1.9.2-redhat-1" type="jar" />
+			<!-- Webservice -->
+			<artifact name="cxf-common-utilities-2.4.6-redhat-1" type="jar" />
+			<artifact name="cxf-rt-frontend-simple-2.4.6-redhat-1" type="jar" />
+			<artifact name="cxf-api-2.4.6-redhat-1" type="jar" />
+			<artifact name="cxf-rt-core-2.4.6-redhat-1" type="jar" />
+			<artifact name="cxf-rt-frontend-jaxws-2.4.6-redhat-1" type="jar" />
+			<artifact name="cxf-rt-transports-http-2.4.6-redhat-1" type="jar" />
+			<artifact name="cxf-rt-ws-addr-2.4.6-redhat-1" type="jar" />
+			<artifact name="cxf-rt-bindings-soap-2.4.6-redhat-1" type="jar" />
+			<artifact name="neethi-3.0.1-redhat-1" type="jar" />
+			<artifact name="xmlschema-core-2.0.2-redhat-1" type="jar" />
+			<artifact name="wsdl4j-1.6.2-redhat-1" type="jar" />
+			<artifact name="cxf-tools-common-2.4.6-redhat-1" type="jar" />
+			<artifact name="cxf-rt-databinding-jaxb-2.4.6-redhat-1" type="jar" />
+		</dependency>
+	
+	<dependency org="csipiemonte" name="tokenretry" rev="2.1.0" >
+	   <artifact name="token-retry-2.1.0" type="jar" />
+	   <artifact name="token-retry-plugin-cxf-2.1.0" type="jar" />
+	</dependency>
+	
+	<dependency org="csipiemonte" name="sigwgssrvSigwgssrv-client-cxf" rev="1.0.0">
+		<artifact name="sigwgssrvSigwgssrv-client-cxf-1.0.0" type="jar" />
+	</dependency>
+	
+	<dependency org="csipiemonte" name="papuaserv-wsclient-rest" rev="1.0.0">
+		<artifact name="papuaserv-wsclient-rest-1.0.0" type="jar" />
+	</dependency>
+
+	<dependency org="csipiemonte" name="papuaserv-wsclient-rest-legacy"	rev="1.0.0">
+		<artifact name="papuaserv-wsclient-rest-legacy-1.0.0" type="jar" />
+	</dependency>
+	
+	<dependency org="csipiemonte" name="agripagopasrv-client-cxf" rev="2.0.0">
+		<artifact name="agripagopasrv-client-cxf-2.0.0" type="jar"/>
+	</dependency>
+	
+	<dependency transitive="false" org="others" name="opensaml" rev="2.5.1-1">
+			<artifact name="opensaml-2.5.1-1" type="jar" />
+			<artifact name="xmltooling-1.3.2-1" type="jar" />
+	</dependency>
+	
+	<dependency org="others" name="oromatcher" rev="1.1">
+			<artifact name="oromatcher-1.1" type="jar" />
+	</dependency>
+	
+	<dependency org="apache" name="geronimo-ws" rev="2.0" transitive="false" />
+	
+	<dependency org="apache" name="geronimo-jaxws" rev="2.1" transitive="false" />
+	
+	<dependency org="apache" name="xerces" rev="2.9.1">
+		<artifact name="xercesImpl-2.9.1-redhat-3" type="jar"/>
+	</dependency>
+	
+	<dependency org="others" name="rhino" rev="1.7R1">
+		<artifact name="rhino-js-1.7R1" type="jar" />
+	</dependency>
+	<dependency org="others" name="antlr" rev="2.7.7">
+		<artifact name="antlr-2.7.7" type="jar" />
+	</dependency>
+
+<!-- LASCIARE COMMENTATO IN SUBVERSION - solo per precompilazione jsp con weblogic.appc -->	
+<!--
+			<dependency org="bea" name="weblogic" rev="9.2.2.0">
+			   <artifact name="bcelx-9.2.2.0" type="jar" />
+			   <artifact name="weblogic-9.2.2.0" type="jar" />
+			   <artifact name="api-9.2.2.0" type="jar" />
+			   <artifact name="weblogic-container-binding-9.2.2.0" type="jar" />
+			   <artifact name="webservices-9.2.2.0" type="jar" />
+			   <artifact name="javelinx-9.2.2.0" type="jar" />
+			   <artifact name="wls-api-9.2.2.0" type="jar" />
+			   <artifact name="wlw-langx-9.2.2.0" type="jar" />
+			   <artifact name="wlw-plaf-9.2.2.0" type="jar" />
+			   <artifact name="wlw-util-9.2.2.0" type="jar" />
+			   <artifact name="xbean-9.2.2.0" type="jar" />
+			</dependency>
+-->
+  </dependencies>
+</ivy-module>

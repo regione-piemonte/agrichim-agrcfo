@@ -1,0 +1,299 @@
+<html>
+<head>
+<title>Servizio AGRICHIM</title>
+<META HTTP-EQUIV="Pragma" CONTENT="no-cache">
+<META HTTP-EQUIV="Cache-Control" CONTENT="no-cache">
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<script src="../layout/js/gestione.js"></script>
+<script src="../layout/js/mail.js"></script>
+<script src="../layout/js/trim.js"></script>
+<script src="../layout/js/testLength.js"></script>
+<script src="../layout/js/isNumber.js"></script>
+<script src="../layout/js/codiceFiscale.js"></script>
+<script src="../layout/js/partitaIVA.js"></script>
+<script src="../layout/js/fase3Tecnico.js"></script>
+<script type="text/javascript" src="/assets/application/agrichim/gis/lib/jquery/jquery-1.9.0.min.js"></script>
+<script>
+  var msg="Effettuare la ricerca per verificare che la Partita IVA/Codice fiscale inseriti siano corretti";
+  function scelta()
+  {
+    if (salva(document.anagraficaTecnico))
+    {
+      if (document.anagraficaTecnico.codiceIdentificativo.value!=document.anagraficaTecnico.codiceIdentificativoOld.value)
+      {
+        document.anagraficaTecnico.action="../controller/anagraficaTecnicoDup.jsp";
+      }
+      document.anagraficaTecnico.submit();
+    }
+  }
+  function modificaAnagrafica()
+  {
+	  $("#modificaAnagrafica" ).hide();
+	  $("#comuneButton" ).show();
+	  $("#cognomeRagioneSociale").prop("readonly", false);
+	  $("#nome").prop("readonly", false);
+	  $("#indirizzo").prop("readonly", false);
+	  $("#cap").prop("readonly", false);
+	  $("#email").prop("readonly", false);
+	  $("#telefono").prop("readonly", false);
+	  $("#cellulare").prop("readonly", false);
+	  $("#fax").prop("readonly", false);
+	  $("#disabledUpdate").val("");
+  }
+  $(document).ready(function()
+  {
+	  if ($("#disabledUpdate").val()=='readonly')
+	  {
+		  $("#modificaAnagrafica" ).show();
+		  $("#comuneButton" ).hide();
+	  }
+	  else
+	  {
+		  $("#modificaAnagrafica" ).hide();
+		  $("#comuneButton" ).show();
+	  }
+  });
+</script>
+<link href="../layout/css/format.css" rel="stylesheet" type="text/css">
+</head>
+<body bgcolor="#CCCCCC" @@onload onload="alert('$$messaggio');" @@onload>
+<table summary="Questa tabella serve per formattare la pagina"  width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr align="center" valign="middle">
+    <td>
+      <table summary="Questa tabella serve per formattare la pagina" width="720" border="0" cellspacing="0" cellpadding="0" bgcolor="#FFFFFF">
+        <tr>
+          <td>
+            <table summary="Questa tabella serve per formattare la pagina" width="720" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td><img src="../layout/im/ban_sup##rupar.gif" width="475" height="40" alt="##nomeRete"></td>
+              </tr>
+
+              <tr valign="top" align="right">
+                <td width="719">
+                  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                      <td background="../layout/im/pix-gri-ban.gif" width="1" height="2"><img src="../layout/im/tra_pix.gif" width="1" height="1"></td>
+                      <td width="2" height="2" bgcolor="#319E84"><img src="../layout/im/tra_pix.gif" width="2" height="2"></td>
+                      <td width="135" height="2" bgcolor="#319E84">
+                        <div align="right"><img src="../layout/im/agricoltura.gif" alt="agricoltura" width="89" height="14">
+                        </div>
+                      </td>
+                      <td width="585" height="2" bgcolor="#669933">&nbsp;&nbsp;
+                        <img src="../layout/im/agrichim.gif" alt="servizio agrichim" width="173" height="14" align="top">
+                      </td>
+                      <td height="1" bgcolor="#669933"><img src="../layout/im/tra_pix.gif" width="2" height="1"></td>
+                      <td background="../layout/im/pix-gri-ban.gif" height="1"><img src="../layout/im/tra_pix.gif" width="1" height="1"></td>
+                    </tr>
+                    <tr>
+                      <td background="../layout/im/pix-gri-ban.gif" width="1"><img src="../layout/im/tra_pix.gif" width="1" height="1"></td>
+                      <td bgcolor="#319E84" width="2"><img src="../layout/im/tra_pix.gif" width="2" height="1"></td>
+                      <td colspan="2">
+                        <table width="100%" border="0" cellspacing="0" cellpadding="1">
+                          <tr background="../layout/im/pix-gri-ban.gif">
+                            <td background="../layout/im/pix-gri-ban.gif">
+                              <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                <tr>
+                                  <td width="135" valign="top" bgcolor="#669933">
+                                    <div align="center"> <br>
+                                      <table width="124" height="50" border="0" align="center" cellpadding="0" cellspacing="5" background="../layout/im/sfondo_tab1.gif">
+                                        <tr>
+                                          <td><p class="testoUtente"><strong>Utente:<br>
+                                              ##nomeUtente </strong></p></td>
+                                        </tr>
+                                      </table>
+                                      <br>
+                                      <img src="../layout/im/tit_sx_richiesta_on.gif" alt="nuova richiesta" width="124" height="29">
+                                      <br>
+                                      <a href="../view/principale.jsp"><br>
+                                      <img src="../layout/im/tit_sx_visBozze_off.gif" width="124" height="29" border="0" alt="visualizza bozze"></a><br>
+                                      <a href="../controller/elencoCampioni.jsp"><br>
+                                      <img src="../layout/im/tit_sx_ricerca_off.gif" alt="ricerca" width="124" height="29" border="0"></a><br>
+                                      <a href="../controller/elencoPagamenti.jsp"><br>
+                                      <img src="../layout/im/tit_sx_elencoPagamenti_off.gif" width="124" height="29" border="0" alt="pagamenti"></a><br>
+                                      <a href="javascript:pop('../view/anagraficaUtentePOP.jsp',700,500);"><br>
+                                      <img src="../layout/im/tit_sx_anagraficaUtente_off.gif" alt="anagrafica utente" width="124" height="29" border="0"></a><br>
+                                      <a href="../controller/logout.jsp"><br>
+                                      <img src="../layout/im/tit_sx_logout_off.gif" alt="logout" width="124" height="29" border="0"></a>
+                                      <br>
+                                    </div>
+                                  </td>
+                                  <td width="577" height="450" valign="baseline" bgcolor="#F2F1EA">
+                                    <table width="98%" border="0" align="center" cellpadding="0" cellspacing="5">
+                                      <tr>
+                                        <td>
+                                          <h1>Richiesta nuova analisi</h1>
+                                        </td>
+                                      </tr>
+                                      <tr>
+                                        <td><h2><strong>Anagrafica del richiedente
+                                            - Fase 3 Tecnico </strong></h2></td>
+                                      </tr>
+                                    </table>
+                                    <br>
+									<table width="560" border="0" cellspacing="0" cellpadding="0" align="center">
+                                      <tr valign="top">
+                                        <td width="70" class="pul">Fase 1 <br>
+                                          identificazione campione</td>
+                                        <td width="70" class="pul">Fase 2 <br>
+                                          coordinate geografiche</td>
+                                        <td width="70" class="pulselect"><span class="faseselect">Fase
+                                          3 </span><br>
+                                          anagrafica richiedente</td>
+                                        <td width="70" class="pul">Fase 4 <br>
+                                          fattura commerciale</td>
+                                        <td width="70" class="pul">Fase 5 <br>
+                                          dati del campione</td>
+                                        <td width="70" class="pul">Fase 6 <br>
+                                          analisi richiesta</td>
+                                        <td width="70" class="pul">Fase 7 <br>
+                                          conferma<br>
+                                          dati</td>
+                                      </tr>
+                                    </table>
+                                    <br>
+                                    <form name="anagraficaTecnico" method="post" action="../controller/anagraficaTecnico.jsp">
+                                    <input type="hidden" name="disabledUpdate" id="disabledUpdate" value="##disabledUpdate">
+                                    <table width="98%" border="0" align="center" cellpadding="2" cellspacing="2" class="testo">
+                                      <tr>
+                                        <td colspan="2"> <div align="center">
+                                            <b>Anagrafica proprietario del campione</b>
+                                          </div></td>
+                                          @@errore
+                                        <tr>
+                                          <td colspan="2" class="testoERRORE">I dati contrassegnati da &nbsp;<img src="../layout/im/ko.gif">&nbsp;
+                                          non sono stati inseriti correttamente
+                                            <br>
+                                            <br>
+                                          </td>
+                                        </tr>
+                                      @@errore
+                                      </tr>
+                                      <tr>
+                                        <td width="30%">Tipo (*) </td>
+                                        <td> <input type="radio" name="tipoPersona" value="G" ##checkedGiuridica ##disabledUpdate>
+                                          Azienda
+                                          <input type="radio" name="tipoPersona" value="F" ##checkedFisica ##disabledUpdate>
+                                          Persona fisica </td>
+                                      </tr>
+                                      <tr>
+                                        <td width="30%">P. Iva o Cod. Fisc. <br>(CUAA per aziende agricole) (*)</td>
+                                        <td> <input name="codiceIdentificativo" type="text" class="testoCampi" size="25" maxlength="16" value="##codiceFiscale">
+                                          ##errore1
+                                        <input type="hidden" name="codiceIdentificativoOld" value="##codiceFiscaleOld">
+                                          <a href="javascript:document.anagraficaTecnico.action='../view/anagraficaTecnico.jsp';document.anagraficaTecnico.submit();" class="pulsante">RICERCA</a>
+                                          <span id="modificaAnagrafica">
+                                          	<a href="javascript:modificaAnagrafica()" class="pulsante">Modifica anagrafica</a>
+                                          </span>
+                                        </td>
+                                      </tr>
+                                      <tr>
+                                        <td width="30%">Cognome o <br>
+                                          Ragione Sociale (*)</td>
+                                        <td> <input name="cognomeRagioneSociale" id="cognomeRagioneSociale" type="text" class="testoCampi" size="60" maxlength="60" value="##cognome" ##disabledUpdate>
+                                          ##errore2
+                                        </td>
+                                      </tr>
+                                      <tr>
+                                        <td width="30%">Nome (*) <span class="testoCampi">(se
+                                          persona fisica)</span></td>
+                                        <td> <input name="nome" id="nome" type="text" class="testoCampi" size="30" maxlength="40" value="##nome" ##disabledUpdate>
+                                         ##errore3
+                                        </td>
+                                      </tr>
+                                      <tr>
+                                        <td width="30%">Indirizzo</td>
+                                        <td colspan="2"> <input name="indirizzo" id="indirizzo" type="text" class="testoCampi" size="50" maxlength="40" value="##indirizzo" ##disabledUpdate>
+                                         ##errore4
+                                        </td>
+                                      </tr>
+                                      <tr>
+                                        <td width="30%">CAP</td>
+                                        <td colspan="2"> <input name="cap" id="cap" type="text" class="testoCampi" size="5" maxlength="5" value="##cap" ##disabledUpdate>
+                                          ##errore5 </td>
+                                      </tr>
+                                      <tr>
+                                        <td width="30%">Comune (*)</td>
+                                        <td colspan="2">
+                                         <input type="hidden" name="comuneResidenza" value="##istat">
+                                         <input type="text" name="comune" class="testoCampi" size="50" maxlength="40" value="##comune" readonly>
+                                          ##errore6
+                                         <span id="comuneButton"> 
+                                         &nbsp;<a href="javascript:popComune(document.anagraficaTecnico.comuneResidenza,document.anagraficaTecnico.comune);" name="comunePop" class="pulsante">Selezionare</a>
+                                          </span>
+                                          </td>
+                                      </tr>
+                                      <tr>
+                                        <td width="30%">E.mail</td>
+                                        <td colspan="2"> <input name="email" id="email" type="text" class="testoCampi" size="50" maxlength="50" value="##eMail" ##disabledUpdate>
+                                         ##errore7
+                                        </td>
+                                      </tr>
+                                      <tr>
+                                        <td width="30%">Telefono fisso</td>
+                                        <td colspan="2"> <input name="telefono" id="telefono" type="text" class="testoCampi" size="25" maxlength="20" value="##telefono" ##disabledUpdate>
+                                         ##errore8
+                                        </td>
+                                      </tr>
+                                      <tr>
+                                        <td width="30%">Cellulare</td>
+                                        <td colspan="2"> <input name="cellulare" id="cellulare" type="text" class="testoCampi" size="25" maxlength="20" value="##cellulare" ##disabledUpdate>
+                                         ##errore9
+                                        </td>
+                                      </tr>
+                                      <tr>
+                                        <td width="30%">Fax</td>
+                                        <td colspan="2"> <input name="fax" id="fax" type="text" class="testoCampi" size="25" maxlength="20" value="##fax" ##disabledUpdate>
+                                          ##errore10
+                                        </td>
+                                      </tr>
+                                      <tr>
+                                        <td width="30%">Anagrafica presente in Anagrafe Unica (SIAP)</td>
+                                        <td colspan="2">
+                                       <!--   	<input type="checkbox" name="chkPresenteAnagrafe" value="checkbox" $$checkedPresenteAnagrafe disabled>-->
+                                        	$$presenteAnagrafe
+                                        </td>
+                                      </tr>                           
+                                    </table>
+                                    </form>
+                                    <br>
+                                    <table width="100%" border="0" cellspacing="2" cellpadding="2">
+                                      <tr>
+                                        <td>I dati contrassegnati con (*) sono
+                                          obbligatori.</td>
+                                      </tr>
+                                    </table>
+                                    </form>
+                                    <br>
+                                    <table width="98%" border="0" align="center" cellpadding="0" cellspacing="5">
+                                      <tr>
+                                        <td><div align="right"><a href="../view/##pageBack"><img src="../layout/im/b_tornaIndietro.gif" alt="torna indietro" width="150" height="16" border="0"></a></div></td>
+                                        <td><a href="javascript:scelta();"><img src="../layout/im/b_confermaProsegui.gif" alt="conferma e prosegui" width="150" height="16" border="0"></a></td>
+                                      </tr>
+                                    </table>
+                                    <br>
+                                  </td>
+                                </tr>
+                              </table>
+                              </td>
+                          </tr>
+                        </table>
+                      </td>
+                      <td bgcolor="#669933"><img src="../layout/im/tra_pix.gif" width="2" height="1"></td>
+                      <td background="../layout/im/pix-gri-ban.gif"><img src="../layout/im/tra_pix.gif" width="1" height="1"></td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr bgcolor="#333333">
+          <td><img src="../layout/im/banner_inf.jpg" width="618" height="14" border="0" alt="CSI-Piemonte l'amministrazione piemontese alla portata di un clic"></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<span class="testoneroCopia"></span><span class="testonero"></span>
+</body>
+</html>

@@ -1,0 +1,421 @@
+<html>
+<head>
+<title>Servizio AGRICHIM</title>
+<META HTTP-EQUIV="Pragma" CONTENT="no-cache">
+<META HTTP-EQUIV="Cache-Control" CONTENT="no-cache">
+<script src="../layout/js/gestione.js"></script>
+<script>
+</script>
+<link href="../layout/css/format.css" rel="stylesheet" type="text/css">
+</head>
+<body bgcolor="#CCCCCC">
+<table summary="Questa tabella serve per formattare la pagina"  width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr align="center" valign="middle">
+    <td>
+      <table summary="Questa tabella serve per formattare la pagina" width="640" border="0" cellspacing="0" cellpadding="0" bgcolor="#FFFFFF">
+        <tr>
+          <td>
+            <table summary="Questa tabella serve per formattare la pagina" width="640" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td><img src="../layout/im/ban_sup##rupar.gif" width="475" height="40" alt="##nomeRete"></td>
+              </tr>
+
+              <tr valign="top" align="right">
+                <td width="720">
+                  <table width="719" border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                      <td background="../layout/im/pix-gri-ban.gif" width="1" height="2"><img src="../layout/im/tra_pix.gif" width="1" height="1"></td>
+                      <td width="2" height="2" bgcolor="#319E84"><img src="../layout/im/tra_pix.gif" width="2" height="2"></td>
+                      <td width="135" height="2" bgcolor="#319E84">
+                        <div align="right"><img src="../layout/im/agricoltura.gif" alt="agricoltura" width="89" height="14">
+                        </div>
+                      </td>
+                      <td width="585" height="2" bgcolor="#669933">&nbsp;&nbsp;
+                        <img src="../layout/im/agrichim.gif" alt="servizio agrichim" width="173" height="14" align="top">
+                      </td>
+                      <td height="1" bgcolor="#669933"><img src="../layout/im/tra_pix.gif" width="2" height="1"></td>
+                      <td background="../layout/im/pix-gri-ban.gif" height="1"><img src="../layout/im/tra_pix.gif" width="1" height="1"></td>
+                    </tr>
+                    <tr>
+                      <td background="../layout/im/pix-gri-ban.gif" width="1"><img src="../layout/im/tra_pix.gif" width="1" height="1"></td>
+                      <td bgcolor="#319E84" width="2"><img src="../layout/im/tra_pix.gif" width="2" height="1"></td>
+                      <td colspan="2">
+                        <table width="100%" border="0" cellspacing="0" cellpadding="1">
+                          <tr background="../layout/im/pix-gri-ban.gif">
+                            <td background="../layout/im/pix-gri-ban.gif">
+                              <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                <tr>
+                                  <td width="134" valign="top" bgcolor="#669933">
+                                    <div align="center"> <br>
+                                      <table width="124" height="50" border="0" align="center" cellpadding="0" cellspacing="5" background="../layout/im/sfondo_tab1.gif">
+                                        <tr>
+                                          <td><p class="testoUtente"><strong>Utente:<br>
+                                              ##nomeUtente </strong></p></td>
+                                        </tr>
+                                      </table>
+                                      <br>
+                                      <a href="../controller/nuovaRichiesta.jsp"><img src="../layout/im/tit_sx_richiesta_off.gif" alt="nuova richiesta" width="124" height="29" border="0"></a>
+                                      <br>
+                                      <a href="../view/principale.jsp"><br>
+                                      <img src="../layout/im/tit_sx_visBozze_off.gif" width="124" height="29" border="0" alt="visualizza bozze"></a><br>
+                                      <a href="../controller/elencoCampioni.jsp"><br>
+                                      <img src="../layout/im/tit_sx_ricerca_off.gif" width="124" height="29" border="0" alt="ricerca"></a><br>
+                                      <br>
+                                      <img src="../layout/im/tit_sx_elencoPagamenti_on.gif" alt="pagamenti" width="124" height="29" border="0"><br>
+                                      <a href="javascript:pop('../view/anagraficaUtentePOP.jsp',700,500);"><br>
+                                      <img src="../layout/im/tit_sx_anagraficaUtente_off.gif" alt="anagrafica utente" width="124" height="29" border="0"></a><br>
+                                      <a href="../controller/logout.jsp"><br>
+                                      <img src="../layout/im/tit_sx_logout_off.gif" alt="logout" width="124" height="29" border="0"></a>
+                                      <br>
+                                    </div>
+                                  </td>
+                                  <td width="577" height="450" valign="baseline" bgcolor="#F2F1EA">
+                                    <table width="98%" border="0" align="center" cellpadding="0" cellspacing="5">
+                                      <tr>
+                                        <td><h1><strong>Elenco delle richieste inviate (operazioni sui pagamenti)</strong> </h1></td>
+                                      </tr>
+                                    </table>
+                                    <table width="560" border="0" cellspacing="0" cellpadding="0" align="center">
+                                      <tr align="center" valign="top">
+                                        <td width="20%" class=pul><a href="#" class=pul_pag onclick="javascript:azionePulsante('aggiorna', 'singolo');" 
+                                                    style="cursor:hand">Verifica il pagamento</a></td>
+                                        <td width="20%" class=pul><a href="#" class=pul_pag onclick="javascript:azionePulsante('paga', 'multiplo');" 
+                                                    style="cursor:hand">Paga</a></td>
+                                        <td width="20%" class=pul><a href="#" class=pul_pag onclick="javascript:azionePulsante('ristampa', 'singolo');" 
+                                                    style="cursor:hand">Ristampa avviso di pagamento</a></td>
+                                        <td width="20%" class=pul><a href="#" class=pul_pag onclick="javascript:azionePulsante('annulla', 'singolo');" 
+                                                    style="cursor:hand">Annulla avviso di pagamento</a></td>
+                                        <td width="20%" class=pul><a href="#" class=pul_pag onclick="javascript:azionePulsante('scarica','singolo');" 
+                                                    style="cursor:hand">Scarica la ricevuta</a></td>
+                                      </tr>
+                                    </table>
+                                    <br>
+                                    <table width="98%" border="0" align="center" cellpadding="2" cellspacing="2">
+                                      <tr>
+                                        <td><a href="javascript:pop('../view/filtriRicercaPagamentiPOP.jsp',700,500);" class="pulsante">IMPOSTA
+                                          FILTRI DI RICERCA</a><br> <br>
+                                          @@elencoPagamenti
+                                          <table width="100%" border="0">
+                                            <tr>
+                                              <td colspan="4" align="left" class="paginazione">Numero record
+                                                  trovati: $$num</td>
+                                              <td colspan="4" align="right" class="paginazione">$$pagine</td>
+                                            </tr>
+                                            <tr>
+                                              <td>&nbsp;</td>
+                                            </tr>
+                                            <tr>
+                                              <td></td>
+                                              <td bgcolor="#669933" width="15%">N. richiesta</td>
+                                              <td bgcolor="#669933" width="10%">Data</td>
+                                              <td bgcolor="#669933" width="20%">Fattura Intestata a</td>
+                                              <td bgcolor="#669933" width="15%">Stato Pagamento</td>
+                                              <td bgcolor="#669933" width="20%">Proprietario</td>
+                                              <td bgcolor="#669933" width="20%">Etichetta</td>
+                                            </tr>
+                                            <form name="elencoPagamenti" method="post" action="../controller/copiaRichiesta.jsp">
+                                              @@elencoPagamentoBody
+                                              <tr>
+                                                <td>
+                                                	<input type="checkbox" name="checkbutton" value="$$idRichiesta" $$checked />
+                                                	<input type="hidden" name="tipoPagamento" value="$$tipoPagamento" />
+                                                	<input type="hidden" name="statoPagamento" value="$$statoPagamento" />
+                                                	<input type="hidden" name="iuv" value="$$iuv" />
+                                                	<input type="hidden" name="idRichiesteMultiple" value="$$idRichiesteMultiple" />
+                                                	<input type="hidden" name="denominazione" value="$$denominazione" />
+                                                	<input type="hidden" name="proprietario" value="$$proprietario" />
+                                                	<input type="hidden" name="cod_dest" value="$$cod_dest" />
+                                                	<input type="hidden" name="pec" value="$$pec" />
+                                                	<input type="hidden" name="fattura_SN" value="$$fattura_SN" />
+                                                	<input type="hidden" name="codice_tracciatura" value="$$codice_tracciatura" />
+                                                </td>
+                                                <td class="testoCampi">$$idRichiesta</td>
+                                                <td class="testoCampi">$$data</td>
+                                                <td class="testoCampi">$$denominazione</td>
+                                                <td class="testoCampi">$$descStatoPagamento</td>
+                                                <td class="testoCampi">$$proprietario</td>
+                                                <td class="testoCampi">$$descrizioneEtichetta</td>
+                                              </tr>
+                                              @@elencoPagamentoBody
+                                            </form>
+                                          </table>
+                                          <table width="100%" border="0">
+                                            <tr> @@indietro
+                                              <form name="lista1" method="post" action="../view/elencoPagamenti.jsp">
+                                                <input type="hidden" name="attuale" value="$$attuale">
+                                                <td> <div align="left"> <a href="javascript:document.lista1.submit();" class="pulsante">Pagina
+                                                    indietro</a> </div></td>
+                                              </form>
+                                              @@indietro
+                                              <td>&nbsp;</td>
+                                              <td>&nbsp;</td>
+                                              @@nonIndietro
+                                              <td>&nbsp;$$nonIndietro</td>
+                                              @@nonIndietro 
+                                              @@avanti
+                                              <form name="lista2" method="post" action="../view/elencoPagamenti.jsp">
+                                                <input type="hidden" name="attuale" value="$$attuale">
+                                                <td align="right"> <div align="right">
+                                                    <a href="javascript:document.lista2.submit();" class="pulsante">Pagina
+                                                    avanti</a> </div></td>
+                                              </form>
+                                              @@avanti </tr>
+                                          </table>
+                                          @@elencoPagamenti
+                                          @@elencoPagamentiNo
+                                            <tr>
+                                              <td width="50%"><h2>Non &egrave; stato trovato nessun campione</b></h2></td>
+                                              <td>&nbsp;</td>
+                                            </tr>
+                                          @@elencoPagamentiNo
+                                    </td>
+                                    </tr>
+                                    </table>
+                                    <br>
+                                  </td>
+                                </tr>
+                              </table>
+                              </td>
+                          </tr>
+                        </table>
+                      </td>
+                      <td bgcolor="#669933"><img src="../layout/im/tra_pix.gif" width="2" height="1"></td>
+                      <td background="../layout/im/pix-gri-ban.gif"><img src="../layout/im/tra_pix.gif" width="1" height="1"></td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr bgcolor="#333333">
+          <td><img src="../layout/im/banner_inf.jpg" width="618" height="14" border="0" alt="CSI-Piemonte l'amministrazione piemontese alla portata di un clic"></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<span class="testoneroCopia"></span><span class="testonero"></span>
+<script type="text/javascript">
+@@avvisoControlli
+// questo alert serve solo nel caso in cui si ritorni da controlliPagamenti.jsp
+// con qualche alert da mostrare all'utente. Il giro è un po' contorto ma ahimé non ho avuto altre idee
+alert("$$alertAvvisoControlli");
+@@avvisoControlli
+
+@@avvisoRitPagamento
+alert("$$alertRitPagamento");
+@@avvisoRitPagamento
+function arraysEqual(a, b) {
+    if (a === b) return true;
+    if (a == null || b == null) return false;
+    if (a.length !== b.length) return false;
+    for (var i = 0; i < a.length; ++i) {
+      if (a[i] !== b[i]) return false;
+    }
+    return true;
+}
+function azionePulsante(cosa_fare,singolo_multiplo){
+    var inputElements = document.getElementsByName('checkbutton');
+    var checkedValue = null;
+    td_pagSingolo = [];
+    td_pagMutliplo = [];
+    var count=0;
+    for(var i=0; inputElements[i]; ++i){
+        if(inputElements[i].checked){
+             checkedValue = inputElements[i].value;
+             td_pagSingolo.push(inputElements[i].parentElement.children);
+             td_pagMutliplo.push(inputElements[i].parentElement.children);
+             count++;
+        }
+    }
+    if (count==0) {
+          alert("Selezionare almeno una richiesta di analisi");
+          return null;
+    }else if (count>1 && singolo_multiplo=='singolo') {
+          alert("Selezionare solo una richiesta di analisi");
+          return null;
+    }else if(count==1 && singolo_multiplo=='singolo'){
+        var stato_pagamento = td_pagSingolo[0].statoPagamento.value;
+        var idRichiestaSelected = td_pagSingolo[0].checkbutton.value;
+        if(idRichiestaSelected.indexOf("A")!=-1){
+        	idRichiestaSelected = idRichiestaSelected.substring(0,idRichiestaSelected.length-1);
+        }
+        var iuv = td_pagSingolo[0].iuv.value;
+        var tipo_pagamento = td_pagSingolo[0].tipoPagamento.value;
+        var idRichiesteMultiple = td_pagSingolo[0].idRichiesteMultiple.value;
+        var codice_tracciatura = td_pagMutliplo[0].codice_tracciatura.value;
+        
+        if(codice_tracciatura=='50')
+            alert("La richiesta "+idRichiestaSelected+" e' stata annullata - procedere ad un nuovo inserimento")
+        else if(stato_pagamento=='G'){
+            alert("La richiesta selezionata e' gratuita. Non e' possibile eseguire azioni su questa richiesta");
+            return null;
+        }else if(iuv.length>0){
+            if(cosa_fare=='ristampa'){
+                if(tipo_pagamento=="M1" && stato_pagamento=='N'){
+                	alert("Il pagamento on line e' in attesa, non e' ancora pervenuto; utilizza la funzione Verifica il Pagamento per aggiornare lo stato del pagamento");
+                	return null;
+                }else if(tipo_pagamento=="M1" && stato_pagamento=='S'){
+                	alert("Il pagamento e' stato ricevuto on line - puoi procedere con l'inoltro del campione");
+                	return null;
+                }else if(tipo_pagamento=="M3" && stato_pagamento=='S'){
+                	alert("Il pagamento e' stato ricevuto dai canali di PagoPA - puoi procedere con l'inoltro del campione");
+                	return null;
+                }else{
+                    pop('../report/avvisoPagamento.pdf?tipoPagamento='+tipo_pagamento+'&tipoDocumento=AV&idRichiesta='+idRichiestaSelected,647,480,'pdf');
+                }
+            }else if(cosa_fare=='scarica'){
+            	if(tipo_pagamento=="M1" && stato_pagamento=='N'){
+                    alert("Il pagamento on line e' in attesa, non e' ancora pervenuto; utilizza la funzione Verifica il Pagamento per aggiornare lo stato del pagamento");
+                    return null;
+                }else if(tipo_pagamento=="M3" && stato_pagamento=='N'){
+                    alert("Esiste un avviso di pagamento non pagato, ristampalo e paga con i canali di PagoPA oppure annullalo");
+                    return null;
+                }else{
+                    pop('../report/avvisoPagamento.pdf?tipoPagamento='+tipo_pagamento+'&tipoDocumento=RT&idRichiesta='+idRichiestaSelected,647,480,'pdf');
+                }
+            }else if(cosa_fare=='annulla'){
+            	if(tipo_pagamento=="M1" && stato_pagamento=='N'){
+                    alert("Il pagamento on line e' in attesa, non e' ancora pervenuto; se il problema persiste contatta l'assistenza");
+                    return null;
+                }else if(tipo_pagamento=="M1" && stato_pagamento=='S'){
+                    alert("Il pagamento e' stato ricevuto on line - puoi procedere con l'inoltro del campione");
+                    return null;
+                }else if(tipo_pagamento=="M3" && stato_pagamento=='S'){
+                    alert("Il pagamento e' stato ricevuto dai canali di PagoPA - puoi procedere con l'inoltro del campione");
+                    return null;
+                }else{
+                	var domanda;
+                	if(idRichiesteMultiple!=""){
+                    	domanda = confirm("Sono presenti piu' richieste ("+idRichiesteMultiple+") per questo avviso di pagamento; sicuro di voler annullare l'avviso di pagamento per tutte le richieste?");
+                    	idRichiestaSelected = idRichiesteMultiple;
+                    }else
+                		domanda = confirm("Sicuro di voler annullare l'avviso di pagamento?");
+                    if(domanda===true)
+                        window.location.href="../controller/controlliPagamenti.jsp?tipoPagamento="+tipo_pagamento+"&azione="+cosa_fare+"&idRichiesta="+idRichiestaSelected;
+                }
+            }else if(cosa_fare=='aggiorna'){
+            	if(stato_pagamento=='S'){
+                    alert("Il pagamento e' stato ricevuto on line - puoi procedere con l'inoltro del campione");
+                    return null;
+                }else{
+                	window.location.href="../controller/controlliPagamenti.jsp?tipoPagamento="+tipo_pagamento+"&azione="+cosa_fare+"&idRichiesta="+idRichiestaSelected;
+                }
+            }
+        }else{
+            alert("Non ci sono transazioni di pagamento valide, utilizza la funzione Paga");
+            return null;
+        }
+    }else if(count>=1 && singolo_multiplo=='multiplo'){
+        var idRichiesteMultiple="";
+        denominazione = [];
+        proprietario = [];
+        pec = [];
+        cod_dest = [];
+        fattura_SN = [];
+        altre_matrici = [];
+        arrayIdRichiesteMultiple = [];
+        var check_pagamento = false;
+        //inizio ciclo for delle td
+        for (var j=0; td_pagMutliplo[j]; ++j){
+            var stato_pagamento = td_pagMutliplo[j].statoPagamento.value;
+            var iuv = td_pagMutliplo[j].iuv.value;
+            var tipo_pagamento = td_pagMutliplo[j].tipoPagamento.value;
+            var codice_tracciatura = td_pagMutliplo[j].codice_tracciatura.value;
+            var idRichiestaSelected = td_pagMutliplo[j].checkbutton.value;
+            denominazione.push(td_pagMutliplo[j].denominazione.value);
+            proprietario.push(td_pagMutliplo[j].proprietario.value);
+            pec.push(td_pagMutliplo[j].pec.value);
+            cod_dest.push(td_pagMutliplo[j].cod_dest.value);
+            fattura_SN.push(td_pagMutliplo[j].fattura_SN.value);
+            //controllo prima se A poi metto nell'array di richieste multiple
+            if(idRichiestaSelected.indexOf("A")!=-1){
+            	idRichiestaSelected = idRichiestaSelected.substring(0,idRichiestaSelected.length-1);
+                altre_matrici.push(idRichiestaSelected);
+            }
+            arrayIdRichiesteMultiple.push(idRichiestaSelected);
+            //inizio controlli
+            if(codice_tracciatura=='50')
+                alert("La richiesta "+idRichiestaSelected+" e' stata annullata - procedere ad un nuovo inserimento")
+            else if(stato_pagamento=='G'){
+                alert("La richiesta "+idRichiestaSelected+" e' gratuita. Non e' possibile eseguire azioni su questa richiesta");
+                check_pagamento = false;
+                break;
+            }else if(iuv.length>0){
+                if(tipo_pagamento=='M3' && stato_pagamento=='S'){
+                	alert("Il pagamento per la richiesta "+idRichiestaSelected+" e' stato ricevuto dai canali di PagoPA - puoi procedere con l'inoltro del campione");
+                }else if(tipo_pagamento=='M3' && stato_pagamento=='N'){
+                	alert("Esiste un avviso di pagamento per la richiesta "+idRichiestaSelected+".\nRistampalo e paga con i canali di PagoPA oppure annullalo ");
+                }else if(tipo_pagamento=='M1' && stato_pagamento=='S'){
+                	alert("Il pagamento per la richiesta "+idRichiestaSelected+" e' stato ricevuto on line - puoi procedere con l'inoltro del campione ");
+                }else if(tipo_pagamento=='M1' && stato_pagamento=='N'){
+                	alert("Il pagamento per la richiesta "+idRichiestaSelected+" e' in attesa, non e' ancora pervenuto; se il problema persiste contatta l'assistenza");
+                }
+                check_pagamento = false;
+                break;
+            }else if(stato_pagamento=='S' && codice_tracciatura=='50' && cosa_fare=='paga'){
+                alert("La richiesta "+idRichiestaSelected+" e' stata annullata - procedere ad un nuovo inserimento")
+                check_pagamento = false;
+            }else if(stato_pagamento=='S' && (iuv == null || iuv=='') && cosa_fare=='paga'){
+            	alert("La richiesta "+idRichiestaSelected+" risulta pagata - puoi procedere con l'inoltro del campione");
+            	check_pagamento = false;
+            }else if(stato_pagamento=='N' && (iuv == null || iuv=='') && cosa_fare=='paga'){
+                check_pagamento = true;
+            }
+        };//fine ciclo for delle td
+        arrayIdRichiesteMultiple.sort();
+        altre_matrici.sort();
+
+        for(var l=0; l<arrayIdRichiesteMultiple.length;l++){
+            if(l==0)
+            	   idRichiesteMultiple+=arrayIdRichiesteMultiple[l];
+            else
+            	   idRichiesteMultiple+=","+arrayIdRichiesteMultiple[l];
+        }
+        //metodo per controllare che tutti gli elementi nell'array siano uguali
+        const allEqual = arr => arr.every( v => v === arr[0] )
+        
+        if(check_pagamento && altre_matrici.length>0){
+            if(!arraysEqual(altre_matrici, arrayIdRichiesteMultiple)){
+                alert("Non e' possibile proseguire con il pagamento, le richieste devono avere la stessa matrice");
+                check_pagamento = false;
+            }
+        }
+        if(check_pagamento && fattura_SN.length>0){
+            if(!allEqual(fattura_SN)){
+                alert("Non e' possibile proseguire con il pagamento, non tutte le richieste richiedono la fattura");
+                check_pagamento = false;
+            }
+        }
+        if(check_pagamento && denominazione.length>0 && fattura_SN[0]=='S'){
+        	if(!allEqual(denominazione)){
+                alert("Non e' possibile proseguire con il pagamento, controllare che tutte le richieste abbiano la fattura intestata alla stessa persona");
+                check_pagamento = false;
+            }
+        }
+        if(check_pagamento && proprietario.length>0 && fattura_SN[0]=='N'){
+        	if(!allEqual(proprietario)){
+                alert("Non e' possibile proseguire con il pagamento, controllare che tutte le richieste abbiano lo stesso proprietario");
+                check_pagamento = false;
+            }
+        }
+        if(check_pagamento && pec.length>0){
+        	if(!allEqual(pec)){
+                alert("Non e' possibile proseguire con il pagamento, controllare che tutte le richieste abbiano la stessa pec");
+                check_pagamento = false;
+            }
+        }
+        if(check_pagamento && cod_dest.length>0){
+        	if(!allEqual(cod_dest)){
+                alert("Non e' possibile proseguire con il pagamento, controllare che tutte le richieste abbiano lo stesso codice destinatario");
+                check_pagamento = false;
+            }
+        }
+        if(check_pagamento)
+            	window.location.href="../view/pagamentiMultipli.jsp?idRichiesta="+idRichiesteMultiple;
+    }
+}
+</script>
+</body>
+</html>

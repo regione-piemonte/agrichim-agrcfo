@@ -1,0 +1,376 @@
+<html>
+<head>
+<title>Servizio AGRICHIM</title>
+<META HTTP-EQUIV="Pragma" CONTENT="no-cache">
+<META HTTP-EQUIV="Cache-Control" CONTENT="no-cache">
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<script src="../layout/js/gestione.js"></script>
+<!-- <script type="text/javascript" src="/assets/application/agrichim/gis/lib/jquery/jquery-1.9.0.min.js"></script> -->
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<link href="../layout/css/format.css" rel="stylesheet" type="text/css">
+</head>
+<body bgcolor="#CCCCCC">
+<table summary="Questa tabella serve per formattare la pagina"  width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr align="center" valign="middle">
+    <td>
+      <table summary="Questa tabella serve per formattare la pagina" width="720" border="0" cellspacing="0" cellpadding="0" bgcolor="#FFFFFF">
+        <tr>
+          <td>
+            <table summary="Questa tabella serve per formattare la pagina" width="720" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td><img src="../layout/im/ban_sup##rupar.gif" width="475" height="40" alt="##nomeRete"></td>
+              </tr>
+
+              <tr valign="top" align="right">
+                <td>
+                  <table width="719" border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                      <td background="../layout/im/pix-gri-ban.gif" width="1" height="2"><img src="../layout/im/tra_pix.gif" width="1" height="1"></td>
+                      <td width="2" height="2" bgcolor="#319E84"><img src="../layout/im/tra_pix.gif" width="2" height="2"></td>
+                      <td width="135" height="2" bgcolor="#319E84">
+                        <div align="right"><img src="../layout/im/agricoltura.gif" alt="agricoltura" width="89" height="14">
+                        </div>
+                      </td>
+                      <td width="585" height="2" bgcolor="#669933">&nbsp;&nbsp;
+                        <img src="../layout/im/agrichim.gif" alt="servizio agrichim" width="173" height="14" align="top">
+                      </td>
+                      <td height="1" bgcolor="#669933"><img src="../layout/im/tra_pix.gif" width="2" height="1"></td>
+                      <td background="../layout/im/pix-gri-ban.gif" height="1"><img src="../layout/im/tra_pix.gif" width="1" height="1"></td>
+                    </tr>
+                    <tr>
+                      <td background="../layout/im/pix-gri-ban.gif" width="1"><img src="../layout/im/tra_pix.gif" width="1" height="1"></td>
+                      <td bgcolor="#319E84" width="2"><img src="../layout/im/tra_pix.gif" width="2" height="1"></td>
+                      <td colspan="2">
+                        <table width="100%" border="0" cellspacing="0" cellpadding="1">
+                          <tr background="../layout/im/pix-gri-ban.gif">
+                            <td background="../layout/im/pix-gri-ban.gif">
+                              <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                <tr>
+                                  <td width="135" valign="top" bgcolor="#669933">
+                                    <div align="center"> <br>
+                                      <table width="124" height="50" border="0" align="center" cellpadding="0" cellspacing="5" background="../layout/im/sfondo_tab1.gif">
+                                        <tr>
+                                          <td><p class="testoUtente"><strong>Utente:<br>
+                                              ##nomeUtente </strong></p></td>
+                                        </tr>
+                                      </table>
+                                      <br>
+                                      <a href="../controller/nuovaRichiesta.jsp"><img src="../layout/im/tit_sx_richiesta_off.gif" alt="nuova richiesta" width="124" height="29" border="0"></a>
+                                      <br>
+                                      <a href="../view/principale.jsp"><br>
+                                      <img src="../layout/im/tit_sx_visBozze_off.gif" alt="visualizza bozze" width="124" height="29" border="0"></a><br>
+                                      <a href="../controller/elencoCampioni.jsp"><br>
+                                      <img src="../layout/im/tit_sx_ricerca_off.gif" alt="ricerca" width="124" height="29" border="0"></a><br>
+                                      <a href="../controller/elencoPagamenti.jsp"><br>
+                                      <img src="../layout/im/tit_sx_elencoPagamenti_off.gif" width="124" height="29" border="0" alt="pagamenti"></a><br>
+                                      <a href="javascript:pop('../view/anagraficaUtentePOP.jsp',700,500);"><br>
+                                      <img src="../layout/im/tit_sx_anagraficaUtente_off.gif" alt="anagrafica utente" width="124" height="29" border="0"></a><br>
+                                      <a href="../controller/logout.jsp"><br>
+                                      <img src="../layout/im/tit_sx_logout_off.gif" alt="logout" width="124" height="29" border="0"></a>
+                                      <br>
+                                    </div>
+                                  </td>
+                                  <td width="585" height="450" valign="baseline" bgcolor="#F2F1EA"><br>
+                                    <table width="98%" border="0" align="center" cellpadding="2" cellspacing="2">
+                                      <tr>
+                                        <td colspan="2">
+                                          <div align="center"><br>
+                                            L'importo da pagare &egrave; pari
+                                            a <b>&euro; ##totale</b> (IVA inclusa).
+                                            <br>
+                                            <p>Puoi procedere a pagare le richieste ##idRichiesteMultiple cliccando sul pulsante sottostante</p>
+                                          </div>
+                                          @@sceltaPagamento
+                                          <div align="center">
+											<form id="radio_sceltaPagatore" name="sceltaPagatore" action="##sceltaPagatore" method="post">
+												<p>Scegliere prima a chi intestare il pagamento</p>
+												<input type="radio" onclick="scelta(this);" name="pagatore" id = "prop_pag" value="Proprietario" $$checkedP>Proprietario<br>
+												<input type="radio" onclick="scelta(this);" name="pagatore" id = "tec_pag" value="Tecnico" $$checkedT>Tecnico<br>
+												<input type="radio" onclick="scelta(this);" name="pagatore" id = "org_pag" value="Organizzazione" $$checkedO>Organizzazione<br>
+											</form>
+                                          </div>
+                                          <br>
+                                          @@sceltaPagamento
+                                          @@attuaPagamento
+<!--                                           <div align="center"><a href="#" onClick="javascript:paga(document.pagoPAform);"><img src="../layout/im/pagoPApaga.jpg" alt="Pagamento con PagoPA" width="253" height="63" border="0"></a></div> -->
+                                          <div align="center">
+                                          <a href="#" id="paga"><img src="../layout/im/pagoPApaga.jpg" alt="Pagamento con PagoPA" width="253" height="63" border="0"></a></div>
+                                          
+<!--                                           <div align="center">Serve solo per il test del bollo virtuale, non toccare!</div> -->
+<!--                                           <div align="center"> -->
+<!--                                           Marca da bollo<br> -->
+<!--                                           <a href="#" id="paga_mb"><img src="../layout/im/pagoPApaga.jpg" alt="Pagamento Marca da bollo" width="253" height="63" border="0"></a></div> -->
+                                          
+                                          <div align="left">
+	                                          <br>
+	                                          <p>Per gli Enti Pubblici la modalit&agrave; di pagamento &egrave; tramite 
+	                                          <a href="#" onClick="javascript:alert('Per Enti Pubblici soggetti al sistema di Tesoreria Unica (L.27/2012) la modalità di pagamento e\':\ntramite GIROFONDI sul conto 031930\nCausale: Contributo per analisi chimiche.\nE\' consigliato contattare preventivamente il laboratorio prima di portare i campioni di terreno.')" class="testoLink">GIROFONDI</a>.</p>
+                                          </div>
+                                          <div align="left">
+                                              <p>Una volta effettuato il pagamento, il campione, accompagnato dalla sua etichetta, pu&ograve; quindi essere consegnato o spedito al laboratorio per l'analisi.</p>
+                                          </div>
+                                          @@attuaPagamento
+                                        </td>
+                                      </tr>
+                                    </table>
+                                    <br>
+                                  </td>
+                                </tr>
+                              </table>
+                              </td>
+                          </tr>
+                        </table>
+                      </td>
+                      <td bgcolor="#669933"><img src="../layout/im/tra_pix.gif" width="2" height="1"></td>
+                      <td background="../layout/im/pix-gri-ban.gif"><img src="../layout/im/tra_pix.gif" width="1" height="1"></td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr bgcolor="#333333">
+          <td><img src="../layout/im/banner_inf.jpg" width="618" height="14" border="0" alt="CSI-Piemonte l'amministrazione piemontese alla portata di un clic"></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<span class="testoneroCopia"></span><span class="testonero"></span>
+<!-- form con i dati di pagamento -->
+<form id="pagoPAform" name="pagoPAform" action="##pagoPaWebAppUrl" method="post">
+    <input type = "hidden" value = "##idRichiesta" name="idRichiesta" id="idRichiesta">
+    <input type = "hidden" value = "##sceltaPagatore" name="sceltaPagatore" id="sceltaPagatore">
+    <input type = "hidden" id="operazione" name="operazione" >
+    <input type = "hidden" id="cf" name = "cf"/>
+    <input type = "hidden" id="ruolo" name = "ruolo" />
+    <input type = "hidden" id="liv" name = "liv"/>
+    <input type = "hidden" id="idProcedimento_accesso" name = "idProcedimento_accesso" />
+    <input type = "hidden" id="idProcedimento" name = "idProcedimento" />
+    <input type = "hidden" id="idFruitore" name = "idFruitore" />
+    <input type = "hidden" id="codicePagamento" name = "codicePagamento" />
+    <input type = "hidden" id="importo" name = "importo" />
+    <input type = "hidden" id="pagatore_idAzienda" name = "pagatore.idAnagraficaAzienda" />
+    <input type = "hidden" id="pagatore_nome" name = "pagatore.nome" />
+    <input type = "hidden" id="pagatore_cognome" name = "pagatore.cognome" />
+    <input type = "hidden" id="pagatore_codiceFiscale" name = "pagatore.codiceFiscale" />
+    <input type = "hidden" id="pagatore_ragioneSociale" name = "pagatore.ragioneSociale" />
+    <input type = "hidden" id="pagatore_idUnicoPagatore" name="pagatore.idUnicoPagatore"  />
+    <input type = "hidden" id="pagatore_piva" name = "pagatore.piva" />
+    <input type = "hidden" id="pagatore_email" name = "pagatore.email" />
+    <input type = "hidden" id="pagatore_pec" name = "pagatore.pec" />
+    <input type = "hidden" id="versante_nome" name = "versante.nome" />
+    <input type = "hidden" id="versante_cognome" name = "versante.cognome" />
+    <input type = "hidden" id="versante_codiceFiscale" name = "versante.codiceFiscale" />
+    <input type = "hidden" id="versante_piva" name = "versante.piva" />
+    <input type = "hidden" id="versante_ragioneSociale" name = "versante.ragioneSociale" />
+    <input type = "hidden" id="versante_idUnicoPagatore" name="versante.idUnicoPagatore" />
+    <input type = "hidden" id="versante_email" name = "versante.email" />
+    <input type = "hidden" id="versante_pec" name = "versante.pec" />
+    <input type = "hidden" id="pageReferral" name = "pageReferral"/> 
+    <input type = "hidden" id="pageUrlAnnulla" name = "pageUrlAnnulla"/> 
+    <input type = "hidden" id="tipoPagamento" name = "tipoPagamento"/> 
+    <input type = "hidden" id="marcaBollo_marcaBollo" name = "marcaBollo.marcaBollo"/> 
+    <input type = "hidden" id="marcaBollo_hash" name = "marcaBollo.hash"/> 
+    <input type = "hidden" id="marcaBollo_provinciaPagatore" name = "marcaBollo.provinciaPagatore"/> 
+</form>
+</body>
+<script type="text/javascript">
+function scelta(valore_scelta){
+    window.location.href="../view/pagamentiMultipli.jsp?sceltaPagatore="+valore_scelta.value+"&idRichiesta=##idRichiesteMultiple";
+}
+$(document).ready(function() {
+	
+	$( "#paga" ).click(function() {
+		var idRichieste = document.getElementById('idRichiesta').value;
+        var sceltaPagatore = document.getElementById('sceltaPagatore').value;
+		if(document.getElementById('prop_pag')!=null){
+			var prop = document.getElementById('prop_pag').checked;
+			var tec = document.getElementById('tec_pag').checked;
+			var org = document.getElementById('org_pag').checked;
+			if(!prop && !tec && !org)
+				alert("Scegliere un pagatore");
+			else if (confirm('Pagare con PagoPA?')) 
+				$.get(
+	                '../../servlet/ServletPagaSiappagoPA?idRichieste='+idRichieste+'&sceltaPagatore='+sceltaPagatore, 
+	                function(result){
+	                    var array_result = result.split('\n');
+	                    console.log(array_result);
+	                    var i = 0;
+	                    $('#operazione').val(array_result[i++]);
+                        $('#cf').val(array_result[i++]);
+                        $('#ruolo').val(array_result[i++]);
+                        $('#liv').val(array_result[i++]);
+                        $('#idProcedimento_accesso').val(array_result[i++]);
+                        $('#idProcedimento').val(array_result[i++]);
+                        $('#idFruitore').val(array_result[i++]);
+                        $('#importo').val(array_result[i++]);
+                        $('#codicePagamento').val(array_result[i++]);
+                        $('#pagatore_idAzienda').val(array_result[i++]);
+                        $('#pagatore_nome').val(array_result[i++]);
+                        $('#pagatore_cognome').val(array_result[i++]);
+                        $('#pagatore_codiceFiscale').val(array_result[i++]);
+                        $('#pagatore_ragioneSociale').val(array_result[i++]);
+                        $('#pagatore_idUnicoPagatore').val(array_result[i++]);
+                        $('#pagatore_piva').val(array_result[i++]);
+                        $('#pagatore_email').val(array_result[i++]);
+                        $('#pagatore_pec').val(array_result[i++]);
+                        $('#versante_nome').val(array_result[i++]);
+                        $('#versante_cognome').val(array_result[i++]);
+                        $('#versante_codiceFiscale').val(array_result[i++]);
+                        $('#versante_piva').val(array_result[i++]);
+                        $('#versante_ragioneSociale').val(array_result[i++]);
+                        $('#versante_idUnicoPagatore').val(array_result[i++]);
+                        $('#versante_email').val(array_result[i++]);
+                        $('#versante_pec').val(array_result[i++]);
+                        $('#pageReferral').val(array_result[i++]);
+                        $('#pageUrlAnnulla').val(array_result[i++]); 
+                        $('#tipoPagamento').val(array_result[i++]);
+	                    document.pagoPAform.submit();
+	              });
+		}else
+			if (confirm('Pagare con PagoPA?')) 
+				$.get(
+					'../../servlet/ServletPagaSiappagoPA?idRichieste='+idRichieste+'&sceltaPagatore='+sceltaPagatore, 
+					function(result){
+						var array_result = result.split('\n');
+						console.log(array_result);
+						var array_result = result.split('\n');
+						var i = 0;
+                        $('#operazione').val(array_result[i++]);
+                        $('#cf').val(array_result[i++]);
+                        $('#ruolo').val(array_result[i++]);
+                        $('#liv').val(array_result[i++]);
+                        $('#idProcedimento_accesso').val(array_result[i++]);
+                        $('#idProcedimento').val(array_result[i++]);
+                        $('#idFruitore').val(array_result[i++]);
+                        $('#importo').val(array_result[i++]);
+                        $('#codicePagamento').val(array_result[i++]);
+                        $('#pagatore_idAzienda').val(array_result[i++]);
+                        $('#pagatore_nome').val(array_result[i++]);
+                        $('#pagatore_cognome').val(array_result[i++]);
+                        $('#pagatore_codiceFiscale').val(array_result[i++]);
+                        $('#pagatore_ragioneSociale').val(array_result[i++]);
+                        $('#pagatore_idUnicoPagatore').val(array_result[i++]);
+                        $('#pagatore_piva').val(array_result[i++]);
+                        $('#pagatore_email').val(array_result[i++]);
+                        $('#pagatore_pec').val(array_result[i++]);
+                        $('#versante_nome').val(array_result[i++]);
+                        $('#versante_cognome').val(array_result[i++]);
+                        $('#versante_codiceFiscale').val(array_result[i++]);
+                        $('#versante_piva').val(array_result[i++]);
+                        $('#versante_ragioneSociale').val(array_result[i++]);
+                        $('#versante_idUnicoPagatore').val(array_result[i++]);
+                        $('#versante_email').val(array_result[i++]);
+                        $('#versante_pec').val(array_result[i++]);
+                        $('#pageReferral').val(array_result[i++]);
+                        $('#pageUrlAnnulla').val(array_result[i++]); 
+                        $('#tipoPagamento').val(array_result[i++]);
+						document.pagoPAform.submit();
+				  });
+		  return false;
+	});
+    /* pagamento Bollo
+	$( "#paga_mb" ).click(function() {
+        var idRichieste = document.getElementById('idRichiesta').value;
+        var sceltaPagatore = document.getElementById('sceltaPagatore').value;
+        if(document.getElementById('prop_pag')!=null){
+            var prop = document.getElementById('prop_pag').checked;
+            var tec = document.getElementById('tec_pag').checked;
+            var org = document.getElementById('org_pag').checked;
+            if(!prop && !tec && !org)
+                alert("Scegliere un pagatore");
+            else if (confirm('Pagare Marca da bollo?')) 
+                $.get(
+                    '../../servlet/ServletPagaSiappagoPA?idRichieste='+idRichieste+'&sceltaPagatore='+sceltaPagatore, 
+                    function(result){
+                        var array_result = result.split('\n');
+                        console.log(array_result);
+                        var i = 0;
+                        $('#operazione').val(array_result[i++]);
+                        $('#cf').val(array_result[i++]);
+                        $('#ruolo').val(array_result[i++]);
+                        $('#liv').val(array_result[i++]);
+                        $('#idProcedimento_accesso').val(array_result[i++]);
+                        $('#idProcedimento').val(array_result[i++]);
+                        $('#idFruitore').val(array_result[i++]);
+                        $('#importo').val(array_result[i++]);
+                        $('#importo').val(16);
+                        $('#codicePagamento').val(array_result[i++]);
+                        $('#codicePagamento').val("FI10");
+                        $('#pagatore_idAzienda').val(array_result[i++]);
+                        $('#pagatore_nome').val(array_result[i++]);
+                        $('#pagatore_cognome').val(array_result[i++]);
+                        $('#pagatore_codiceFiscale').val(array_result[i++]);
+                        $('#pagatore_ragioneSociale').val(array_result[i++]);
+                        $('#pagatore_idUnicoPagatore').val(array_result[i++]);
+                        $('#pagatore_piva').val(array_result[i++]);
+                        $('#pagatore_email').val(array_result[i++]);
+                        $('#pagatore_pec').val(array_result[i++]);
+                        $('#versante_nome').val(array_result[i++]);
+                        $('#versante_cognome').val(array_result[i++]);
+                        $('#versante_codiceFiscale').val(array_result[i++]);
+                        $('#versante_piva').val(array_result[i++]);
+                        $('#versante_ragioneSociale').val(array_result[i++]);
+                        $('#versante_idUnicoPagatore').val(array_result[i++]);
+                        $('#versante_email').val(array_result[i++]);
+                        $('#versante_pec').val(array_result[i++]);
+                        $('#pageReferral').val(array_result[i++]);
+                        $('#pageUrlAnnulla').val(array_result[i++]); 
+                        $('#tipoPagamento').val(array_result[i++]);
+                        $('#marcaBollo_marcaBollo').val("MB");
+                        $('#marcaBollo_hash').val("KLSkU7aN3mT4FOlLqxTuZR9PFi4V3ZkgSQqh1J8F0qQ=");
+                        $('#marcaBollo_provinciaPagatore').val("TO");
+                        document.pagoPAform.submit();
+                  });
+        }else
+            if (confirm('Pagare Marca da Bollo?')) 
+                $.get(
+                    '../../servlet/ServletPagaSiappagoPA?idRichieste='+idRichieste+'&sceltaPagatore='+sceltaPagatore, 
+                    function(result){
+                        var array_result = result.split('\n');
+                        console.log(array_result);
+                        var array_result = result.split('\n');
+                        var i = 0;
+                        $('#operazione').val(array_result[i++]);
+                        $('#cf').val(array_result[i++]);
+                        $('#ruolo').val(array_result[i++]);
+                        $('#liv').val(array_result[i++]);
+                        $('#idProcedimento_accesso').val(array_result[i++]);
+                        $('#idProcedimento').val(array_result[i++]);
+                        $('#idFruitore').val(array_result[i++]);
+                        $('#importo').val(array_result[i++]);
+                        $('#importo').val(16);
+                        $('#codicePagamento').val(array_result[i++]);
+                        $('#codicePagamento').val("FI10");
+                        $('#pagatore_idAzienda').val(array_result[i++]);
+                        $('#pagatore_nome').val(array_result[i++]);
+                        $('#pagatore_cognome').val(array_result[i++]);
+                        $('#pagatore_codiceFiscale').val(array_result[i++]);
+                        $('#pagatore_ragioneSociale').val(array_result[i++]);
+                        $('#pagatore_idUnicoPagatore').val(array_result[i++]);
+                        $('#pagatore_piva').val(array_result[i++]);
+                        $('#pagatore_email').val(array_result[i++]);
+                        $('#pagatore_pec').val(array_result[i++]);
+                        $('#versante_nome').val(array_result[i++]);
+                        $('#versante_cognome').val(array_result[i++]);
+                        $('#versante_codiceFiscale').val(array_result[i++]);
+                        $('#versante_piva').val(array_result[i++]);
+                        $('#versante_ragioneSociale').val(array_result[i++]);
+                        $('#versante_idUnicoPagatore').val(array_result[i++]);
+                        $('#versante_email').val(array_result[i++]);
+                        $('#versante_pec').val(array_result[i++]);
+                        $('#pageReferral').val(array_result[i++]);
+                        $('#pageUrlAnnulla').val(array_result[i++]); 
+                        $('#tipoPagamento').val(array_result[i++]);
+                        $('#marcaBollo_marcaBollo').val("MB");
+                        $('#marcaBollo_hash').val("KLSkU7aN3mT4FOlLqxTuZR9PFi4V3ZkgSQqh1J8F0qQ=");
+                        $('#marcaBollo_provinciaPagatore').val("TO");
+                        document.pagoPAform.submit();
+                  });
+          return false;
+    });/**/
+});
+</script>
+</html>

@@ -1,0 +1,228 @@
+<html>
+<head>
+<title>Servizio AGRICHIM</title>
+<META HTTP-EQUIV="Pragma" CONTENT="no-cache">
+<META HTTP-EQUIV="Cache-Control" CONTENT="no-cache">
+<script src="../layout/js/gestione.js"></script>
+<script>
+@@elencoCampioniSi
+var idRichiestaSelected=$$idRichiestaPrimo;
+var codiceMaterialeSelected='$$codiceMaterialePrimo';
+var stato40Selected='$$stato40Primo';
+var conteggioFattureSelected = '$$conteggioFatturePrimo';
+var numeroFatturaSelected = '$$numeroFatturaPrimo';
+var annoFatturaSelected = '$$annoFatturaPrimo';
+@@elencoCampioniSi
+</script>
+<link href="../layout/css/format.css" rel="stylesheet" type="text/css">
+<script type="text/javascript">
+function getMessaggioStampaFattura()
+{
+	if (conteggioFattureSelected == '0')
+	{
+		alert('Per la richiesta di analisi selezionata la fattura non è prevista oppure non è ancora stata emessa');
+	}
+	else
+	{
+		alert('Operazione non permessa. Per la richiesta selezionata sono presenti più fatture emesse. Richiedere la copia delle fatture all\'ufficio PA competente');
+	}
+}
+</script>
+</head>
+<body bgcolor="#CCCCCC">
+<table summary="Questa tabella serve per formattare la pagina"  width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr align="center" valign="middle">
+    <td>
+      <table summary="Questa tabella serve per formattare la pagina" width="640" border="0" cellspacing="0" cellpadding="0" bgcolor="#FFFFFF">
+        <tr>
+          <td>
+            <table summary="Questa tabella serve per formattare la pagina" width="640" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td><img src="../layout/im/ban_sup##rupar.gif" width="475" height="40" alt="##nomeRete"></td>
+              </tr>
+
+              <tr valign="top" align="right">
+                <td width="720">
+                  <table width="719" border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                      <td background="../layout/im/pix-gri-ban.gif" width="1" height="2"><img src="../layout/im/tra_pix.gif" width="1" height="1"></td>
+                      <td width="2" height="2" bgcolor="#319E84"><img src="../layout/im/tra_pix.gif" width="2" height="2"></td>
+                      <td width="135" height="2" bgcolor="#319E84">
+                        <div align="right"><img src="../layout/im/agricoltura.gif" alt="agricoltura" width="89" height="14">
+                        </div>
+                      </td>
+                      <td width="585" height="2" bgcolor="#669933">&nbsp;&nbsp;
+                        <img src="../layout/im/agrichim.gif" alt="servizio agrichim" width="173" height="14" align="top">
+                      </td>
+                      <td height="1" bgcolor="#669933"><img src="../layout/im/tra_pix.gif" width="2" height="1"></td>
+                      <td background="../layout/im/pix-gri-ban.gif" height="1"><img src="../layout/im/tra_pix.gif" width="1" height="1"></td>
+                    </tr>
+                    <tr>
+                      <td background="../layout/im/pix-gri-ban.gif" width="1"><img src="../layout/im/tra_pix.gif" width="1" height="1"></td>
+                      <td bgcolor="#319E84" width="2"><img src="../layout/im/tra_pix.gif" width="2" height="1"></td>
+                      <td colspan="2">
+                        <table width="100%" border="0" cellspacing="0" cellpadding="1">
+                          <tr background="../layout/im/pix-gri-ban.gif">
+                            <td background="../layout/im/pix-gri-ban.gif">
+                              <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                <tr>
+                                  <td width="134" valign="top" bgcolor="#669933">
+                                    <div align="center"> <br>
+                                      <table width="124" height="50" border="0" align="center" cellpadding="0" cellspacing="5" background="../layout/im/sfondo_tab1.gif">
+                                        <tr>
+                                          <td><p class="testoUtente"><strong>Utente:<br>
+                                              ##nomeUtente </strong></p></td>
+                                        </tr>
+                                      </table>
+                                      <br>
+                                      <a href="../controller/nuovaRichiesta.jsp"><img src="../layout/im/tit_sx_richiesta_off.gif" alt="nuova richiesta" width="124" height="29" border="0"></a>
+                                      <br>
+                                      <a href="../view/principale.jsp"><br>
+                                      <img src="../layout/im/tit_sx_visBozze_off.gif" width="124" height="29" border="0" alt="visualizza bozze"></a><br>
+                                      <br>
+                                      <img src="../layout/im/tit_sx_ricerca_on.gif" alt="ricerca" width="124" height="29" border="0"><br>
+                                      <a href="../controller/elencoPagamenti.jsp"><br>
+                                      <img src="../layout/im/tit_sx_elencoPagamenti_off.gif" width="124" height="29" border="0" alt="pagamenti"></a><br>
+                                      <a href="javascript:pop('../view/anagraficaUtentePOP.jsp',700,500);"><br>
+                                      <img src="../layout/im/tit_sx_anagraficaUtente_off.gif" alt="anagrafica utente" width="124" height="29" border="0"></a><br>
+                                      <a href="../controller/logout.jsp"><br>
+                                      <img src="../layout/im/tit_sx_logout_off.gif" alt="logout" width="124" height="29" border="0"></a>
+                                      <br>
+                                    </div>
+
+
+
+                                  </td>
+                                  <td width="577" height="450" valign="baseline" bgcolor="#F2F1EA">
+                                    <table width="98%" border="0" align="center" cellpadding="0" cellspacing="5">
+                                      <tr>
+                                        <td><h1><strong>Elenco delle richieste di analisi inviate al L.A.R</strong> </h1></td>
+                                      </tr>
+                                    </table>
+                                    <br>
+                                    <table width="98%" border="0" align="center" cellpadding="2" cellspacing="2">
+                                      <tr>
+                                        <td><a href="javascript:pop('../view/filtriRicercaPOP.jsp',700,500);" class="pulsante">IMPOSTA
+                                          FILTRI DI RICERCA</a><br> <br>
+                                          @@elencoCampioni
+                                          <table width="100%" border="0">
+                                            <tr>
+                                              <td colspan="4" align="left" class="paginazione">Numero record
+                                                  trovati: $$num</td>
+                                              <td colspan="4" align="right" class="paginazione">$$pagine</td>
+                                            </tr>
+                                            <tr>
+                                              <td>&nbsp;</td>
+                                            </tr>
+                                            <tr>
+                                              <td></td>
+                                              <td bgcolor="#669933">N. richiesta</td>
+                                              <td bgcolor="#669933">Data</td>
+                                              <td bgcolor="#669933">Materiale</td>
+                                              <td bgcolor="#669933">Etichetta</td>
+                                              <td bgcolor="#669933">Stato</td>
+                                              <td bgcolor="#669933">Proprietario</td>
+                                              <td bgcolor="#669933">Richiedente</td>
+                                            </tr>
+                                            <form name="elencoCampioni" method="post" action="../controller/copiaRichiesta.jsp">
+                                              @@elencoCampioneBody
+                                              <tr>
+                                                <td>
+                                                	<input type="radio" name="radiobutton" value="$$idRichiesta" $$checked onClick="idRichiestaSelected=$$idRichiesta;codiceMaterialeSelected='$$codiceMateriale';conteggioFattureSelected='$$conteggioFatture';numeroFatturaSelected='$$numeroFattura';annoFatturaSelected='$$annoFattura';stato40Selected='$$statoAttuale'">
+                                                	<input type="hidden" name="conteggioFatture" value="$$conteggioFatture" />
+                                                	<input type="hidden" name="numeroFattura" value="$$numeroFattura" />
+                                                	<input type="hidden" name="annoFattura" value="$$annoFattura" />
+                                                	<input type="hidden" name="statoAttuale" value="$$statoAttuale" />
+                                                	<input type="hidden" name="descMateriale" value="$$descMateriale" />
+                                                </td>
+                                                <td class="testoCampi">$$idRichiesta</td>
+                                                <td class="testoCampi">$$data</td>
+                                                <td class="testoCampi">$$descMateriale</td>
+                                                <td class="testoCampi">$$descrizioneEtichetta</td>
+                                                <td class="testoCampi">$$descStatoAttuale</td>
+                                                <td class="testoCampi">$$proprietario</td>
+                                                <td class="testoCampi">$$richiedente</td>
+                                              </tr>
+                                              @@elencoCampioneBody
+                                            </form>
+                                          </table>
+                                          <table width="100%" border="0">
+                                            <tr> @@indietro
+                                              <form name="lista1" method="post" action="../view/elencoCampioni.jsp">
+                                                <input type="hidden" name="attuale" value="$$attuale">
+                                                <td> <div align="left"> <a href="javascript:document.lista1.submit();" class="pulsante">Pagina
+                                                    indietro</a> </div></td>
+                                              </form>
+                                              @@indietro
+                                              <td>&nbsp;</td>
+                                              <td>&nbsp;</td>
+                                              @@nonIndietro
+                                              <td>&nbsp;$$nonIndietro</td>
+                                              @@nonIndietro @@avanti
+                                              <form name="lista2" method="post" action="../view/elencoCampioni.jsp">
+                                                <input type="hidden" name="attuale" value="$$attuale">
+                                                <td align="right"> <div align="right">
+                                                    <a href="javascript:document.lista2.submit();" class="pulsante">Pagina
+                                                    avanti</a> </div></td>
+                                              </form>
+                                              @@avanti </tr>
+                                          </table>
+                                          <p> <b>Dopo aver selezionato una richiesta scegliere una delle seguenti funzioni: </b></p>
+                                          <ul>
+                                            <ul>
+                                              <li> <a href="javascript:popGesDet('../view/tracciabilitaPOP.jsp',document.elencoCampioni,700,500);" class="testoLink">stato
+                                                della richiesta</a> 
+                                              </li>
+                                              <li> <a href="#"  onClick="javascript:risultatoAnalisi('../report/risultatoAnalisi'+codiceMaterialeSelected+'.pdf?idRichiesta='+idRichiestaSelected,647,480,'pdf')" class="testoLink">risultato
+                                                dell'analisi</a> <img height=18 alt="Scarica il documento" hspace=2 src="../layout/im/pdf.gif" width=18 align=absMiddle> 
+                                              </li>
+                                              <li><a href="#" @@linkAnagrafica onClick="pop('../report/anagraficaCampione'+codiceMaterialeSelected+'.pdf?idRichiesta='+idRichiestaSelected,647,480,'pdf');" @@linkAnagrafica class="testoLink">scheda
+                                                di accompagnamento</a> <img height=18 alt="Scarica il documento"  hspace=2 src="../layout/im/pdf.gif" width=18 align=absMiddle> 
+                                              </li>
+																							<!-- li> <a href="#" onClick="javascript:if (conteggioFattureSelected=='1') pop('../report/esempioFattura.pdf?idFatturaPDF='+numeroFatturaSelected+'&annoPDF='+annoFatturaSelected,647,480,'pdf'); else getMessaggioStampaFattura();" class="testoLink">
+																								fattura (copia conforme)</a> <img height=18 alt="Scarica il documento" hspace=2 src="../layout/im/pdf.gif" width=18 align=absMiddle>
+																							</li -->              
+                                            </ul>
+                                          </ul>
+                                          <ul>
+                                            <ul>
+                                              <li> <a href="javascript:copiaRichiesta()" class="testoLink">copia richiesta</a> </li>
+                                            </ul>
+                                          </ul>
+                                          @@elencoCampioni
+                                          @@elencoCampioniNo
+                                            <tr>
+                                              <td width="50%"><h2>Non &egrave; stato trovato nessun campione</b></h2></td>
+                                              <td>&nbsp;</td>
+                                            </tr>
+                                          @@elencoCampioniNo
+                                    </td>
+                                    </tr>
+                                    </table>
+                                    <br>
+                                  </td>
+                                </tr>
+                              </table>
+                              </td>
+                          </tr>
+                        </table>
+                      </td>
+                      <td bgcolor="#669933"><img src="../layout/im/tra_pix.gif" width="2" height="1"></td>
+                      <td background="../layout/im/pix-gri-ban.gif"><img src="../layout/im/tra_pix.gif" width="1" height="1"></td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr bgcolor="#333333">
+          <td><img src="../layout/im/banner_inf.jpg" width="618" height="14" border="0" alt="CSI-Piemonte l'amministrazione piemontese alla portata di un clic"></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<span class="testoneroCopia"></span><span class="testonero"></span>
+</body>
+</html>

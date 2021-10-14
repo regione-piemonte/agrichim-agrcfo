@@ -1,0 +1,227 @@
+<html>
+<head>
+<title>Servizio AGRICHIM</title>
+<META HTTP-EQUIV="Pragma" CONTENT="no-cache">
+<META HTTP-EQUIV="Cache-Control" CONTENT="no-cache">
+<script src="../layout/js/gestione.js"></script>
+<script src="../layout/js/mail.js"></script>
+<script src="../layout/js/trim.js"></script>
+<script src="../layout/js/testLength.js"></script>
+<script src="../layout/js/isNumber.js"></script>
+<script src="../layout/js/partitaIVA.js"></script>
+<script src="../layout/js/fase3Privato.js"></script>
+<link href="../layout/css/format.css" rel="stylesheet" type="text/css">
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"></head>
+
+<body onLoad="window.focus();" onUnload="if (typeof(hWin)!='undefined') hWin.close(); window.opener.focus();">
+<table width="90%" border="0" class="boxborder">
+  <tr>
+    <td width="80%"> <div align="center">
+        <h2>Modifica dati anagrafici </h2>
+      </div>
+      <form name="utente" method="post" action="../controller/##anagraficaPOP">
+      <input type="hidden" name="azienda" value="##azienda">
+      <table width="100%" border="0">
+      @@errore
+      @@primoAccessoMsg
+        <tr>
+          <td colspan="3"><b>Benvenuto! Questo &egrave; il Suo primo accesso a questo servizio.<br>
+              Per motivi di sicurezza, è necessario che Lei reinserisca i propri dati anagrafici.<br>
+              Grazie.</b>
+            <br>
+            <br>
+          </td>
+        </tr>
+      @@primoAccessoMsg
+        <tr>
+          <td colspan="3" class="testoERRORE">I dati contrassegnati da &nbsp;<img src="../layout/im/ko.gif">&nbsp;
+          non sono stati inseriti correttamente
+            <br>
+            <br>
+          </td>
+        </tr>
+      @@errore
+        <tr>
+          <td>
+            <table width="100%" border="0">
+              <tr>
+                <td>Cognome</td>
+                <td colspan="2">
+                  <input type="text" disabled class="testoCampi" style="BACKGROUND-COLOR: #F0F0EF; COLOR: #000000" value="##cognome" size="30" maxlength="30">
+                  <input type="hidden" name="cognome" value="##cognome">
+                </td>
+              </tr>
+              <tr>
+                <td>Nome</td>
+                <td colspan="2">
+                  <input type="text" disabled class="testoCampi" style="BACKGROUND-COLOR: #F0F0EF; COLOR: #000000" value="##nome" size="30" maxlength="30">
+                  <input type="hidden" name="nome" value="##nome">
+                </td>
+              </tr>
+              <tr>
+                <td rowspan="4">Codice
+                  Fiscale</td>
+                <td colspan="2" rowspan="4">
+                  <input type="text" disabled class="testoCampi" style="BACKGROUND-COLOR: #F0F0EF; COLOR: #000000" value="##codiceFiscale" size="25" maxlength="16">
+                  <input type="hidden" name="codiceFiscale" value="##codiceFiscale">
+                </td>
+              </tr>
+              <tr> </tr>
+              <tr> </tr>
+              <tr> </tr>
+              <tr>
+                <td>Indirizzo (*)</td>
+                <td colspan="2">
+                  <input name="indirizzo" type="text" class="testoCampi" value="##indirizzo" size="50" maxlength="40">
+                  ##errore1
+                </td>
+              </tr>
+              <tr>
+                <td>CAP (*)</td>
+                <td colspan="2">
+                  <input name="cap" type="text" class="testoCampi" value="##cap" size="5" maxlength="5">
+                  ##errore2
+                </td>
+              </tr>
+              <tr>
+                <td>Comune (*)</td>
+                <td colspan="2">
+                  <input type="hidden" name="istat" value="##istat">
+                  <input name="comune" type="text" class="testoCampi" value="##comune" size="50" maxlength="40" readonly>
+                    <a href="javascript:popComune(document.utente.istat,document.utente.comune);" name="comunePop" class="pulsante">Seleziona</a>
+                   ##errore3
+                 </td>
+              </tr>
+              <tr>
+                <td>E.mail</td>
+                <td colspan="2">
+                  <input name="eMail" type="text" class="testoCampi" value="##eMail" size="50" maxlength="50">
+                  ##errore4
+                </td>
+              </tr>
+              <tr>
+                <td>Telefono fisso</td>
+                <td colspan="2">
+                  <input name="telefono" type="text" class="testoCampi" value="##telefono" size="25" maxlength="20">
+                  ##errore5
+                </td>
+              </tr>
+              <tr>
+                <td>Cellulare</td>
+                <td colspan="2">
+                  <input name="cellulare" type="text" class="testoCampi" value="##cellulare" size="25" maxlength="20">
+                  ##errore6
+                </td>
+              </tr>
+              <tr>
+                <td rowspan="4">Fax</td>
+                <td colspan="2" rowspan="4">
+                  <input name="fax" type="text" class="testoCampi" value="##fax" size="25" maxlength="20">
+                  ##errore7
+                </td>
+              </tr>
+              <tr> </tr>
+              <tr> </tr>
+              <tr> </tr>
+            </table>
+@@impresa
+            <br>
+            <table width="100%" border="0" align="center">
+                <tr>
+                <td colspan="7">
+                  <div align="center">
+                    <b>Dati anagrafici dell'impresa
+                      o azienda rappresentata</b>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2">P. Iva o Cod. Fisc. <br>(CUAA per aziende agricole)</td>
+                <td colspan="5">
+                  <input name="fwd" type="hidden">
+                  <input name="codiceAzienda" type="text" class="testoCampi" value="$$codiceAzienda" size="15" maxlength="11">
+                  ##errore14
+                  <a href="javascript:if (document.utente.codiceAzienda.value=='') alert('La ricerca non ha prodotto risultati'); else {document.utente.fwd.value='fwd';document.utente.action='../view/##anagraficaPOP';document.utente.submit();}" class="pulsante">RICERCA</a>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2">Ragione
+                  Sociale</td>
+                <td colspan="5">
+                  <input name="ragioneSociale" type="text" class="testoCampi" value="$$ragioneSociale" size="60" maxlength="60">
+                  ##errore15
+                </td>
+              </tr>
+              <tr>
+                <td width="15%">Indirizzo</td>
+                <td colspan="6">
+                  <input name="indirizzoAzienda" type="text" class="testoCampi" value="$$indirizzoAzienda" size="50" maxlength="40">
+                  ##errore8
+                </td>
+              </tr>
+              <tr>
+                <td width="15%">CAP</td>
+                <td colspan="6">
+                  <input name="capAzienda" type="text" class="testoCampi" value="$$capAzienda" size="5" maxlength="5">
+                  ##errore9
+                    </td>
+              </tr>
+              <tr>
+                <td width="15%">Comune
+                  (*) </td>
+                <td colspan="5">
+                  <input type="hidden" name="istatAzienda"  value="$$istatAzienda">
+                  <input name="comuneAzienda" type="text" class="testoCampi" value="$$comuneAzienda" size="50" maxlength="40" readonly>
+                  ##errore10
+                </td>
+                  <td align="left">
+                    <div align="left"><a href="javascript:popComune(document.utente.istatAzienda,document.utente.comuneAzienda);" name="comuneAziendaPop" class="pulsante">Seleziona</a> </div></td>
+              </tr>
+              <tr>
+                <td width="15%">Telefono</td>
+                <td width="17%">
+                  <input name="telefonoAzienda" type="text" class="testoCampi" value="$$telefonoAzienda" size="25" maxlength="20">
+                  ##errore11
+                </td>
+                <td colspan="4" align="right">Fax</td>
+                <td width="48%">
+                  <input name="faxAzienda" type="text" class="testoCampi" value="$$faxAzienda" size="25" maxlength="20">
+                  ##errore12
+                </td>
+              </tr>
+              <tr>
+                <td width="15%">E.mail</td>
+                <td colspan="6">
+                  <input name="eMailAzienda" type="text" class="testoCampi" value="$$eMailAzienda" size="50" maxlength="50">
+                  ##errore13
+                </td>
+              </tr>
+            </table>
+@@impresa
+            <br>
+            <table width="100%" border="0" cellspacing="2" cellpadding="2">
+              <tr>
+                <td>I dati contrassegnati con (*) sono obbligatori</td>
+              </tr>
+            </table>
+            <br>
+            <table width="100%" border="0" cellspacing="2" cellpadding="2">
+              <tr>
+              <td><div align="right"><a href="javascript:if (salva(document.utente)) document.utente.submit();"><img src="../layout/im/b_conferma.gif" alt="conferma" width="150" height="16" border="0"></a></div></td>
+                <td><a href="javascript:window.close();"><img src="../layout/im/b_annulla.gif" alt="annulla" width="150" height="16" border="0"></a></td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+      </form>
+
+    </td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+</body>
+<script>
+##allerta
+</script>
+</html>

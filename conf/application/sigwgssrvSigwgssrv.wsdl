@@ -1,0 +1,619 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="urn:sigwgssrvSigwgssrv" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="urn:sigwgssrvSigwgssrv" xmlns:intf="urn:sigwgssrvSigwgssrv" xmlns:tns1="http://api.coopdiag.csi.it" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Nov 13, 2013 (09:13:21 GMT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="urn:sigwgssrvSigwgssrv" xmlns="http://www.w3.org/2001/XMLSchema">
+   <import namespace="http://api.coopdiag.csi.it"/>
+   <element name="cercaParticelleByFilter">
+    <complexType>
+     <sequence>
+      <element minOccurs="0" name="in0" type="xsd:string"/>
+      <element minOccurs="0" name="in1" type="xsd:string"/>
+      <element minOccurs="0" name="in2" type="xsd:string"/>
+      <element minOccurs="0" name="in3" type="xsd:string"/>
+      <element minOccurs="0" name="in4" type="xsd:string"/>
+      <element minOccurs="0" name="in5" type="xsd:string"/>
+      <element minOccurs="0" name="in6" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="cercaParticelleByFilterResponse">
+    <complexType>
+     <sequence>
+      <element maxOccurs="unbounded" minOccurs="0" name="cercaParticelleByFilterReturn" type="impl:InfoParticella"/>
+     </sequence>
+    </complexType>
+   </element>
+   <complexType name="InfoParticella">
+    <sequence>
+     <element name="allegato" nillable="true" type="xsd:string"/>
+     <element name="area" type="xsd:double"/>
+     <element name="codBelfioreComune" nillable="true" type="xsd:string"/>
+     <element name="codIstatComune" nillable="true" type="xsd:string"/>
+     <element name="dataAggiornamento" nillable="true" type="xsd:string"/>
+     <element name="foglio" nillable="true" type="xsd:string"/>
+     <element name="geometriaGML" nillable="true" type="xsd:string"/>
+     <element name="numero" nillable="true" type="xsd:string"/>
+     <element name="sezione" nillable="true" type="xsd:string"/>
+     <element name="sviluppo" nillable="true" type="xsd:string"/>
+    </sequence>
+   </complexType>
+   <complexType name="CSIException">
+    <sequence>
+     <element name="nestedExcClassName" nillable="true" type="xsd:string"/>
+     <element name="nestedExcMsg" nillable="true" type="xsd:string"/>
+     <element name="stackTraceMessage" nillable="true" type="xsd:string"/>
+    </sequence>
+   </complexType>
+   <element name="fault" type="impl:CSIException"/>
+   <complexType name="SystemException">
+    <complexContent>
+     <extension base="impl:CSIException">
+      <sequence/>
+     </extension>
+    </complexContent>
+   </complexType>
+   <element name="fault1" type="impl:SystemException"/>
+   <complexType name="UnrecoverableException">
+    <complexContent>
+     <extension base="impl:CSIException">
+      <sequence/>
+     </extension>
+    </complexContent>
+   </complexType>
+   <element name="fault2" type="impl:UnrecoverableException"/>
+   <complexType name="UserException">
+    <complexContent>
+     <extension base="impl:CSIException">
+      <sequence/>
+     </extension>
+    </complexContent>
+   </complexType>
+   <complexType name="AutorizzMancanteEnteException">
+    <complexContent>
+     <extension base="impl:UserException">
+      <sequence/>
+     </extension>
+    </complexContent>
+   </complexType>
+   <element name="fault3" type="impl:AutorizzMancanteEnteException"/>
+   <complexType name="OutputException">
+    <complexContent>
+     <extension base="impl:UserException">
+      <sequence/>
+     </extension>
+    </complexContent>
+   </complexType>
+   <element name="fault4" type="impl:OutputException"/>
+   <complexType name="ParInputObblMancantiException">
+    <complexContent>
+     <extension base="impl:UserException">
+      <sequence/>
+     </extension>
+    </complexContent>
+   </complexType>
+   <element name="fault5" type="impl:ParInputObblMancantiException"/>
+   <complexType name="ParInputValNonCorrettoException">
+    <complexContent>
+     <extension base="impl:UserException">
+      <sequence/>
+     </extension>
+    </complexContent>
+   </complexType>
+   <element name="fault6" type="impl:ParInputValNonCorrettoException"/>
+   <complexType name="PermissionException">
+    <complexContent>
+     <extension base="impl:UserException">
+      <sequence/>
+     </extension>
+    </complexContent>
+   </complexType>
+   <element name="fault7" type="impl:PermissionException"/>
+   <element name="cercaParticelleByEnvelope">
+    <complexType>
+     <sequence>
+      <element minOccurs="0" name="in0" type="xsd:string"/>
+      <element minOccurs="0" name="in1" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="cercaParticelleByEnvelopeResponse">
+    <complexType>
+     <sequence>
+      <element maxOccurs="unbounded" minOccurs="0" name="cercaParticelleByEnvelopeReturn" type="impl:InfoParticella"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="testResources">
+    <complexType/>
+   </element>
+   <element name="testResourcesResponse">
+    <complexType>
+     <sequence>
+      <element name="testResourcesReturn" type="xsd:boolean"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="selfCheck">
+    <complexType>
+     <sequence>
+      <element maxOccurs="unbounded" minOccurs="0" name="in0" type="tns1:CalledResource"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="selfCheckResponse">
+    <complexType>
+     <sequence>
+      <element minOccurs="0" name="selfCheckReturn" type="tns1:InvocationNode"/>
+     </sequence>
+    </complexType>
+   </element>
+   <complexType name="ArrayOf_tns1_InvocationNode">
+    <sequence>
+     <element maxOccurs="unbounded" minOccurs="0" name="item" type="tns1:InvocationNode"/>
+    </sequence>
+   </complexType>
+   <complexType name="CommunicationException">
+    <complexContent>
+     <extension base="impl:SystemException">
+      <sequence/>
+     </extension>
+    </complexContent>
+   </complexType>
+   <element name="hasSelfCheck">
+    <complexType/>
+   </element>
+   <element name="hasSelfCheckResponse">
+    <complexType>
+     <sequence>
+      <element name="hasSelfCheckReturn" type="xsd:boolean"/>
+     </sequence>
+    </complexType>
+   </element>
+  </schema>
+  <schema elementFormDefault="qualified" targetNamespace="http://api.coopdiag.csi.it" xmlns="http://www.w3.org/2001/XMLSchema">
+   <import namespace="urn:sigwgssrvSigwgssrv"/>
+   <complexType name="ResourceType">
+    <sequence>
+     <element name="cod" nillable="true" type="xsd:string"/>
+     <element name="descr" nillable="true" type="xsd:string"/>
+    </sequence>
+   </complexType>
+   <complexType name="CalledResource">
+    <sequence>
+     <element name="codRisorsa" nillable="true" type="xsd:string"/>
+     <element name="codSistema" nillable="true" type="xsd:string"/>
+     <element name="tipoRisorsa" nillable="true" type="tns1:ResourceType"/>
+    </sequence>
+   </complexType>
+   <complexType name="Outcome">
+    <sequence>
+     <element name="eccezione" nillable="true" type="impl:CSIException"/>
+     <element name="messaggio" nillable="true" type="xsd:string"/>
+     <element name="status" type="xsd:int"/>
+    </sequence>
+   </complexType>
+   <complexType name="InvocationNode">
+    <sequence>
+     <element name="childs" nillable="true" type="impl:ArrayOf_tns1_InvocationNode"/>
+     <element name="outcome" nillable="true" type="tns1:Outcome"/>
+     <element name="resource" nillable="true" type="tns1:CalledResource"/>
+     <element name="startTime" type="xsd:long"/>
+     <element name="stopTime" type="xsd:long"/>
+    </sequence>
+   </complexType>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="cercaParticelleByEnvelopeResponse">
+
+      <wsdl:part element="impl:cercaParticelleByEnvelopeResponse" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="selfCheckResponse">
+
+      <wsdl:part element="impl:selfCheckResponse" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="AutorizzMancanteEnteException">
+
+      <wsdl:part element="impl:fault3" name="fault"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="SystemException">
+
+      <wsdl:part element="impl:fault1" name="fault"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="cercaParticelleByFilterResponse">
+
+      <wsdl:part element="impl:cercaParticelleByFilterResponse" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="OutputException">
+
+      <wsdl:part element="impl:fault4" name="fault"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="testResourcesRequest">
+
+      <wsdl:part element="impl:testResources" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="ParInputObblMancantiException">
+
+      <wsdl:part element="impl:fault5" name="fault"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="UnrecoverableException">
+
+      <wsdl:part element="impl:fault2" name="fault"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="PermissionException">
+
+      <wsdl:part element="impl:fault7" name="fault"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="CSIException">
+
+      <wsdl:part element="impl:fault" name="fault"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="testResourcesResponse">
+
+      <wsdl:part element="impl:testResourcesResponse" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="ParInputValNonCorrettoException">
+
+      <wsdl:part element="impl:fault6" name="fault"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="cercaParticelleByFilterRequest">
+
+      <wsdl:part element="impl:cercaParticelleByFilter" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="hasSelfCheckRequest">
+
+      <wsdl:part element="impl:hasSelfCheck" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="cercaParticelleByEnvelopeRequest">
+
+      <wsdl:part element="impl:cercaParticelleByEnvelope" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="selfCheckRequest">
+
+      <wsdl:part element="impl:selfCheck" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="hasSelfCheckResponse">
+
+      <wsdl:part element="impl:hasSelfCheckResponse" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:portType name="sigwgssrvSigwgssrv">
+
+      <wsdl:operation name="cercaParticelleByFilter">
+
+         <wsdl:input message="impl:cercaParticelleByFilterRequest" name="cercaParticelleByFilterRequest"/>
+
+         <wsdl:output message="impl:cercaParticelleByFilterResponse" name="cercaParticelleByFilterResponse"/>
+
+         <wsdl:fault message="impl:UnrecoverableException" name="UnrecoverableException"/>
+
+         <wsdl:fault message="impl:PermissionException" name="PermissionException"/>
+
+         <wsdl:fault message="impl:CSIException" name="CSIException"/>
+
+         <wsdl:fault message="impl:AutorizzMancanteEnteException" name="AutorizzMancanteEnteException"/>
+
+         <wsdl:fault message="impl:SystemException" name="SystemException"/>
+
+         <wsdl:fault message="impl:ParInputValNonCorrettoException" name="ParInputValNonCorrettoException"/>
+
+         <wsdl:fault message="impl:OutputException" name="OutputException"/>
+
+         <wsdl:fault message="impl:ParInputObblMancantiException" name="ParInputObblMancantiException"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="cercaParticelleByEnvelope">
+
+         <wsdl:input message="impl:cercaParticelleByEnvelopeRequest" name="cercaParticelleByEnvelopeRequest"/>
+
+         <wsdl:output message="impl:cercaParticelleByEnvelopeResponse" name="cercaParticelleByEnvelopeResponse"/>
+
+         <wsdl:fault message="impl:UnrecoverableException" name="UnrecoverableException"/>
+
+         <wsdl:fault message="impl:PermissionException" name="PermissionException"/>
+
+         <wsdl:fault message="impl:CSIException" name="CSIException"/>
+
+         <wsdl:fault message="impl:AutorizzMancanteEnteException" name="AutorizzMancanteEnteException"/>
+
+         <wsdl:fault message="impl:SystemException" name="SystemException"/>
+
+         <wsdl:fault message="impl:ParInputValNonCorrettoException" name="ParInputValNonCorrettoException"/>
+
+         <wsdl:fault message="impl:OutputException" name="OutputException"/>
+
+         <wsdl:fault message="impl:ParInputObblMancantiException" name="ParInputObblMancantiException"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="testResources">
+
+         <wsdl:input message="impl:testResourcesRequest" name="testResourcesRequest"/>
+
+         <wsdl:output message="impl:testResourcesResponse" name="testResourcesResponse"/>
+
+         <wsdl:fault message="impl:CSIException" name="CSIException"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="selfCheck">
+
+         <wsdl:input message="impl:selfCheckRequest" name="selfCheckRequest"/>
+
+         <wsdl:output message="impl:selfCheckResponse" name="selfCheckResponse"/>
+
+         <wsdl:fault message="impl:CSIException" name="CSIException"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="hasSelfCheck">
+
+         <wsdl:input message="impl:hasSelfCheckRequest" name="hasSelfCheckRequest"/>
+
+         <wsdl:output message="impl:hasSelfCheckResponse" name="hasSelfCheckResponse"/>
+
+         <wsdl:fault message="impl:CSIException" name="CSIException"/>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="sigwgssrvSigwgssrvSoapBinding" type="impl:sigwgssrvSigwgssrv">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="cercaParticelleByFilter">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="cercaParticelleByFilterRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="cercaParticelleByFilterResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="UnrecoverableException">
+
+            <wsdlsoap:fault name="UnrecoverableException" use="literal"/>
+
+         </wsdl:fault>
+
+         <wsdl:fault name="PermissionException">
+
+            <wsdlsoap:fault name="PermissionException" use="literal"/>
+
+         </wsdl:fault>
+
+         <wsdl:fault name="CSIException">
+
+            <wsdlsoap:fault name="CSIException" use="literal"/>
+
+         </wsdl:fault>
+
+         <wsdl:fault name="AutorizzMancanteEnteException">
+
+            <wsdlsoap:fault name="AutorizzMancanteEnteException" use="literal"/>
+
+         </wsdl:fault>
+
+         <wsdl:fault name="SystemException">
+
+            <wsdlsoap:fault name="SystemException" use="literal"/>
+
+         </wsdl:fault>
+
+         <wsdl:fault name="ParInputValNonCorrettoException">
+
+            <wsdlsoap:fault name="ParInputValNonCorrettoException" use="literal"/>
+
+         </wsdl:fault>
+
+         <wsdl:fault name="OutputException">
+
+            <wsdlsoap:fault name="OutputException" use="literal"/>
+
+         </wsdl:fault>
+
+         <wsdl:fault name="ParInputObblMancantiException">
+
+            <wsdlsoap:fault name="ParInputObblMancantiException" use="literal"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="cercaParticelleByEnvelope">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="cercaParticelleByEnvelopeRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="cercaParticelleByEnvelopeResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="UnrecoverableException">
+
+            <wsdlsoap:fault name="UnrecoverableException" use="literal"/>
+
+         </wsdl:fault>
+
+         <wsdl:fault name="PermissionException">
+
+            <wsdlsoap:fault name="PermissionException" use="literal"/>
+
+         </wsdl:fault>
+
+         <wsdl:fault name="CSIException">
+
+            <wsdlsoap:fault name="CSIException" use="literal"/>
+
+         </wsdl:fault>
+
+         <wsdl:fault name="AutorizzMancanteEnteException">
+
+            <wsdlsoap:fault name="AutorizzMancanteEnteException" use="literal"/>
+
+         </wsdl:fault>
+
+         <wsdl:fault name="SystemException">
+
+            <wsdlsoap:fault name="SystemException" use="literal"/>
+
+         </wsdl:fault>
+
+         <wsdl:fault name="ParInputValNonCorrettoException">
+
+            <wsdlsoap:fault name="ParInputValNonCorrettoException" use="literal"/>
+
+         </wsdl:fault>
+
+         <wsdl:fault name="OutputException">
+
+            <wsdlsoap:fault name="OutputException" use="literal"/>
+
+         </wsdl:fault>
+
+         <wsdl:fault name="ParInputObblMancantiException">
+
+            <wsdlsoap:fault name="ParInputObblMancantiException" use="literal"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="testResources">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="testResourcesRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="testResourcesResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="CSIException">
+
+            <wsdlsoap:fault name="CSIException" use="literal"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="selfCheck">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="selfCheckRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="selfCheckResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="CSIException">
+
+            <wsdlsoap:fault name="CSIException" use="literal"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="hasSelfCheck">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="hasSelfCheckRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="hasSelfCheckResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="CSIException">
+
+            <wsdlsoap:fault name="CSIException" use="literal"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="sigwgssrvSigwgssrvService">
+
+      <wsdl:port binding="impl:sigwgssrvSigwgssrvSoapBinding" name="sigwgssrvSigwgssrv">
+
+         <wsdlsoap:address location="http://tst-applogic.reteunitaria.piemonte.it/sigwgssrvApplSigwgssrvWsfad/services/sigwgssrvSigwgssrv"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>

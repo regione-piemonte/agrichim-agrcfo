@@ -1,0 +1,316 @@
+<html>
+<head>
+<title>Servizio AGRICHIM</title>
+<META HTTP-EQUIV="Pragma" CONTENT="no-cache">
+<META HTTP-EQUIV="Cache-Control" CONTENT="no-cache">
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<script src="../layout/js/gestione.js"></script>
+<script src="../layout/js/isNumber.js"></script>
+<script src="../layout/js/codiceFiscale.js"></script>
+<script src="../layout/js/partitaIVA.js"></script>
+<script src="../layout/js/trim.js"></script>
+<script src="../layout/js/fase4.js"></script>
+<link href="../layout/css/format.css" rel="stylesheet" type="text/css">
+</head>
+<body bgcolor="#CCCCCC" onLoad="fatturaSNCheck('$$disabledSpedizione')">
+<table summary="Questa tabella serve per formattare la pagina"  width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr align="center" valign="middle">
+    <td>
+      <table summary="Questa tabella serve per formattare la pagina" width="720" border="0" cellspacing="0" cellpadding="0" bgcolor="#FFFFFF">
+        <tr>
+          <td>
+            <table summary="Questa tabella serve per formattare la pagina" width="720" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td><img src="../layout/im/ban_sup##rupar.gif" width="475" height="40" alt="##nomeRete"></td>
+              </tr>
+
+              <tr valign="top" align="right">
+                <td width="720">
+                  <table width="719" border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                      <td background="../layout/im/pix-gri-ban.gif" width="1" height="2"><img src="../layout/im/tra_pix.gif" width="1" height="1"></td>
+                      <td width="2" height="2" bgcolor="#319E84"><img src="../layout/im/tra_pix.gif" width="2" height="2"></td>
+                      <td width="135" height="2" bgcolor="#319E84">
+                        <div align="right"><img src="../layout/im/agricoltura.gif" alt="agricoltura" width="89" height="14">
+                        </div>
+                      </td>
+                      <td width="585" height="2" bgcolor="#669933">&nbsp;&nbsp;
+                        <img src="../layout/im/agrichim.gif" alt="servizio agrichim" width="173" height="14" align="top">
+                      </td>
+                      <td height="1" bgcolor="#336600"><img src="../layout/im/tra_pix.gif" width="2" height="1"></td>
+                      <td background="../layout/im/pix-gri-ban.gif" height="1"><img src="../layout/im/tra_pix.gif" width="1" height="1"></td>
+                    </tr>
+                    <tr>
+                      <td background="../layout/im/pix-gri-ban.gif" width="1"><img src="../layout/im/tra_pix.gif" width="1" height="1"></td>
+                      <td bgcolor="#319E84" width="2"><img src="../layout/im/tra_pix.gif" width="2" height="1"></td>
+                      <td colspan="2">
+                        <table width="100%" border="0" cellspacing="0" cellpadding="1">
+                          <tr background="../layout/im/pix-gri-ban.gif">
+                            <td background="../layout/im/pix-gri-ban.gif">
+                              <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                <tr>
+                                  <td width="134" valign="top" bgcolor="#669933">
+                                    <div align="center"> <br>
+                                      <table width="124" height="50" border="0" align="center" cellpadding="0" cellspacing="5" background="../layout/im/sfondo_tab1.gif">
+                                        <tr>
+                                          <td><p class="testoUtente"><strong>Utente:<br>
+                                              ##nomeUtente </strong></p></td>
+                                        </tr>
+                                      </table>
+                                      <br>
+                                      <img src="../layout/im/tit_sx_richiesta_on.gif" alt="nuova richiesta" width="124" height="29">
+                                      <br>
+                                      <a href="../view/principale.jsp"><br>
+                                      <img src="../layout/im/tit_sx_visBozze_off.gif" width="124" height="29" border="0" alt="visualizza bozze"></a><br>
+                                      <a href="../controller/elencoCampioni.jsp"><br>
+                                      <img src="../layout/im/tit_sx_ricerca_off.gif" alt="ricerca" width="124" height="29" border="0"></a><br>
+                                      <a href="../controller/elencoPagamenti.jsp"><br>
+                                      <img src="../layout/im/tit_sx_elencoPagamenti_off.gif" width="124" height="29" border="0" alt="pagamenti"></a><br>
+                                      <a href="javascript:pop('../view/anagraficaUtentePOP.jsp',700,500);"><br>
+                                      <img src="../layout/im/tit_sx_anagraficaUtente_off.gif" alt="anagrafica utente" width="124" height="29" border="0"></a><br>
+                                      <a href="../controller/logout.jsp"><br>
+                                      <img src="../layout/im/tit_sx_logout_off.gif" alt="logout" width="124" height="29" border="0"></a>
+                                      <br>
+                                    </div>
+
+
+
+                                  </td>
+                                  <td width="577" height="450" valign="baseline" bgcolor="#F2F1EA">
+                                  <table width="98%" border="0" align="center" cellpadding="0" cellspacing="5">
+                                      <tr>
+                                        <td>
+                                          <h1><strong>Richiesta nuova analisi</strong></h1>
+                                        </td>
+                                      </tr>
+                                      <tr>
+                                        <td><h2>Fattura commerciale- Fase 4 </h2></td>
+                                      </tr>
+                                    </table>
+                                    <br>
+									                  <table width="560" border="0" cellspacing="0" cellpadding="0" align="center">
+                                      <tr valign="top">
+                                        <td width="70" class="pul">Fase 1 <br>
+                                          identificazione campione</td>
+                                        <td width="70" class="pul">Fase 2<br>
+                                          coordinate geografiche</td>
+                                        <td width="70" class="pul">Fase 3 <br>
+                                          anagrafica richiedente</td>
+                                        <td width="70" class="pulselect"><span class="faseselect">Fase
+                                          4 </span><br>
+                                          fattura<br>
+                                          commerciale</td>
+                                        <td width="70" class="pul">Fase 5 <br>
+                                          dati del<br>
+                                          campione </td>
+                                        <td width="70" class="pul">Fase 6 <br>
+                                          analisi<br>
+                                          richiesta</td>
+                                        <td width="70" class="pul">Fase 7 <br>
+                                          conferma<br>
+                                          dati</td>
+                                      </tr>
+                                    </table>
+                                    <br>
+                                    <form name="fattura" action="../controller/fattura.jsp">
+                                    <table width="100%" border="0" cellpadding="2" cellspacing="2">
+                                    <!-- @@errore -->
+                                    <tr>
+                                      <td colspan="2" class="testoERRORE">I dati contrassegnati da &nbsp;<img src="../layout/im/ko.gif">&nbsp;
+                                      non sono stati inseriti correttamente
+                                        <br>
+                                        <br>
+                                      </td>
+                                    </tr>
+                                    <!-- @@errore -->
+                                    @@fatturaTerreno
+                                      <tr>
+                                        <td colspan="2" >Tariffa applicata:</td>
+                                      </tr>
+                                      <tr>
+                                        <td colspan="2" ><p>
+                                            <input type="radio" name="tariffa" value="3" $$FasciaAChecked ##FasciaDisable>
+                                            Fascia A (sconto 35%)<br>
+                                            <input type="radio" name="tariffa" value="2" $$FasciaBChecked ##FasciaDisable>
+                                            Fascia B (sconto 15%)<br>
+                                            <input type="radio" name="tariffa" value="1" $$FasciaCChecked ##FasciaDisable>
+                                            Fascia C (sconto 10%)</p></td>
+                                      </tr>
+                                      @@fatturaTerreno
+                                      <tr>
+                                        <td colspan="2"> <div align="center"><strong>Estremi
+                                            per la fatturazione </strong> </div></td>
+                                      </tr>
+                                      <tr>
+                                        <td colspan="2" >Fattura richiesta:</td>
+                                      </tr>
+                                      <tr>
+                                        <td colspan="2" ><p>
+                                            <input type="radio" name="fatturaSN" value="S" ##fatturaSNCheckedS onClick="fatturaSNCheck('$$disabledSpedizione');">
+                                            Si<br>
+                                            <input type="radio" name="fatturaSN" value="N" ##fatturaSNCheckedN onClick="fatturaSNCheck('$$disabledSpedizione');">
+                                            No </p></td>
+                                      </tr>
+                                      <tr>
+                                        <td colspan="2" ><br>
+                                          Spedizione della fattura elettronica all'intestatario:</td>
+                                      </tr>
+                                      <tr>
+                                        <td colspan="2" ><p>
+                                            <input type="hidden" name="importoSpedizione" value="##importoSpedizione">
+                                            <input type="radio" name="spedizione" value="S" ##spedizioneCheckedS $$disabledSpedizioneS>
+                                            Si, sulla fattura verranno addebitati
+                                            <b>##importoSpedizioneStr</b> Euro per spese di spedizione<br>
+                                            <input type="radio" name="spedizione" value="N" ##spedizioneCheckedN $$disabledSpedizioneN>
+                                            No </p></td>
+                                      </tr>
+                                    @@utenteLAR
+                                      <tr>
+                                        <td colspan="2" ><br>
+                                          Intestare la fattura a:##errore6</td>
+                                      </tr>
+                                      @@fatturaTecnico
+                                      <tr>
+                                        <td colspan="2"><p>
+                                        	<input type="radio" name="fatturare" value="T" $$fatturareCheckedT onClick="fatturareCheck(document.fattura, 'false');">Tecnico $$generalitaU</p></td>
+                                      </tr>
+                                      <tr>
+                                        <td colspan="2">
+                                        	<input type="radio" name="fatturare" value="O" $$fatturareCheckedO onClick="fatturareCheck(document.fattura, 'false');">Organizzazione del tecnico $$generalitaO</td>
+                                      </tr>
+                                      @@fatturaTecnico
+                                      <tr>
+                                        <td colspan="2" ><p>
+                                            <input type="radio" name="fatturare" value="P" $$fatturareCheckedP onClick="fatturareCheck(document.fattura, 'false');">
+                                            Proprietario del campione $$generalitaP </p></td>
+                                      </tr>
+                                      <tr>
+                                        <td colspan="2" ><input type="radio" name="fatturare" value="A" $$fatturareCheckedA onClick="fatturareCheck(document.fattura, 'false');">
+                                          Altri estremi (completare i dati successivi)</td>
+                                      </tr>
+                                    @@utenteLAR
+                                    @@utentePrivato
+                                      <tr>
+                                        <td colspan="2" ><br>
+                                          Intestare la fattura a:##errore6</td>
+                                      </tr>
+                                      <tr>
+                                        <td colspan="2" ><p>
+                                            <input type="radio" name="fatturare" value="U" $$fatturareCheckedU onClick="fatturareCheck(document.fattura, 'false');">
+                                            Proprietario del campione $$generalitaU </p></td><!-- Utente Privato -->
+                                      </tr>
+                                      @@fatturaAzienda
+                                      <tr>
+                                        <td colspan="2" ><input type="radio" name="fatturare" value="P" $$fatturareCheckedP onClick="fatturareCheck(document.fattura, 'false');">
+                                          Azienda rappresentata $$generalitaO</td>
+                                      </tr>
+                                      @@fatturaAzienda
+                                      <tr>
+                                        <td colspan="2" ><input type="radio" name="fatturare" value="A" $$fatturareCheckedA onClick="fatturareCheck(document.fattura, 'false');">
+                                          Altri estremi (completare i dati successivi)</td>
+                                      </tr>
+                                    @@utentePrivato
+                                    @@utenteTecnico
+                                      <tr>
+                                        <td colspan="2" ><br>
+                                          Intestare la fattura a:##errore6</td>
+                                      </tr>
+                                      <tr>
+                                        <td colspan="2" ><p>
+                                            <input type="radio" name="fatturare" value="U" $$fatturareCheckedU onClick="fatturareCheck(document.fattura, 'false');">
+                                            Utente tecnico $$generalitaU</p></td>
+                                      </tr>
+                                      <tr>
+                                        <td colspan="2" ><input type="radio" name="fatturare" value="O" $$fatturareCheckedO onClick="fatturareCheck(document.fattura, 'false');">
+                                          Organizzazione di appartenenza $$generalitaO</td>
+                                      </tr>
+                                      <tr>
+                                        <td colspan="2" ><input type="radio" name="fatturare" value="P" $$fatturareCheckedP onClick="fatturareCheck(document.fattura, 'false');">
+                                          Proprietario del campione $$generalitaP </td>
+                                      </tr>
+                                      <tr>
+                                        <td colspan="2" ><input type="radio" name="fatturare" value="A" $$fatturareCheckedA onClick="fatturareCheck(document.fattura, 'false');">
+                                            Altri estremi (completare i dati successivi)</td>
+                                      </tr>
+                                      @@utenteTecnico
+                                    </table>
+                                    <table width="100%" border="0" cellpadding="2" cellspacing="2">
+                                      <tr><td colspan="2" >&nbsp;</td></tr>
+                                      <tr>
+                                        <td width="25%" >Codice fiscale o <br>
+                                          Partita IVA</td>
+                                        <td> <input name="cfPartitaIva" type="text" class="testoCampi" size="25" maxlength="16" value="##cfPartitaIva" onKeyPress="if (!fatturare[fatturare.length-1].checked) this.blur();">
+                                        ##errore1</td>
+                                      </tr>
+                                      <tr>
+                                        <td >Cognome e Nome<br>o Ragione Sociale</td>
+                                        <td> <input name="ragioneSociale" type="text" class="testoCampi" size="60" maxlength="60" value="##ragioneSociale" onKeyPress="if (!fatturare[fatturare.length-1].checked) this.blur();">
+                                        ##errore2</td>
+                                      </tr>
+                                      <tr>
+                                        <td >Indirizzo</td>
+                                        <td> <input name="indirizzo" type="text" class="testoCampi" size="50" maxlength="40" value="##indirizzo" onKeyPress="if (!fatturare[fatturare.length-1].checked) this.blur();">
+                                        ##errore3</td>
+                                      </tr>
+                                      <tr>
+                                        <td >CAP</td>
+                                        <td> <input name="cap" type="text" class="testoCampi" size="5" maxlength="5" value="##cap" onKeyPress="if (!fatturare[fatturare.length-1].checked) this.blur();">
+                                        ##errore4</td>
+                                      </tr>
+                                      <tr>
+                                        <td >Comune</td>
+                                        <td>
+                                         <input type="hidden" name="comune" value="##comune">
+                                         <input type="text" name="comuneDesc" class="testoCampi" size="50" maxlength="40" value="##comuneDesc" readonly>
+                                        ##errore5</td>
+                                        <td><a href="javascript:if (document.fattura.fatturare[document.fattura.fatturare.length-1].checked) popComune(document.fattura.comune,document.fattura.comuneDesc);" class="pulsante" id="idPulsanteCercaComune">Selezionare</a></td>
+                                      </tr>
+                                      <tr><td>&nbsp;</td><td>&nbsp;</td></tr>
+                                      <tr>
+                                        <td >Codice Destinatario</td>
+                                        <td>
+                                         <input type="text" name="cod_destinatario" value="##cod_destinatario" class="testoCampi" size="7" maxlength="7">
+                                        ##errore7</td>
+                                      </tr>
+                                      <tr>
+                                        <td >PEC</td>
+                                        <td>
+                                         <input type="text" name="pec" class="testoCampi" size="50" maxlength="40" value="##pec">
+                                        ##errore8</td>
+                                      </tr>
+                                    </table>
+                                    </form>
+                                    <br>
+                                    <table width="490" border="0" align="center" cellpadding="0" cellspacing="5">
+                                      <tr>
+                                        <td><div align="right"><a href="../view/##pageBack"><img src="../layout/im/b_tornaIndietro.gif" alt="torna indietro" width="150" height="16" border="0"></a></div></td>
+                                        <td><a href="javascript: if (salva(document.fattura)) document.fattura.submit();"><img src="../layout/im/b_confermaProsegui.gif" alt="conferma e prosegui" width="150" height="16" border="0"></a></td>
+                                      </tr>
+                                    </table>
+                                    <br>
+                                  </td>
+                                </tr>
+                              </table>
+                              </td>
+                          </tr>
+                        </table>
+                      </td>
+                      <td bgcolor="#669933"><img src="../layout/im/tra_pix.gif" width="2" height="1"></td>
+                      <td background="../layout/im/pix-gri-ban.gif"><img src="../layout/im/tra_pix.gif" width="1" height="1"></td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr bgcolor="#333333">
+          <td><img src="../layout/im/banner_inf.jpg" width="618" height="14" border="0" alt="CSI-Piemonte l'amministrazione piemontese alla portata di un clic"></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<span class="testoneroCopia"></span><span class="testonero"></span>
+</body>
+</html>

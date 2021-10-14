@@ -1,0 +1,164 @@
+<html>
+<head>
+<title>Servizio AGRICHIM</title>
+<META HTTP-EQUIV="Pragma" CONTENT="no-cache">
+<META HTTP-EQUIV="Cache-Control" CONTENT="no-cache">
+<link href="../layout/css/format.css" rel="stylesheet" type="text/css">
+<script>
+function checkUtente(form)
+{
+  var utenteOK = true;
+  form.password.value=form.password1.value+"        ";
+  form.password.value=form.password.value.substr(0,8);
+
+  if (form.username.value=="LAR")
+  {
+    form.USERID.value="- ERNESTO FERRANDO";
+    form.UID.value="E66666";
+    form.TUID.value="";
+    form.FUID.value="FRRRST65D05H727N";
+  }
+  else if (form.username.value=="tecnico")
+  {
+    form.USERID.value="- LUISA ABBONA";
+    form.UID.value="E66667";
+    form.TUID.value="";
+    form.FUID.value="BBNLSU73T64D205E";
+  }
+  else if (form.username.value=="privato")
+  {
+    form.USERID.value="- MICHELE PIANTA'";
+    form.UID.value="E66668";
+    form.TUID.value="";
+    form.FUID.value="PNTMHL70C19L219W";
+  }
+  else if (form.username.value=="azienda")
+  {
+    form.USERID.value="- PIERGIORGIO CHIRIOTTI";
+    form.UID.value="E66669";
+    form.TUID.value="01995120019";
+    form.FUID.value="CHRPGR75A10D205J";
+  }
+  else utenteOK = false;
+
+  if (utenteOK) 
+    form.submit();
+  else
+  {
+    alert("Username non esistente o password errata");
+    form.password.value="";
+    form.password1.value="";
+  }
+}
+</script>
+</head>
+<body bgcolor="#CCCCCC">
+<table summary="Questa tabella serve per formattare la pagina"  width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr align="center" valign="middle">
+    <td>
+      <table summary="Questa tabella serve per formattare la pagina" width="720" border="0" cellspacing="0" cellpadding="0" bgcolor="#FFFFFF">
+        <tr>
+          <td>
+            <table summary="Questa tabella serve per formattare la pagina" width="720" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td><img src="../layout/im/ban_sup##rupar.gif" width="475" height="40" alt="##nomeRete"></td>
+              </tr>
+
+              <tr valign="top" align="right">
+                <td width="640">
+                  <table width="719" border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                      <td background="../layout/im/pix-gri-ban.gif" width="1" height="2"><img src="../layout/im/tra_pix.gif" width="1" height="1"></td>
+                      <td width="2" height="2" bgcolor="#319E84"><img src="../layout/im/tra_pix.gif" width="2" height="2"></td>
+                      <td width="135" height="2" bgcolor="#319E84">
+                        <div align="right"><img src="../layout/im/agricoltura.gif" alt="agricoltura" width="89" height="14">
+                        </div>
+                      </td>
+                      <td width="585" height="2" bgcolor="#669933">&nbsp;&nbsp;
+                        <img src="../layout/im/agrichim.gif" alt="servizio agrichim" width="173" height="14" align="top">
+                      </td>
+                      <td height="1" bgcolor="#336600"><img src="../layout/im/tra_pix.gif" width="2" height="1"></td>
+                      <td background="../layout/im/pix-gri-ban.gif" height="1"><img src="../layout/im/tra_pix.gif" width="1" height="1"></td>
+                    </tr>
+                    <tr>
+                      <td background="../layout/im/pix-gri-ban.gif" width="1"><img src="../layout/im/tra_pix.gif" width="1" height="1"></td>
+                      <td bgcolor="#319E84" width="2"><img src="../layout/im/tra_pix.gif" width="2" height="1"></td>
+                      <td colspan="2">
+                        <table width="100%" border="0" cellspacing="0" cellpadding="1">
+                          <tr background="../layout/im/pix-gri-ban.gif">
+                            <td background="../layout/im/pix-gri-ban.gif">
+                              <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                <tr>
+                                  <td width="135" valign="top" bgcolor="#669933">
+                                    <div align="center">
+                                      <br>
+                                      <br>
+                                      <img src="../layout/im/tit_sx_home_off.gif" alt="home" width="124" height="29" border="0">
+                                      <br>
+                                    </div>
+                                  </td>
+                                  <td height="450" valign="baseline" bgcolor="#F2F1EA"><br>
+                                    <br>
+                                    <form name="login" method="post" action="http://<WEB_SERVER_HOST:PORT>/cgi-bin/servizi_iride/post.cgi">
+                                    <input type="hidden" name="post_url" value="##serverPath/jsp/controller/login.jsp##daBackOffice">
+                                    <input type="hidden" name="passphrase" value="Talath Dirnen">
+                                    <input type="hidden" name="USERID" value="">
+                                    <input type="hidden" name="UID" value="">
+                                    <input type="hidden" name="TUID" value="">
+                                    <input type="hidden" name="FUID" value="">
+                                    <table width="98%" border="0" align="center" cellpadding="2" cellspacing="2">
+                                      <tr>
+                                        <td colspan="2"><h1>Procedura di accesso
+                                          </h1></td>
+                                      </tr>
+                                      <tr>
+                                        <td colspan="2"><h2>Accedere al sistema
+                                            digitando il proprio username
+                                            e la password </h2></td>
+                                      </tr>
+                                      <tr>
+                                        <td width="28%">Username</td>
+                                        <td width="72%"> <input name="username" type="text" class="testoCampi" size="20" maxlength="20">
+                                        </td>
+                                      </tr>
+                                      <tr>
+                                        <td>Password</td>
+                                        <td> <input name="password1" type="password" class="testoCampi" size="20" maxlength="20">
+                                             <input name="password" type="hidden">
+                                        </td>
+                                      </tr>
+                                    </table>
+                                    <br>
+                                    <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
+                                      <tr>
+                                        <td><div align="center"><a href="javascript: checkUtente(document.login);"><img src="../layout/im/b_entra.gif" alt="entra" width="150" height="16" border="0"></a></div></td>
+                                      </tr>
+                                    </table>
+                                    </form>
+                                    <br>
+</td>
+                                </tr>
+                              </table>
+                              </td>
+                          </tr>
+                        </table>
+                      </td>
+                      <td bgcolor="#669933"><img src="../layout/im/tra_pix.gif" width="2" height="1"></td>
+                      <td background="../layout/im/pix-gri-ban.gif"><img src="../layout/im/tra_pix.gif" width="1" height="1"></td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr bgcolor="#333333">
+          <td><img src="../layout/im/banner_inf.jpg" width="618" height="14" border="0" alt="CSI-Piemonte l'amministrazione piemontese alla portata di un clic"></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<span class="testoneroCopia"></span><span class="testonero"></span>
+</body>
+</html>

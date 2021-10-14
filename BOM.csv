@@ -1,0 +1,11 @@
+name+version*,license*,Copyrights*,end-of-support,dependencies,language,repository,email,url
+axis-1.2.1.jar,"Apache-2.0",-,-,-,Java,-,-,-
+commons-httpclient-3.1.jar,"Apache-2.0",-,-,-,Java,-,-,-
+cxf-api-2.4.6-redhat-1.jar,"Apache-2.0",Redhat,-,-,Java,-,-,-
+cxf-rt-core-2.4.6-redhat-1.jar,"Apache-2.0",Redhat,-,-,Java,-,-,-
+jackson-mapper-asl-1.9.2-redhat-1.jar,"Apache-2.0",Redhat,-,-,Java,-,-,-
+jsse-1.0.3.jar,"Libreria Java di Base",-,-,-,Java,-,-,-
+log4j-1.2.15.jar,"Apache-2.0",-,-,-,Java,-,-,-
+opensaml-2.5.1-1.jar,"Apache-2.0",-,-,-,Java,-,-,-
+postgresql-9.0-801.jdbc3.jar,"BSD",-,-,-,Java,-,-,-
+weblogic-client-3.1.0.jar,"Oracle libreria non rilasciabile",Oracle,-,-,Java,-,-,-

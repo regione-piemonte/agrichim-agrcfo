@@ -1,0 +1,321 @@
+<html>
+<head>
+<title>Servizio AGRICHIM</title>
+<META HTTP-EQUIV="Pragma" CONTENT="no-cache">
+<META HTTP-EQUIV="Cache-Control" CONTENT="no-cache">
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<script src="../layout/js/gestione.js"></script>
+<script src="../layout/js/testLength.js"></script>
+<script src="../layout/js/printf.js"></script>
+<script src="../layout/js/costoAnalisi.js"></script>
+<link href="../layout/css/format.css" rel="stylesheet" type="text/css">
+</head>
+<body bgcolor="#CCCCCC" onload="costoTotale(document.terrenoTipoAnalisi,'TER')">
+<table summary="Questa tabella serve per formattare la pagina"  width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr align="center" valign="middle">
+    <td>
+      <table summary="Questa tabella serve per formattare la pagina" width="720" border="0" cellspacing="0" cellpadding="0" bgcolor="#FFFFFF">
+        <tr>
+          <td>
+            <table summary="Questa tabella serve per formattare la pagina" width="720" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td><img src="../layout/im/ban_sup##rupar.gif" width="475" height="40" alt="##nomeRete"></td>
+              </tr>
+
+              <tr valign="top" align="right">
+                <td width="640">
+                  <table width="719" border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                      <td background="../layout/im/pix-gri-ban.gif" width="1" height="2"><img src="../layout/im/tra_pix.gif" width="1" height="1"></td>
+                      <td width="2" height="2" bgcolor="#319E84"><img src="../layout/im/tra_pix.gif" width="2" height="2"></td>
+                      <td width="135" height="2" bgcolor="#319E84">
+                        <div align="right"><img src="../layout/im/agricoltura.gif" alt="agricoltura" width="89" height="14">
+                        </div>
+                      </td>
+                      <td width="585" height="2" bgcolor="#669933">&nbsp;&nbsp;
+                        <img src="../layout/im/agrichim.gif" alt="servizio agrichim" width="173" height="14" align="top">
+                      </td>
+                      <td height="1" bgcolor="#669933"><img src="../layout/im/tra_pix.gif" width="2" height="1"></td>
+                      <td background="../layout/im/pix-gri-ban.gif" height="1"><img src="../layout/im/tra_pix.gif" width="1" height="1"></td>
+                    </tr>
+                    <tr>
+                      <td background="../layout/im/pix-gri-ban.gif" width="1"><img src="../layout/im/tra_pix.gif" width="1" height="1"></td>
+                      <td bgcolor="#319E84" width="2"><img src="../layout/im/tra_pix.gif" width="2" height="1"></td>
+                      <td colspan="2">
+                        <table width="100%" border="0" cellspacing="0" cellpadding="1">
+                          <tr background="../layout/im/pix-gri-ban.gif">
+                            <td background="../layout/im/pix-gri-ban.gif">
+                              <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                <tr>
+                                  <td width="134" valign="top" bgcolor="#669933">
+                                    <div align="center"> <br>
+                                      <table width="124" height="50" border="0" align="center" cellpadding="0" cellspacing="5" background="../layout/im/sfondo_tab1.gif">
+                                        <tr>
+                                          <td><p class="testoUtente"><strong>Utente:<br>
+                                              ##nomeUtente </strong></p></td>
+                                        </tr>
+                                      </table>
+                                      <br>
+                                      <img src="../layout/im/tit_sx_richiesta_on.gif" alt="nuova richiesta" width="124" height="29"><br>
+                                      <a href="../view/principale.jsp"><br>
+                                      <img src="../layout/im/tit_sx_visBozze_off.gif" width="124" height="29" border="0" alt="visualizza bozze"></a><br>
+                                      <a href="../controller/elencoCampioni.jsp"><br>
+                                      <img src="../layout/im/tit_sx_ricerca_off.gif" alt="ricerca" width="124" height="29" border="0"></a><br>
+                                      <a href="../controller/elencoPagamenti.jsp"><br>
+                                      <img src="../layout/im/tit_sx_elencoPagamenti_off.gif" width="124" height="29" border="0" alt="pagamenti"></a><br>
+                                      <a href="javascript:pop('../view/anagraficaUtentePOP.jsp',700,500);"><br>
+                                      <img src="../layout/im/tit_sx_anagraficaUtente_off.gif" alt="anagrafica utente" width="124" height="29" border="0"></a><br>
+                                      <a href="../controller/logout.jsp"><br>
+                                      <img src="../layout/im/tit_sx_logout_off.gif" alt="logout" width="124" height="29" border="0"></a>
+                                      <br>
+                                    </div>
+
+
+
+                                  </td>
+                                  <td width="577" height="450" valign="baseline" bgcolor="#F2F1EA">
+<table width="98%" border="0" align="center" cellpadding="0" cellspacing="5">
+                                      <tr>
+                                        <td><h1><strong>Inserimento anagrafica
+                                            campione </strong></h1></td>
+                                      </tr>
+                                      <tr>
+                                        <td><h2>Analisi richiesta - Fase 6 </h2></td>
+                                      </tr>
+                                    </table>
+                                    <br>
+									<table width="560" border="0" cellspacing="0" cellpadding="0" align="center">
+                                      <tr valign="top">
+                                        <td width="70" class="pul">Fase 1 <br>
+                                          identificazione campione</td>
+                                        <td width="70" class="pul">Fase 2<br>
+                                          coordinate geografiche</td>
+                                        <td width="70" class="pul">Fase 3 <br>
+                                          anagrafica richiedente</td>
+                                        <td width="70" class="pul">Fase 4<br>
+                                          fattura commerciale</td>
+                                        <td width="70" class="pul">Fase 5<br>
+                                          dati del campione</td>
+                                        <td width="70" class="pulselect"><span class="faseselect">Fase
+                                          6 </span><br>
+                                          analisi<br>
+                                          richiesta</td>
+                                        <td width="70" class="pul">Fase 7 <br>
+                                          conferma<br>
+                                          dati</td>
+                                      </tr>
+                                    </table>
+                                    <br>
+                                    <form name="terrenoTipoAnalisi" method="post" action="../controller/tipoAnalisi.jsp">
+                                    <input name="page" type="hidden" value="terrenoTipoAnalisi.jsp">
+                                    <input type="hidden" name="ANA_PACCHETTO_TIPO" value="##ANA_PACCHETTO_TIPO">
+                                    <input type="hidden" name="ANA_PACCHETTO_COMP_SCAMBIO" value="##ANA_PACCHETTO_COMP_SCAMBIO">
+                                    <input type="hidden" name="ANA_PACCHETTO_MICROELEMENTI" value="##ANA_PACCHETTO_MICROELEMENTI">
+                                    <input type="hidden" name="ANA_PACCHETTO_METALLI_PESANTI" value="##ANA_PACCHETTO_METALLI_PESANTI">
+                                    <input type="hidden" name="METALLI_PESANTI_SCONTO_NUMERO" value="##METALLI_PESANTI_SCONTO_NUMERO">
+                                    <input type="hidden" name="METALLI_PESANTI_SCONTO_PERCENTUALE" value="##METALLI_PESANTI_SCONTO_PERCENTUALE">
+                                    <input type="hidden" name="metalliPesantiConteggioSelezionati" value="0">
+
+                                    <table width="98%" border="0" align="center" cellpadding="2" cellspacing="2">
+                                      <tr>
+                                        <td colspan="2"><p><strong>Informazioni
+                                            relative al tipo di analisi richiesta.
+                                            </strong></p>
+                                          <p>Se si vogliono conoscere le tariffe
+                                            applicate dal Laboratorio Agrochimico
+                                            Regionale <a href="#" onClick="popPdf('/assets/application/agrichimfo/dwd/prezzario.pdf',647,480,'pdf');" class="testoLink">consultare
+                                            il prezzario</a>.<br>
+                                            <br>
+                                          </p></td>
+                                      </tr>
+                                      <tr>
+                                      @@errore
+                                       <tr>
+                                        <td colspan="2" class="testoERRORE">Attenzione: per poter proseguire bisogna selezionare almeno una richiesta.
+                                        </td>
+                                       </tr>
+                                      @@errore
+                                        <td colspan="2"> <div align="center"><strong>Analisi
+                                            richieste </strong></div></td>
+                                      </tr>
+                                      <tr>
+                                        <td>Costo complessivo &nbsp;&nbsp; </td>
+                                        <td>
+                                          <input name="costoAnalisiTot" type="hidden" class="testoCampi">
+                                          <input name="costoAnalisi" type="text" class="testoCampi" value="##costoComplessivo" style="BACKGROUND-COLOR: #F0F0EF; COLOR: #000000" disabled>&nbsp;&#8364;&nbsp;&nbsp;
+                                          <a href="javascript:aggiornaCostoCheckboxMetal(document.terrenoTipoAnalisi,'TER');popCostiDet('../view/costoAnalisiPOP.jsp',document.terrenoTipoAnalisi,1);" class="pulsante">Visualizza
+                                          dettaglio costi</a></td>
+                                      </tr>
+                                      <tr>
+                                        <td valign="top" rowspan="4" width="27%">Analisi
+                                          Tipo </td>
+                                        <td width="73%"> <input type="radio" name="Tipo" value=true ##checkedTipoSi onClick="analisiTipo(document.terrenoTipoAnalisi,'TER');">
+                                          Si
+                                          <input type="radio" name="Tipo" value=false ##checkedTipoNo onClick="analisiTipo(document.terrenoTipoAnalisi,'TER');">
+                                          No </td>
+                                      </tr>
+                                      <tr valign="top">
+                                        <td> <input type="checkbox" name="pH" value="##checkpH" ##checkedpH onClick="aggiornaCostoCheckboxTipo(document.terrenoTipoAnalisi,'TER');">
+                                          ##LabelpH
+                                          <input type="checkbox" name="Ca" value="##checkCa" ##checkedCa onClick="aggiornaCostoCheckboxTipo(document.terrenoTipoAnalisi,'TER')">
+                                          ##LabelCa
+                                          <input type="checkbox" name="Mg" value="##checkMg" ##checkedMg onClick="aggiornaCostoCheckboxTipo(document.terrenoTipoAnalisi,'TER')">
+                                          ##LabelMg
+                                          <input type="checkbox" name="K" value="##checkK" ##checkedK onClick="aggiornaCostoCheckboxTipo(document.terrenoTipoAnalisi,'TER')">
+                                          ##LabelK
+                                          <input type="checkbox" name="N" value="##checkN" ##checkedN onClick="aggiornaCostoCheckboxTipo(document.terrenoTipoAnalisi,'TER')">
+                                          ##LabelN
+                                          <input type="checkbox" name="P" value="##checkP" ##checkedP onClick="aggiornaCostoCheckboxTipo(document.terrenoTipoAnalisi,'TER')">
+                                          ##LabelP</td>
+                                      </tr>
+                                      <tr valign="top">
+                                        <td> <input type="checkbox" name="CSC" value="##checkCSC" ##checkedCSC onClick="aggiornaCostoCheckboxTipo(document.terrenoTipoAnalisi,'TER')">
+                                          ##LabelCSC
+                                          <input type="checkbox" name="SO" value="##checkSO" ##checkedSO onClick="aggiornaCostoCheckboxTipo(document.terrenoTipoAnalisi,'TER')">
+                                          ##LabelSO </td>
+                                      </tr>
+                                      <tr valign="top">
+                                        <td><input type="checkbox" name="CaCO3" value="##checkCaCO3" ##checkedCaCO3 onClick="aggiornaCostoCheckboxTipo(document.terrenoTipoAnalisi,'TER')">
+                                          ##LabelCaCO3<br> <br> </td>
+                                      </tr>
+                                      <tr valign="top">
+                                        <td>##LabelCaAtt</td>
+                                        <td> <input type="checkbox" name="CaAtt" value="##checkCaAtt" ##checkedCaAtt onClick="aggiornaCostoCheckbox(document.terrenoTipoAnalisi,'TER')">
+                                          L'analisi del calcare attivo &egrave;
+                                          da richiedere nel caso in cui si supponga
+                                          che il pH del terreno sia superiore
+                                          a 7<br> <br> </td>
+                                      </tr>
+                                      <tr valign="top">
+                                        <td rowspan="2">Analisi fisico meccanica</td>
+                                        <td>N.B: nel caso in cui si voglia effettuare
+                                          l'analisi a 4 o 5 frazioni contattare
+                                          telefonicamente il Laboratorio di Ceva al numero
+                                          011 4321009 per ulteriori chiarimenti</td>
+                                      </tr>
+                                      <tr valign="top">
+                                        <td>
+                                          <table>
+                                            <tr>
+                                              <td valign="top"><input type="radio" name="fisMecc" value="##checkStd" ##checkedStd onClick="fisMeccCodice.value='Std';aggiornaCostoCheckbox(document.terrenoTipoAnalisi,'TER');"></td>
+                                              <td>##LabelStd</td>
+                                            </tr>
+                                            <tr>
+                                              <td valign="top"><input type="radio" name="fisMecc" value="##check4Fra" ##checked4Fra onClick="fisMeccCodice.value='4Fra';aggiornaCostoCheckbox(document.terrenoTipoAnalisi,'TER')"></td>
+                                              <td>##Label4Fra</td>
+                                            </tr>
+                                            <tr>
+                                              <td valign="top"><input type="radio" name="fisMecc" value="##check5Fra" ##checked5Fra onClick="fisMeccCodice.value='5Fra';aggiornaCostoCheckbox(document.terrenoTipoAnalisi,'TER');"></td>
+                                              <td>##Label5Fra</td>
+                                            </tr>
+                                            <tr>
+                                              <td valign="top"><input type="radio" name="fisMecc" value="0" ##checkedNessuno onClick="fisMeccCodice.value='';aggiornaCostoCheckbox(document.terrenoTipoAnalisi,'TER');"></td>
+                                              <td>Nessuna</td>
+                                            </tr>
+                                            <input type="hidden" name="fisMeccUltimo" value="0">
+                                            <input type="hidden" name="fisMeccCodice" value="##fisMeccCodice">
+                                          </table>
+                                          <br>
+                                        </td>
+                                      </tr>
+                                      <tr valign="top">
+                                        <td >Analisi della salinit&agrave;</td>
+                                        <td> <input type="checkbox" name="Sal" value="##checkSal" ##checkedSal onClick="aggiornaCostoCheckbox(document.terrenoTipoAnalisi,'TER')">
+                                          ##LabelSal <br> <br> </td>
+                                      </tr>
+                                      @@microelementi
+                                      <tr valign="top">
+                                        <td rowspan="2">Analisi completa microelementi assimilabili</td>
+                                        <td> <input type="radio" name="Micro" value=true ##checkedAnalisiCompletaSi onClick="analisiCompletaMicroelementi(document.terrenoTipoAnalisi,'TER');">
+                                          Si
+                                          <input type="radio" name="Micro" value=false ##checkedAnalisiCompletaNo onClick="analisiCompletaMicroelementi(document.terrenoTipoAnalisi,'TER');">
+                                          No </td>
+                                      </tr>
+                                      <tr valign="top">
+                                        <td> <input type="checkbox" name="Fe" value="$$checkFe" ##checkedFe onClick="aggiornaCostoCheckboxMicro(document.terrenoTipoAnalisi,'TER')">
+                                          $$LabelFe
+                                          <input type="checkbox" name="Mn" value="$$checkMn" ##checkedMn onClick="aggiornaCostoCheckboxMicro(document.terrenoTipoAnalisi,'TER')">
+                                          $$LabelMn
+                                          <br>
+                                          <input type="checkbox" name="Zn" value="$$checkZn" ##checkedZn onClick="aggiornaCostoCheckboxMicro(document.terrenoTipoAnalisi,'TER')">
+                                          $$LabelZn
+                                          <input type="checkbox" name="Cu" value="$$checkCu" ##checkedCu onClick="aggiornaCostoCheckboxMicro(document.terrenoTipoAnalisi,'TER')">
+                                          $$LabelCu <br> <br> </td>
+                                      </tr>
+                                      <tr valign="top">
+                                        <td >Analisi aggiuntiva del Boro</td>
+                                        <td> <input type="checkbox" name="B" value="$$checkB" ##checkedB onClick="aggiornaCostoCheckbox(document.terrenoTipoAnalisi,'TER')">
+                                          $$LabelB <br> <br> </td>
+                                      </tr>
+                                      @@microelementi
+                                      <!--@@blkUmidita-->
+                                      <tr valign="top">
+                                        <td >Analisi dell'umidit&agrave;</td>
+                                        <td> <input type="checkbox" name="Um" value="##checkUm" ##checkedUm onClick="aggiornaCostoCheckbox(document.terrenoTipoAnalisi,'TER')">
+                                          ##LabelUm <br> <br> </td>
+                                      </tr>
+                                      <!--@@blkUmidita-->                   
+                                      <tr valign="top"> 
+                                      	<td rowspan="2">Analisi metalli pesanti</td>
+                                        <td> 
+                                          <table>
+                                          	<tr>
+                                          		<td><input type="checkbox" name="FeTot" value="##checkFeTot" ##checkedFeTot onClick="aggiornaCostoCheckboxMetal(document.terrenoTipoAnalisi,'TER');">##LabelFeTot</td>
+                                          		<td><input type="checkbox" name="MnTot" value="##checkMnTot" ##checkedMnTot onClick="aggiornaCostoCheckboxMetal(document.terrenoTipoAnalisi,'TER');">##LabelMnTot</td>
+                                          		<td><input type="checkbox" name="ZnTot" value="##checkZnTot" ##checkedZnTot onClick="aggiornaCostoCheckboxMetal(document.terrenoTipoAnalisi,'TER');">##LabelZnTot</td>
+                                            </tr>
+                                            <tr>
+                                            	<td><input type="checkbox" name="CuTot" value="##checkCuTot" ##checkedCuTot onClick="aggiornaCostoCheckboxMetal(document.terrenoTipoAnalisi,'TER');">##LabelCuTot</td>
+                                          		<td><input type="checkbox" name="CdTot" value="##checkCdTot" ##checkedCdTot onClick="aggiornaCostoCheckboxMetal(document.terrenoTipoAnalisi,'TER');">##LabelCdTot</td>
+                                          		<td><input type="checkbox" name="CrTot" value="##checkCrTot" ##checkedCrTot onClick="aggiornaCostoCheckboxMetal(document.terrenoTipoAnalisi,'TER');">##LabelCrTot</td>
+                                            </tr>
+                                            <tr>
+                                          		<td><input type="checkbox" name="NiTot" value="##checkNiTot" ##checkedNiTot onClick="aggiornaCostoCheckboxMetal(document.terrenoTipoAnalisi,'TER');">##LabelNiTot</td>                                            
+                                          		<td><input type="checkbox" name="PbTot" value="##checkPbTot" ##checkedPbTot onClick="aggiornaCostoCheckboxMetal(document.terrenoTipoAnalisi,'TER');">##LabelPbTot</td>
+                                            </tr>
+                                          </table>
+ 																				</td>
+ 																		  </tr>
+																			<tr><td>&nbsp;</td></tr>
+                                      <tr valign="top">
+                                        <td >Note (aggiungere informazioni aggiuntive
+                                          o segnalare problemi)</td>
+                                        <td> <textarea name="note" cols="60" rows="5" class="testoCampi" onKeyPress="return testLength(note,512,'false');" onBlur="testLength(note,512,'true');">##note</textarea>
+                                        </td>
+                                      </tr>
+                                    </table>
+                                    </form>
+                                    <br>
+                                    <table width="490" border="0" align="center" cellpadding="0" cellspacing="5">
+                                      <tr>
+                                        <td><div align="right"><a href="../view/terrenoDati.jsp"><img src="../layout/im/b_tornaIndietro.gif" alt="torna indietro" width="150" height="16" border="0"></a></div></td>
+                                        <td><a href="javascript:invia(document.terrenoTipoAnalisi);"><img src="../layout/im/b_confermaProsegui.gif" alt="conferma e prosegui" width="150" height="16" border="0"></a></td>
+                                      </tr>
+                                    </table>
+                                    <br>
+                                  </td>
+                                </tr>
+                              </table>
+                              </td>
+                          </tr>
+                        </table>
+                      </td>
+                      <td bgcolor="#669933"><img src="../layout/im/tra_pix.gif" width="2" height="1"></td>
+                      <td background="../layout/im/pix-gri-ban.gif"><img src="../layout/im/tra_pix.gif" width="1" height="1"></td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr bgcolor="#333333">
+          <td><img src="../layout/im/banner_inf.jpg" width="618" height="14" border="0" alt="CSI-Piemonte l'amministrazione piemontese alla portata di un clic"></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<span class="testoneroCopia"></span><span class="testonero"></span>
+</body>
+</html>

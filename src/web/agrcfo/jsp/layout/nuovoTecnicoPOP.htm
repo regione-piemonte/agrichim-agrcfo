@@ -1,0 +1,143 @@
+<html>
+<head>
+<link href="../layout/css/format.css" rel="stylesheet" type="text/css">
+<script src="../layout/js/gestione.js"></script>
+<script src="../layout/js/mail.js"></script>
+<script src="../layout/js/trim.js"></script>
+<script src="../layout/js/testLength.js"></script>
+<script src="../layout/js/isNumber.js"></script>
+<script src="../layout/js/codiceFiscale.js"></script>
+<script src="../layout/js/partitaIVA.js"></script>
+<script src="../layout/js/fase3LARTecnico.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<META HTTP-EQUIV="Pragma" CONTENT="no-cache">
+<META HTTP-EQUIV="Cache-Control" CONTENT="no-cache">
+<link href="../layout/css/format.css" rel="stylesheet" type="text/css">
+</head>
+
+<body text="#000000" onload="document.nuovoTecnico.organizzazione.value=window.opener.document.anagraficaUtenteLAR.organizzazione.value; window.focus();" onUnload="if (typeof(hWin)!='undefined') hWin.close(); window.opener.focus();"><br>
+<form name="nuovoTecnico" method="post" action="../controller/anagraficaTecnicoPOP.jsp">
+   <input type="hidden" name="organizzazione">
+   <table width="500" border="0" class="boxborder">
+    <tr>
+      <td>
+        <div align="center">
+          <h2><strong>Nuovo tecnico</strong><br>
+          </h2>
+          <table width="100%" border="0" align="center" cellpadding="2" cellspacing="2">
+            <tr>
+              <td colspan="7">
+                <div align="center"> <b>Dati anagrafici del tecnico</b> </div>
+              </td>
+            </tr>
+            @@errore
+            <tr>
+              <td colspan="7" class="testoERRORE">I dati contrassegnati da &nbsp;<img src="../layout/im/ko.gif">&nbsp;
+              non sono stati inseriti correttamente
+                <br>
+                <br>
+              </td>
+            </tr>
+            @@errore
+            @@codFisEsistente
+              <tr>
+                <td colspan="7"><strong>Attenzione!! Il codice fiscale inserito appartiene
+                ad una anagrafica già esistente
+                  <br>
+                  <br>
+                  </strong></td>
+              </tr>
+            @@codFisEsistente
+            <tr>
+              <td>Cognome (*) </td>
+              <td colspan="6">
+                <input name="cognome" type="text" class="testoCampi" value="##cognome" size="60" maxlength="60">
+                ##errore1
+              </td>
+            </tr>
+            <tr>
+              <td>Nome (*)</td>
+              <td colspan="6">
+                <input name="nome" type="text" class="testoCampi" value="##nome" size="40" maxlength="40">
+                ##errore2
+              </td>
+            </tr>
+            <tr>
+              <td>Codice fiscale (*)</td>
+              <td colspan="6">
+                <input name="codiceFiscale" type="text" value="##codiceFiscale" class="testoCampi" size="25" maxlength="16">
+                ##errore3
+              </td>
+            </tr>
+            <tr>
+              <td width="24%">Indirizzo (*) </td>
+              <td colspan="6">
+                <input name="indirizzo" type="text" value="##indirizzo" class="testoCampi" size="50" maxlength="40">
+                ##errore4
+              </td>
+            </tr>
+            <tr>
+              <td>CAP (*)</td>
+              <td colspan="6">
+                <input name="cap" type="text" value="##cap" class="testoCampi" size="5" maxlength="5">
+                ##errore5
+              </td>
+            </tr>
+            <tr>
+              <td>Comune (*)</td>
+              <td>
+               <input type="hidden" name="istatComune" value="##istat">
+               <input type="text" name="comune" class="testoCampi" size="50" maxlength="40" value="##comune" readonly>
+               ##errore6
+              </td>
+              <td><a href="javascript:popComune(document.nuovoTecnico.istatComune,document.nuovoTecnico.comune);" name="comuneAziendaPop" class="pulsante">Selezionare</a></td>
+            </tr>
+            <tr>
+              <td>E.mail</td>
+              <td colspan="6">
+                <input name="eMail" type="text" class="testoCampi" value="##eMail" size="50" maxlength="50">
+                ##errore7
+              </td>
+            </tr>
+            <tr>
+              <td>Telefono fisso (*) </td>
+              <td colspan="6">
+                <input name="telefono" type="text" class="testoCampi" value="##telefono" size="25" maxlength="20">
+                ##errore8
+              </td>
+            </tr>
+            <tr>
+              <td>Cellulare (*)<br>
+                <span class="testoCampi">(se non si &egrave; indicato il telefono)
+                </span></td>
+              <td colspan="6">
+                <input name="cellulare" type="text" class="testoCampi" value="##cellulare" size="25" maxlength="20">
+                ##errore9
+              </td>
+            </tr>
+            <tr>
+                <td>Fax</td>
+                <td colspan="6">
+                  <input name="fax" type="text" class="testoCampi" value="##fax" size="25" maxlength="20">
+                  ##errore10
+                </td>
+              </tr>
+            <tr>
+              <td colspan="7">I dati contrassegnati con (*) sono obbligatori</td>
+            </tr>
+          </table>
+          <br>
+          <table width="100%" border="0" cellspacing="5" cellpadding="0">
+            <tr>
+              <td align="right"><div align="right"><a href="javascript:if (salva(document.nuovoTecnico)) document.nuovoTecnico.submit();"><img src="../layout/im/b_conferma.gif" alt="conferma" width="150" height="16" border="0"></a></div></td>
+              <td align="right"><div align="left"><a href="javascript:window.close();"><img src="../layout/im/b_annulla.gif" alt="annulla" width="150" height="16" border="0"></a></div></td>
+            </tr>
+          </table>
+          <br>
+        </div>
+      </td>
+    </tr>
+  </table>
+</form>
+</body>
+</html>

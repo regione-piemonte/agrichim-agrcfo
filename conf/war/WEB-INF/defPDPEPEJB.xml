@@ -1,0 +1,114 @@
+<porta-delegata name="agrichimfo.PolicyEnforcerBase">
+  <services>
+    <service
+      name="PolicyEnforcerBase"
+      public-interface-class="it.csi.iride2.policy.interfaces.PolicyEnforcerBaseService">
+      <operations>
+        <operation name="identificaUserPassword" type="synch-call">
+          <param-list>
+            <param name="username" type="java.lang.String" />
+            <param name="password" type="java.lang.String" />
+          </param-list>
+          <ret-val type="it.csi.iride2.policy.entity.Identita"/>
+        </operation>
+        <operation name="identificaUserPasswordPIN" type="synch-call">
+          <param-list>
+            <param name="username" type="java.lang.String" />
+            <param name="password" type="java.lang.String" />
+            <param name="pin" type="java.lang.String" />
+          </param-list>
+          <ret-val type="it.csi.iride2.policy.entity.Identita"/>
+        </operation>
+        <operation name="identificaCertificato" type="synch-call">
+          <param-list>
+            <param name="certificato" type="byte[]" />
+          </param-list>
+          <ret-val type="it.csi.iride2.policy.entity.Identita"/>
+        </operation>
+        <operation name="isPersonaAutorizzataInUseCase" type="synch-call">
+          <param-list>
+            <param name="persona" type="it.csi.iride2.policy.entity.Identita" />
+            <param name="useCase" type="it.csi.iride2.policy.entity.UseCase" />
+          </param-list>
+          <ret-val type="boolean"/>
+        </operation>
+        <operation name="isPersonaInRuolo" type="synch-call">
+          <param-list>
+            <param name="persona" type="it.csi.iride2.policy.entity.Identita" />
+            <param name="ruolo" type="it.csi.iride2.iridefed.entity.Ruolo" />
+          </param-list>
+          <ret-val type="boolean"/>
+        </operation>
+        <operation name="getInfoPersonaInUseCase" type="synch-call">
+          <param-list>
+            <param name="persona" type="it.csi.iride2.policy.entity.Identita" />
+            <param name="useCase" type="it.csi.iride2.policy.entity.UseCase" />
+          </param-list>
+          <ret-val type="java.lang.String"/>
+        </operation>
+        <operation name="findRuoliForPersonaInUseCase" type="synch-call">
+          <param-list>
+            <param name="persona" type="it.csi.iride2.policy.entity.Identita" />
+            <param name="useCase" type="it.csi.iride2.policy.entity.UseCase" />
+          </param-list>
+          <ret-val type="it.csi.iride2.iridefed.entity.Ruolo[]"/>
+        </operation>
+        <operation name="findRuoliForPersonaInApplication" type="synch-call">
+          <param-list>
+            <param name="persona" type="it.csi.iride2.policy.entity.Identita" />
+            <param name="app" type="it.csi.iride2.policy.entity.Application" />
+          </param-list>
+          <ret-val type="it.csi.iride2.iridefed.entity.Ruolo[]"/>
+        </operation>
+        <operation name="findUseCasesForPersonaInApplication" type="synch-call">
+          <param-list>
+            <param name="persona" type="it.csi.iride2.policy.entity.Identita" />
+            <param name="app" type="it.csi.iride2.policy.entity.Application" />
+          </param-list>
+          <ret-val type="it.csi.iride2.policy.entity.UseCase[]"/>
+        </operation>
+        <operation name="findActorsForPersonaInApplication" type="synch-call">
+          <param-list>
+            <param name="persona" type="it.csi.iride2.policy.entity.Identita" />
+            <param name="app" type="it.csi.iride2.policy.entity.Application" />
+          </param-list>
+          <ret-val type="it.csi.iride2.policy.entity.Actor[]"/>
+        </operation>
+        <operation name="isIdentitaAutentica" type="synch-call">
+          <param-list>
+            <param name="persona" type="it.csi.iride2.policy.entity.Identita" />
+          </param-list>
+          <ret-val type="boolean"/>
+        </operation>
+        <operation name="getInfoPersonaSchema" type="synch-call">
+          <param-list>
+            <param name="codRuolo" type="it.csi.iride2.iridefed.entity.Ruolo" />
+          </param-list>
+          <ret-val type="java.lang.String"/>
+        </operation>
+        <operation name="findActorsForPersonaInUseCase" type="synch-call">
+          <param-list>
+            <param name="persona" type="it.csi.iride2.policy.entity.Identita" />
+            <param name="useCase" type="it.csi.iride2.policy.entity.UseCase" />
+          </param-list>
+          <ret-val type="it.csi.iride2.policy.entity.Actor[]"/>
+        </operation>
+      </operations>
+    </service>
+  </services>
+  <config>
+    <url-pa>non_usato</url-pa>
+    <pluggable-pd-list chooser-class="it.csi.csi.porte.FixedDelegateChooser">
+      <pluggable-pd
+        name="agrichimfo.PolicyEnforcerBase.policyEnf"
+        class="it.csi.csi.porte.ejb.PortaDelegataEJB"
+        url-pa="iride2/policy/PolicyEnforcementPoint_PA" >
+        <properties>
+          <property name="java.naming.provider.url" value="@@defPDPEPEJB.url@@" />
+          <property name="java.naming.factory.initial" value="weblogic.jndi.WLInitialContextFactory" />
+        </properties>
+      </pluggable-pd>
+    </pluggable-pd-list>
+    <queue-manager url="non_usato"/>
+  </config>
+</porta-delegata>

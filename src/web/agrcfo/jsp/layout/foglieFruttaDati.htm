@@ -1,0 +1,476 @@
+<html>
+<head>
+<title>Servizio AGRICHIM</title>
+<META HTTP-EQUIV="Pragma" CONTENT="no-cache">
+<META HTTP-EQUIV="Cache-Control" CONTENT="no-cache">
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<script src="../layout/js/gestione.js"></script>
+<script src="../layout/js/verificaData.js"></script>
+<script src="../layout/js/testLength.js"></script>
+<script src="../layout/js/trim.js"></script>
+<script src="../layout/js/isNumber.js"></script>
+<script src="../layout/js/isFloat.js"></script>
+<script src="../layout/js/dotCheck.js"></script>
+<script src="../layout/js/fase5FoglieFruttaDati.js"></script>
+<script>
+  function caricaPagina()
+  {
+    document.foglieFruttaDati.action="../view/foglieFruttaDati.jsp";
+    document.foglieFruttaDati.submit();
+  }
+</script>
+<link href="../layout/css/format.css" rel="stylesheet" type="text/css">
+</head>
+<body bgcolor="#CCCCCC" onload="controllaRadioCombo(document.foglieFruttaDati.giacitura,document.foglieFruttaDati.idEsposizione);">
+<table summary="Questa tabella serve per formattare la pagina"  width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr align="center" valign="middle">
+    <td>
+      <table summary="Questa tabella serve per formattare la pagina" width="720" border="0" cellspacing="0" cellpadding="0" bgcolor="#FFFFFF">
+        <tr>
+          <td>
+            <table summary="Questa tabella serve per formattare la pagina" width="720" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td><img src="../layout/im/ban_sup##rupar.gif" width="475" height="40" alt="##nomeRete"></td>
+              </tr>
+
+              <tr valign="top" align="right">
+                <td width="640">
+                  <table width="719" border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                      <td background="../layout/im/pix-gri-ban.gif" width="1" height="2"><img src="../layout/im/tra_pix.gif" width="1" height="1"></td>
+                      <td width="2" height="2" bgcolor="#319E84"><img src="../layout/im/tra_pix.gif" width="2" height="2"></td>
+                      <td width="135" height="2" bgcolor="#319E84">
+                        <div align="right"><img src="../layout/im/agricoltura.gif" alt="agricoltura" width="89" height="14">
+                        </div>
+                      </td>
+                      <td width="585" height="2" bgcolor="#669933">&nbsp;&nbsp;
+                        <img src="../layout/im/agrichim.gif" alt="servizio agrichim" width="173" height="14" align="top">
+                      </td>
+                      <td height="1" bgcolor="#669933"><img src="../layout/im/tra_pix.gif" width="2" height="1"></td>
+                      <td background="../layout/im/pix-gri-ban.gif" height="1"><img src="../layout/im/tra_pix.gif" width="1" height="1"></td>
+                    </tr>
+                    <tr>
+                      <td background="../layout/im/pix-gri-ban.gif" width="1"><img src="../layout/im/tra_pix.gif" width="1" height="1"></td>
+                      <td bgcolor="#319E84" width="2"><img src="../layout/im/tra_pix.gif" width="2" height="1"></td>
+                      <td colspan="2">
+                        <table width="100%" border="0" cellspacing="0" cellpadding="1">
+                          <tr background="../layout/im/pix-gri-ban.gif">
+                            <td background="../layout/im/pix-gri-ban.gif">
+                              <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                <tr>
+                                  <td width="133" valign="top" bgcolor="#669933">
+                                    <div align="center"> <br>
+                                      <table width="124" height="50" border="0" align="center" cellpadding="0" cellspacing="5" background="../layout/im/sfondo_tab1.gif">
+                                        <tr>
+                                          <td><p class="testoUtente"><strong>Utente:<br>
+                                              ##nomeUtente </strong></p></td>
+                                        </tr>
+                                      </table>
+                                      <br>
+                                      <img src="../layout/im/tit_sx_richiesta_on.gif" alt="nuova richiesta" width="124" height="29"><br>
+                                      <a href="../view/principale.jsp"><br>
+                                      <img src="../layout/im/tit_sx_visBozze_off.gif" width="124" height="29" border="0"></a><br>
+                                      <a href="../controller/elencoCampioni.jsp"><br>
+                                      <img src="../layout/im/tit_sx_ricerca_off.gif" alt="ricerca" width="124" height="29" border="0"></a><br>
+                                      <a href="../controller/elencoPagamenti.jsp"><br>
+                                      <img src="../layout/im/tit_sx_elencoPagamenti_off.gif" width="124" height="29" border="0" alt="pagamenti"></a><br>
+                                      <a href="javascript:pop('../view/anagraficaUtentePOP.jsp',700,500);"><br>
+                                      <img src="../layout/im/tit_sx_anagraficaUtente_off.gif" alt="anagrafica utente" width="124" height="29" border="0"></a><br>
+                                      <a href="../controller/logout.jsp"><br>
+                                      <img src="../layout/im/tit_sx_logout_off.gif" alt="logout" width="124" height="29" border="0"></a>
+                                      <br>
+                                    </div>
+                                  </td>
+                                  <td width="578" height="450" valign="baseline" bgcolor="#F2F1EA">
+<table width="98%" border="0" align="center" cellpadding="0" cellspacing="5">
+                                      <tr>
+                                        <td><h1><strong>Inserimento anagrafica
+                                            campione </strong></h1></td>
+                                      </tr>
+                                      <tr>
+                                        <td><h2>Dati del campione - Fase 5 </h2></td>
+                                      </tr>
+                                    </table>
+                                    <br>
+									<table width="560" border="0" cellspacing="0" cellpadding="0" align="center">
+                                      <tr valign="top">
+                                        <td width="70" class="pul">Fase 1 <br>
+                                          identificazione campione</td>
+                                        <td width="70" class="pul">Fase 2<br>
+                                          coordinate geografiche</td>
+                                        <td width="70" class="pul">Fase 3 <br>
+                                          anagrafica richiedente</td>
+                                        <td width="70" class="pul">Fase 4<br>
+                                          fattura commerciale</td>
+                                        <td width="70" class="pulselect"><span class="faseselect">Fase
+                                          </span>5<br>
+                                          dati del<br>
+                                          campione</td>
+                                        <td width="70" class="pul">Fase 6 <br>
+                                          analisi<br>
+                                          richiesta</td>
+                                        <td width="70" class="pul">Fase 7 <br>
+                                          conferma<br>
+                                          dati</td>
+                                      </tr>
+                                    </table>
+                                    <br>
+                                    <form name="foglieFruttaDati" method="post" action="../controller/foglieFruttaDati.jsp">
+                                    <table width="98%" border="0" cellpadding="2" cellspacing="2">
+                                      @@errore
+                                      <tr>
+                                        <td colspan="4" class="testoERRORE">I dati contrassegnati da &nbsp;<img src="../layout/im/ko.gif">&nbsp;
+                                        non sono stati inseriti correttamente
+                                          <br>
+                                          <br>
+                                        </td>
+                                      </tr>
+                                      @@errore
+                                      @@macinati
+                                      <tr>
+                                        <td colspan="4">&nbsp;Macinati (*)
+                                          &nbsp;&nbsp;&nbsp;
+                                          <input type="radio" name="macinato" value='S' $$checkedMacinateSi>
+                                          Si
+                                          <input type="radio" name="macinato" value='N' $$checkedMacinateNo>
+                                          No</td>
+                                      </tr>
+                                      <tr>
+                                       <td colspan="4">
+                                         &nbsp;
+                                       </td>
+                                      </tr>
+                                      @@macinati
+                                      <tr>
+                                        <td colspan="4"> <div align="center"><strong>Informazioni
+                                            sulla zona del prelievo e caratteristiche
+                                            del campione </strong></div></td>
+                                      </tr>
+                                      <tr>
+                                        <td colspan="4"><table width="100%" border="0" cellspacing="2" cellpadding="2">
+                                            <tr>
+                                              <td width="43%" >Data campionamento
+                                                (*)<span class="testoCampi"><br>
+                                                (data del prelievo in formato
+                                                gg/mm/aaaa) </span></td>
+                                              <td width="57%" valign="top">
+                                                <input name="giornoCampionamento" type="text" class="testoCampi" size="2" maxlength="2" value="##giornoCampionamento">
+                                                /
+                                                <input name="meseCampionamento" type="text" class="testoCampi" size="2" maxlength="2" value="##meseCampionamento">
+                                                /
+                                                <input name="annoCampionamento" type="text" class="testoCampi" size="4" maxlength="4" value="##annoCampionamento">
+                                                ##errore1
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                              <td >Superficie appezzamento</td>
+                                              <td>
+                                               <select name="superficieAppezzamento" class="testoCampi">
+                                                  <option value="-1">--------</option>
+                                                    @@superficieAppezzamento
+                                                      <option value="$$codice" $$selected>$$descrizione</option>
+                                                    @@superficieAppezzamento
+                                                </select></td>
+                                            </tr>
+                                            <tr>
+                                              <td >Giacitura (*) </td>
+                                              <td> <input type="radio" name="giacitura" value="P" ##checkedPiano onClick="disabilitaCombo(document.foglieFruttaDati.idEsposizione);">
+                                                Piano
+                                                <input type="radio" name="giacitura" value="A" ##checkedAcclive onClick="abilitaCombo(document.foglieFruttaDati.idEsposizione);">
+                                                Acclive </td>
+                                            </tr>
+                                            <tr>
+                                              <td >Direzione di esposizione del
+                                                terreno rispetto al sole<br> <span class="testoCampi">(*
+                                                obbligatorio se Acclive)</span></td>
+                                              <td>
+                                               <select name="idEsposizione" class="testoCampi">
+                                                 <option value="-1">--------</option>
+                                                    @@idEsposizione
+                                                      <option value="$$codice" $$selected>$$descrizione</option>
+                                                    @@idEsposizione
+                                                </select>##errore2</td>
+                                            </tr>
+                                            <tr>
+                                              <td >Presenza di pietre o ghiaie</td>
+                                              <td> <input type="radio" name="scheletro" value="S" ##checkedSi>
+                                                Si
+                                                <input type="radio" name="scheletro" value="N" ##checkedNo>
+                                                No </td>
+                                            </tr>
+                                            <tr>
+                                              <td >Altitudine SLM (*)<span class="testoCampi">
+                                                (in metri) </span> </td>
+                                              <td><input name="altitudineSlm" type="text" class="testoCampi" size="4" maxlength="4" value="##altitudineSlm">##errore3</td>
+                                            </tr>
+                                            <tr>
+                                              <td >Et&agrave; dell'impianto (*)<span class="testoCampi">
+                                                (in anni) </span></td>
+                                              <td> <input name="etaImpianto" type="text" class="testoCampi" size="2" maxlength="2" value="##etaImpianto">
+                                              ##errore4
+                                              </td>
+                                            </tr>
+                                            <tr>
+                                              <td colspan="2" ><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                                  <tr>
+                                                    <td bgcolor="#669933"><img src="../layout/im/tra_pix.gif" width="1" height="1"></td>
+                                                  </tr>
+                                                </table></td>
+                                            </tr>
+                                          </table></td>
+                                      </tr>
+                                      <tr>
+                                        <td colspan="4"> <div align="center">
+                                            <p>&nbsp;</p>
+                                            <p><strong>Dati sulla coltura</strong></p>
+                                          </div></td>
+                                      </tr>
+                                      <tr>
+                                        <td colspan="4"><table width="100%" border="0" cellspacing="2" cellpadding="2">
+                                            <tr>
+                                              <td width="31%" >Classe coltura
+                                                (*)</td>
+                                              <td width="69%">
+                                               <select name="idColtura" class="testoCampi" onChange="caricaPagina();">
+                                                  <option value="-1">--------</option>
+                                                    @@classe
+                                                      <option value="$$codice" $$selected>$$descrizione</option>
+                                                    @@classe
+                                                </select>##errore5 </td>
+                                            </tr>
+                                            <tr>
+                                              <td colspan="2">Selezionare la specie
+                                                coltura tra quelle in elenco oppure
+                                                inserirla manualmente nel campo
+                                                &quot;Altra specie&quot;</td>
+                                            </tr>
+                                            <tr>
+                                              <td >Specie coltura (*)</td>
+                                              <td>
+                                               <select name="idSpecie" class="testoCampi" onChange="caricaPagina();">
+                                                  <option value="-1">--------</option>
+                                                    @@specie
+                                                      <option value="$$codice" $$selected>$$descrizione</option>
+                                                    @@specie
+                                                </select>##errore6 </td>
+                                            </tr>
+                                            <tr>
+                                              <td >Altra specie</td>
+                                              <td> <input name="altraSpecie" type="text" class="testoCampi" size="40" maxlength="40" value="##altraSpecie">##errore6</td>
+                                            </tr>
+                                            <tr>
+                                              <td >Variet&agrave; di specie</td>
+                                              <td>
+                                                <select name="idVarieta" class="testoCampi">
+                                                  <option value="-1">--------</option>
+                                                    @@idVarieta
+                                                      <option value="$$codice" $$selected>$$descrizione</option>
+                                                    @@idVarieta
+                                                </select> </td>
+                                            </tr>
+                                            <tr>
+                                              <td >Porta innesto</td>
+                                              <td>
+                                               <select name="idInnesto" class="testoCampi">
+                                                  <option value="-1">--------</option>
+                                                    @@idInnesto
+                                                      <option value="$$codice" $$selected>$$descrizione</option>
+                                                    @@idInnesto
+                                                </select></td>
+                                            </tr>
+                                            <tr>
+                                              <td colspan="2">Selezionare il sistema
+                                                di allevamento tra quelli in elenco
+                                                oppure inserirlo manualmente nel
+                                                campo &quot;Altro allevamento&quot;</td>
+                                            </tr>
+                                            <tr>
+                                              <td>Sistema allevamento (*)</td>
+                                              <td>
+                                               <select name="idSistemaAllevamento" class="testoCampi">
+                                                  <option value="-1">--------</option>
+                                                    @@idSistemaAllevamento
+                                                      <option value="$$codice" $$selected>$$descrizione</option>
+                                                    @@idSistemaAllevamento
+                                                </select>##errore7</td>
+                                            </tr>
+                                            <tr>
+                                              <td>Altro allevamento</td>
+                                              <td><input name="altroAllevamento" type="text" class="testoCampi" size="40" maxlength="40" value="##altroAllevamento"> ##errore7</td>
+                                            </tr>
+                                            <tr>
+                                              <td colspan="2"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                                  <tr>
+                                                    <td bgcolor="#669933"><img src="../layout/im/tra_pix.gif" width="1" height="1"></td>
+                                                  </tr>
+                                                </table></td>
+                                            </tr>
+                                          </table></td>
+                                      </tr>
+                                      <tr>
+                                        <td >&nbsp;</td>
+                                        <td colspan="3">&nbsp;</td>
+                                      </tr>
+                                      <tr>
+                                        <td width="40%" ><br>
+                                          Distanza tra le piante nel filare<br>
+                                          (in metri con 2 decimali)</td>
+                                        <td colspan="3"> <input name="sestoImpianto1" type="text" class="testoCampi" size="5" maxlength="5" value="##sestoImpianto1" onBlur="value=dotCheck(value)">
+                                         ##errore8
+                                        </td>
+                                      </tr>
+                                      <tr>
+                                        <td >Distanza tra i filari<br>
+                                          (in metri con 2 decimali)</td>
+                                        <td colspan="3"><input name="sestoImpianto2" type="text" class="testoCampi" size="5" maxlength="5" value="##sestoImpianto2" onBlur="value=dotCheck(value)">
+                                          ##errore9<br> </td>
+                                      </tr>
+                                      <tr>
+                                        <td colspan="4" ><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                            <tr>
+                                              <td bgcolor="#669933"><img src="../layout/im/tra_pix.gif" width="1" height="1"></td>
+                                            </tr>
+                                          </table></td>
+                                      </tr>
+                                      <tr>
+                                        <td colspan="4"> <div align="center"><strong><br>
+                                            <br>
+                                            Concimazione effettuata nell'anno
+                                            espressa in Kg/Ha</strong></div></td>
+                                      </tr>
+                                      <tr>
+                                        <td >Unit&agrave; N</td>
+                                        <td colspan="3"> <input name="unitaN" type="text" class="testoCampi" size="6" maxlength="6" value="##unitaN">
+                                         ##errore10
+                                        </td>
+                                      </tr>
+                                      <tr>
+                                        <td >Unit&agrave; P<SUB>2</SUB>O<SUB>5</SUB>
+                                        </td>
+                                        <td colspan="3"><input name="unitaP2O5" type="text" class="testoCampi" size="6" maxlength="6" value="##unitaP2O5">##errore11</td>
+                                      </tr>
+                                      <tr>
+                                        <td >Unit&agrave; K<SUB>2</SUB>O</td>
+                                        <td colspan="3"> <input name="unitaK2O" type="text" class="testoCampi" size="6" maxlength="6" value="##unitaK2O">
+                                        ##errore12
+                                        </td>
+                                      </tr>
+                                      <tr>
+                                        <td >Unit&agrave; Mg</td>
+                                        <td colspan="3"><input name="unitaMg" type="text" class="testoCampi" size="6" maxlength="6" value="##unitaMg">##errore13</td>
+                                      </tr>
+                                      <tr>
+                                        <td colspan="4" ><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                            <tr>
+                                              <td bgcolor="#669933"><img src="../layout/im/tra_pix.gif" width="1" height="1"></td>
+                                            </tr>
+                                          </table></td>
+                                      </tr>
+                                      <tr>
+                                        <td ><br>
+                                          <br>
+                                          Quantità di letame cosparsa in un anno
+                                          espressa in q/Ha</td>
+                                        <td colspan="3"> <br>
+                                          <input name="letamazioneAnno" type="text" class="testoCampi" size="4" maxlength="4" value="##letamazioneAnno" onBlur="value=dotCheck(value)">
+                                          ##errore14
+                                        </td>
+                                      </tr>
+                                      <tr>
+                                        <td >Concimazione organica (*)</td>
+                                        <td colspan="3">
+                                         <select name="tipoConcimazione" class="testoCampi" onChange="caricaPagina();">
+                                            <option value="-1">--------</option>
+                                                  @@tipoConcimazione
+                                                    <option value="$$codice" $$selected>$$descrizione</option>
+                                                  @@tipoConcimazione
+                                          </select> ##errore15</td>
+                                      </tr>
+                                      <tr>
+                                        <td >Concime utilizzato (*)<br>
+                                          <span class="testoCampi">( se concimazione
+                                          abituale o saltuaria)</span></td>
+                                        <td colspan="3">
+                                         <select name="idConcime" class="testoCampi">
+                                            <option value="-1">--------</option>
+                                              @@idConcime
+                                                <option value="$$codice" $$selected>$$descrizione</option>
+                                              @@idConcime
+                                          </select>##errore16</td>
+                                      </tr>
+                                      <tr>
+                                        <td >Stadio fenologico (*)</td>
+                                        <td colspan="3">
+                                         <select name="idStadioFenologico" class="testoCampi">
+                                            <option value="-1">--------</option>
+                                              @@idStadioFenologico
+                                                <option value="$$codice" $$selected>$$descrizione</option>
+                                              @@idStadioFenologico
+                                          </select> ##errore17</td>
+                                      </tr>
+                                      <tr>
+                                        <td >Produttivit&agrave; indicativa dell'anno
+                                          passato</td>
+                                        <td colspan="3">
+                                         <select name="codiceProduttivita" class="testoCampi">
+                                            <option value="-1">--------</option>
+                                              @@codiceProduttivita
+                                                <option value="$$codice" $$selected>$$descrizione</option>
+                                              @@codiceProduttivita
+                                          </select></td>
+                                      </tr>
+                                      <tr>
+                                        <td colspan="3" >Nel caso in cui, negli
+                                          ultimi 4 anni sia stata effettuata un'analisi
+                                          sul terreno da cui è stato prelevato
+                                          il campione di vegetale, indicare il
+                                          numero identificativo del campione di
+                                          terreno</td>
+                                        <td width="27%" colspan="-1"> <input name="campioneTerreno" type="text" class="testoCampi" size="20" maxlength="20" value="##campioneTerreno">
+                                        ##errore18
+                                        </td>
+                                      </tr>
+                                    </table>
+                                    </form>
+                                    <br>
+                                    <table width="100%" border="0" cellspacing="2" cellpadding="2">
+                                      <tr>
+                                        <td>I dati contrassegnati con (*) sono
+                                          obbligatori</td>
+                                      </tr>
+                                    </table>
+                                    <br>
+                                    <br>
+                                    <table width="490" border="0" align="center" cellpadding="0" cellspacing="5">
+                                      <tr>
+                                        <td><div align="right"><a href="../view/fattura.jsp"><img src="../layout/im/b_tornaIndietro.gif" alt="torna indietro" width="150" height="16" border="0"></a></div></td>
+                                        <td><a href="javascript:if (salva(document.foglieFruttaDati)) document.foglieFruttaDati.submit();"><img src="../layout/im/b_confermaProsegui.gif" alt="conferma e prosegui" width="150" height="16" border="0"></a></td>
+                                      </tr>
+                                    </table>
+                                    <br>
+                                  </td>
+                                </tr>
+                              </table>
+                              </td>
+                          </tr>
+                        </table>
+                      </td>
+                      <td bgcolor="#669933"><img src="../layout/im/tra_pix.gif" width="2" height="1"></td>
+                      <td background="../layout/im/pix-gri-ban.gif"><img src="../layout/im/tra_pix.gif" width="1" height="1"></td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr bgcolor="#333333">
+          <td><img src="../layout/im/banner_inf.jpg" width="618" height="14" border="0" alt="CSI-Piemonte l'amministrazione piemontese alla portata di un clic"></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<span class="testoneroCopia"></span><span class="testonero"></span>
+</body>
+</html>

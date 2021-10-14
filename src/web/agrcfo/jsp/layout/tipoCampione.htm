@@ -1,0 +1,257 @@
+<html>
+<head>
+<title> Servizio AGRICHIM</title>
+<META HTTP-EQUIV="Pragma" CONTENT="no-cache">
+<META HTTP-EQUIV="Cache-Control" CONTENT="no-cache">
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<script src="../layout/js/gestione.js"></script>
+<script src="../layout/js/testLength.js"></script>
+<script src="../layout/js/trim.js"></script>
+<script src="../layout/js/fase1.js"></script>
+<link href="../layout/css/format.css" rel="stylesheet" type="text/css">
+<script type="text/javascript">
+
+	var motivoObbligatorioSelected = '';
+
+  function isMotivoObbligatorio(motivoObbligatorio)
+  {
+  	motivoObbligatorioSelected = motivoObbligatorio;
+
+  	if (motivoObbligatorio == 'S')
+  	{
+  		document.getElementById("idMotivoObbligatorio").innerHTML = '(*)';	
+  	}
+  	else
+  	{
+  		document.getElementById("idMotivoObbligatorio").innerHTML = '';
+  	}
+  }
+</script>
+</head>
+<body bgcolor="#CCCCCC">
+<table summary="Questa tabella serve per formattare la pagina"  width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr align="center" valign="middle">
+    <td>
+      <table summary="Questa tabella serve per formattare la pagina" width="720" border="0" cellspacing="0" cellpadding="0" bgcolor="#FFFFFF">
+        <tr>
+          <td>
+            <table summary="Questa tabella serve per formattare la pagina" width="720" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td><img src="../layout/im/ban_sup##rupar.gif" width="475" height="40" alt="##nomeRete"></td>
+              </tr>
+
+              <tr valign="top" align="right">
+                <td width="720">
+                  <table width="719" border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                      <td background="../layout/im/pix-gri-ban.gif" width="1" height="2"><img src="../layout/im/tra_pix.gif" width="1" height="1"></td>
+                      <td width="2" height="2" bgcolor="#319E84"><img src="../layout/im/tra_pix.gif" width="2" height="2"></td>
+                      <td width="135" height="2" bgcolor="#319E84">
+                        <div align="right"><img src="../layout/im/agricoltura.gif" alt="agricoltura" width="89" height="14">
+                        </div>
+                      </td>
+                      <td width="585" height="2" bgcolor="#669933">&nbsp;&nbsp;
+                        <img src="../layout/im/agrichim.gif" alt="servizio agrichim" width="173" height="14" align="top">
+                      </td>
+                      <td height="1" bgcolor="#336600"><img src="../layout/im/tra_pix.gif" width="2" height="1"></td>
+                      <td background="../layout/im/pix-gri-ban.gif" height="1"><img src="../layout/im/tra_pix.gif" width="1" height="1"></td>
+                    </tr>
+                    <tr>
+                      <td background="../layout/im/pix-gri-ban.gif" width="1"><img src="../layout/im/tra_pix.gif" width="1" height="1"></td>
+                      <td bgcolor="#319E84" width="2"><img src="../layout/im/tra_pix.gif" width="2" height="1"></td>
+                      <td colspan="2">
+                        <table width="100%" border="0" cellspacing="0" cellpadding="1">
+                          <tr background="../layout/im/pix-gri-ban.gif">
+                            <td background="../layout/im/pix-gri-ban.gif">
+                              <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                <tr>
+                                  <td width="135" valign="top" bgcolor="#669933">
+                                    <div align="center"> <br>
+                                      <table width="124" height="50" border="0" align="center" cellpadding="0" cellspacing="5" background="../layout/im/sfondo_tab1.gif">
+                                        <tr>
+                                          <td><p class="testoUtente"><strong>Utente:<br>
+                                              ##nomeUtente </strong></p></td>
+                                        </tr>
+                                      </table>
+                                      <br>
+                                      <img src="../layout/im/tit_sx_richiesta_on.gif" alt="nuova richiesta" width="124" height="29"><br>
+                                      <a href="../view/principale.jsp"><br>
+                                      <img src="../layout/im/tit_sx_visBozze_off.gif" width="124" height="29" border="0" alt="visualizza bozze"></a><br>
+                                      <a href="../controller/elencoCampioni.jsp"><br>
+                                      <img src="../layout/im/tit_sx_ricerca_off.gif" alt="ricerca" width="124" height="29" border="0"></a><br>
+                                      <a href="../controller/elencoPagamenti.jsp"><br>
+                                      <img src="../layout/im/tit_sx_elencoPagamenti_off.gif" width="124" height="29" border="0" alt="pagamenti"></a><br>
+                                      <a href="javascript:pop('../view/anagraficaUtentePOP.jsp',700,500);"><br>
+                                      <img src="../layout/im/tit_sx_anagraficaUtente_off.gif" alt="anagrafica utente" width="124" height="29" border="0"></a><br>
+                                      <a href="../controller/logout.jsp"><br>
+                                      <img src="../layout/im/tit_sx_logout_off.gif" alt="logout" width="124" height="29" border="0"></a>
+                                      <br>
+                                    </div>
+
+
+
+                                  </td>
+                                  <td width="576" height="450" valign="baseline" bgcolor="#F2F1EA"><table width="98%" border="0" align="center" cellpadding="0" cellspacing="5">
+                                      <tr>
+                                        <td><h1><strong>Richiesta nuova analisi
+                                            </strong></h1></td>
+                                      </tr>
+                                      <tr>
+                                        <td><h2><strong>Identificazione campione
+                                            - Fase 1 </strong></h2></td>
+                                      </tr>
+                                    </table>
+                                    <br>
+									<table width="560" border="0" cellspacing="0" cellpadding="0" align="center">
+                                      <tr valign="top">
+                                        <td width="70" class="pulselect"><span class="faseselect">Fase
+                                          1 </span><br>
+                                          identificazione campione</td>
+                                        <td width="70" class="pul">Fase 2<br>
+                                          coordinate geografiche</td>
+                                        <td width="70" class="pul">Fase 3 <br>
+                                          anagrafica richiedente</td>
+                                        <td width="70" class="pul">Fase 4<br>
+                                          fattura commerciale</td>
+                                        <td width="70" class="pul">Fase 5<br>
+                                          dati del campione</td>
+                                        <td width="70" class="pul">Fase
+                                          6<br>
+                                          analisi<br>
+                                          richiesta</td>
+                                        <td width="70" class="pul">Fase 7 <br>
+                                          conferma<br>
+                                          dati</td>
+                                      </tr>
+                                    </table>
+                                    <br>
+                                    <form name="tipoCampione" method="post" action="../controller/tipoCampione.jsp">
+                                    <table width="98%" border="0" align="center">
+                                      <tr>
+                                        <td colspan="3"><strong>Inserire i dati
+                                          identificativi del campione da analizzare.
+                                          <br>
+                                          <br>
+                                          </strong></td>
+                                      </tr>
+
+                                      @@errore
+                                      <tr>
+                                        <td colspan="3" class="testoERRORE">I dati contrassegnati da &nbsp;<img src="../layout/im/ko.gif">&nbsp;
+                                        non sono stati inseriti correttamente
+                                          <br>
+                                          <br>
+                                        </td>
+                                      </tr>
+                                      @@errore
+
+                                      <tr>
+                                        <td>Materiale (*)</td>
+                                        <td colspan="2">
+                                         <select name="codMateriale" class="testoCampi" ##disabled>
+                                            <!--<option value="-1">--------</option>-->
+                                            @@materiale
+                                              <option value="$$codice" $$selected>$$descrizione</option>
+                                            @@materiale
+                                          </select> ##errore1</td>
+                                          <input type="hidden" name="##fase5Name" value="##fase5Value">
+                                      </tr>
+                                      <tr>
+                                        <td>Comune di provenienza <br>
+                                          del campione (*)</td>
+                                        <td>
+                                         <input type="hidden" name="istatComune" value="##istatComune">
+                                         <input type="text" name="descComune" class="testoCampi" size="40" maxlength="40" value="##comune" readonly>
+                                         ##errore2
+                                        </td>
+                                        <td><a href="javascript:popComune(document.tipoCampione.istatComune,document.tipoCampione.descComune);" class="pulsante">Selezionare</a></td>
+                                      </tr>
+                                      <tr>
+                                        <td>Etichetta apposta sul campione</td>
+                                        <td colspan="2"> <input name="etichettaCampione" value="##etichettaCampione" type="text" class="testoCampi" size="40" maxlength="40">
+                                        ##errore3
+                                        </td>
+                                      </tr>
+                                      <tr>
+                                        <td>Laboratorio di consegna (*)</td>
+                                        <td colspan="2">
+                                         <select name="codLaboratorio" class="testoCampi">
+                                            <option value="-1">--------</option>
+                                                @@laboratorio
+                                                  <option value="$$codice" $$selected>$$descrizione</option>
+                                                @@laboratorio
+                                         </select> ##errore4</td>
+                                      </tr>
+                                      <tr>
+                                        <td>Modalit&agrave; di consegna (*)</td>
+                                        <td colspan="2">
+                                         <select name="codModalitaConsegna" class="testoCampi">
+                                            <option value="-1">--------</option>
+                                                @@modalita
+                                                  <option value="$$codice" $$selected>$$descrizione</option>
+                                                @@modalita
+                                         </select> ##errore5</td>
+                                      </tr>
+                                      <tr>
+                                        <td>Analisi svolta per adempimenti previsti da misure del Piano di Sviluppo Rurale (*)</td>
+                                        <td colspan="2">
+                                         <select name="codiceMisuraPsr" class="testoCampi">
+                                            <option value="-1" onclick="isMotivoObbligatorio('N');">--------</option>
+                                                @@codiceMisuraPsr
+                                                  <option value="$$codice" $$selected onclick="isMotivoObbligatorio('$$motivoObbligatorio');">$$descrizione</option>
+                                                @@codiceMisuraPsr
+                                         </select> ##erroreCodiceMisuraPsr</td>
+                                      </tr>                                      
+                                      <tr>
+                                        <td>Motivazione adempimento misura PSR <span id="idMotivoObbligatorio"></span></td>
+                                        <td colspan="2"> <textarea name="noteMisuraPsr" cols="50" class="testoCampi" onKeyUp="return testLength(noteMisuraPsr,500,'false');" onBlur="testLength(noteMisuraPsr,500,'true');">$$noteMisuraPsr</textarea>
+                                        ##erroreNoteMisuraPsr
+                                        </td>
+                                      </tr>                                      
+                                      <tr>
+                                        <td>Note</td>
+                                        <td colspan="2"> <textarea name="note" cols="50" class="testoCampi" onKeyUp="return testLength(note,512,'false');" onBlur="testLength(note,512,'true');">##note</textarea>
+                                        ##errore6
+                                        </td>
+                                      </tr>
+                                    </table>
+                                    </form>
+                                    <br>
+                                    <table width="98%" border="0" align="center" cellpadding="0" cellspacing="0">
+                                      <tr>
+                                        <td>I dati contrassegnati con (*) sono
+                                          obbligatori</td>
+                                      </tr>
+                                    </table> <br>
+                                    <table width="490" border="0" align="center" cellpadding="0" cellspacing="5">
+                                      <tr>
+                                        <td><div align="center"><a href="javascript:if (salva(document.tipoCampione)) document.tipoCampione.submit();"><img src="../layout/im/b_confermaProsegui.gif" alt="conferma e prosegui" width="150" height="16" border="0"></a></div></td>
+                                      </tr>
+                                    </table>
+                                    <br>
+                                  </td>
+                                </tr>
+                              </table>
+                              </td>
+                          </tr>
+                        </table>
+                      </td>
+                      <td bgcolor="#336600"><img src="../layout/im/tra_pix.gif" width="2" height="1"></td>
+                      <td background="../layout/im/pix-gri-ban.gif"><img src="../layout/im/tra_pix.gif" width="1" height="1"></td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr bgcolor="#333333">
+          <td><img src="../layout/im/banner_inf.jpg" width="618" height="14" border="0" alt="CSI-Piemonte l'amministrazione piemontese alla portata di un clic"></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<span class="testoneroCopia"></span><span class="testonero"></span>
+</body>
+</html>

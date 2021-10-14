@@ -1,0 +1,417 @@
+<html>
+<head>
+<title>Servizio AGRICHIM</title>
+<META HTTP-EQUIV="Pragma" CONTENT="no-cache">
+<META HTTP-EQUIV="Cache-Control" CONTENT="no-cache">
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<script src="../layout/js/gestione.js"></script>
+<script src="../layout/js/testLength.js"></script>
+<script src="../layout/js/isNumber.js"></script>
+<script src="../layout/js/isFloat.js"></script>
+<script src="../layout/js/dotCheck.js"></script>
+<script src="../layout/js/fase5TerrenoDati.js"></script>
+<script>
+  function caricaPagina()
+  {
+    document.terrenoDati.action="../view/terrenoDati.jsp";
+    document.terrenoDati.submit();
+  }
+</script>
+<link href="../layout/css/format.css" rel="stylesheet" type="text/css">
+</head>
+<body bgcolor="#CCCCCC" onload="controllaRadioCombo(document.terrenoDati.giacitura,document.terrenoDati.idEsposizione);controllaRadioText(document.terrenoDati.scheletro,document.terrenoDati.percentualePietre);controllaRadioText(document.terrenoDati.nuovoImpianto,document.terrenoDati.annoImpianto,1);">
+<table summary="Questa tabella serve per formattare la pagina"  width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr align="center" valign="middle">
+    <td>
+      <table summary="Questa tabella serve per formattare la pagina" width="720" border="0" cellspacing="0" cellpadding="0" bgcolor="#FFFFFF">
+        <tr>
+          <td>
+            <table summary="Questa tabella serve per formattare la pagina" width="720" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td><img src="../layout/im/ban_sup##rupar.gif" width="475" height="40" alt="##nomeRete"></td>
+              </tr>
+
+              <tr valign="top" align="right">
+                <td width="720">
+                  <table width="719" border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                      <td background="../layout/im/pix-gri-ban.gif" width="1" height="2"><img src="../layout/im/tra_pix.gif" width="1" height="1"></td>
+                      <td width="2" height="2" bgcolor="#319E84"><img src="../layout/im/tra_pix.gif" width="2" height="2"></td>
+                      <td width="135" height="2" bgcolor="#319E84">
+                        <div align="right"><img src="../layout/im/agricoltura.gif" alt="agricoltura" width="89" height="14">
+                        </div>
+                      </td>
+                      <td width="585" height="2" bgcolor="#669933">&nbsp;&nbsp;
+                        <img src="../layout/im/agrichim.gif" alt="servizio agrichim" width="173" height="14" align="top">
+                      </td>
+                      <td height="1" bgcolor="#669933"><img src="../layout/im/tra_pix.gif" width="2" height="1"></td>
+                      <td background="../layout/im/pix-gri-ban.gif" height="1"><img src="../layout/im/tra_pix.gif" width="1" height="1"></td>
+                    </tr>
+                    <tr>
+                      <td background="../layout/im/pix-gri-ban.gif" width="1"><img src="../layout/im/tra_pix.gif" width="1" height="1"></td>
+                      <td bgcolor="#319E84" width="2"><img src="../layout/im/tra_pix.gif" width="2" height="1"></td>
+                      <td colspan="2">
+                        <table width="100%" border="0" cellspacing="0" cellpadding="1">
+                          <tr background="../layout/im/pix-gri-ban.gif">
+                            <td background="../layout/im/pix-gri-ban.gif">
+                              <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                <tr>
+                                  <td width="134" valign="top" bgcolor="#669933">
+                                    <div align="center"> <br>
+                                      <table width="124" height="50" border="0" align="center" cellpadding="0" cellspacing="5" background="../layout/im/sfondo_tab1.gif">
+                                        <tr>
+                                          <td><p class="testoUtente"><strong>Utente:<br>
+                                              ##nomeUtente </strong></p></td>
+                                        </tr>
+                                      </table>
+                                      <br>
+                                      <img src="../layout/im/tit_sx_richiesta_on.gif" alt="nuova richiesta" width="124" height="29"><br>
+                                      <a href="../view/principale.jsp"><br>
+                                      <img src="../layout/im/tit_sx_visBozze_off.gif" alt="visualizza bozze" width="124" height="29" border="0"></a><br>
+                                      <a href="../controller/elencoCampioni.jsp"><br>
+                                      <img src="../layout/im/tit_sx_ricerca_off.gif" alt="ricerca" width="124" height="29" border="0"></a><br>
+                                      <a href="../controller/elencoPagamenti.jsp"><br>
+                                      <img src="../layout/im/tit_sx_elencoPagamenti_off.gif" width="124" height="29" border="0" alt="pagamenti"></a><br>
+                                      <a href="javascript:pop('../view/anagraficaUtentePOP.jsp',700,500);"><br>
+                                      <img src="../layout/im/tit_sx_anagraficaUtente_off.gif" alt="anagrafica utente" width="124" height="29" border="0"></a><br>
+                                      <a href="../controller/logout.jsp"><br>
+                                      <img src="../layout/im/tit_sx_logout_off.gif" alt="logout" width="124" height="29" border="0"></a>
+                                      <br>
+                                    </div>
+
+
+
+                                  </td>
+                                  <td width="577" height="450" valign="baseline" bgcolor="#F2F1EA">
+<table width="98%" border="0" align="center" cellpadding="0" cellspacing="5">
+                                      <tr>
+                                        <td><h1><strong>Inserimento anagrafica
+                                            campione </strong></h1></td>
+                                      </tr>
+                                      <tr>
+                                        <td><h2>Dati del campione - Fase 5</h2></td>
+                                      </tr>
+                                    </table>
+                                    <br>
+									<table width="560" border="0" cellspacing="0" cellpadding="0" align="center">
+                                      <tr valign="top">
+                                        <td width="70" class="pul">Fase 1 <br>
+                                          identificazione campione</td>
+                                        <td width="70" class="pul">Fase 2<br>
+                                          coordinate geografiche</td>
+                                        <td width="70" class="pul">Fase 3 <br>
+                                          anagrafica richiedente</td>
+                                        <td width="70" class="pul">Fase 4<br>
+                                          fattura commerciale</td>
+                                        <td width="70" class="pulselect"><span class="faseselect">Fase
+                                          5</span><br>
+                                          dati del<br>
+                                          campione</td>
+                                        <td width="70" class="pul">Fase 6<br>
+                                          analisi<br>
+                                          richiesta</td>
+                                        <td width="70" class="pul">Fase 7 <br>
+                                          conferma<br>
+                                          dati</td>
+                                      </tr>
+                                    </table>
+                                    <br>
+                                    <form name="terrenoDati" method="post" action="../controller/terrenoDati.jsp">
+                                    <table width="100%" border="0" cellpadding="2" cellspacing="2">
+                                      @@errore
+                                      <tr>
+                                        <td colspan="4" class="testoERRORE">I dati contrassegnati da &nbsp;<img src="../layout/im/ko.gif">&nbsp;
+                                        non sono stati inseriti correttamente
+                                          <br>
+                                          <br>
+                                        </td>
+                                      </tr>
+                                      @@errore
+                                      <tr>
+                                        <td colspan="4">&nbsp;</td>
+                                      </tr>
+                                      <tr>
+                                        <td colspan="4"> <div align="center"><strong>Informazioni
+                                            sulla zona del prelievo e caratteristiche
+                                            del campione</strong></div></td>
+                                      </tr>
+                                      <tr>
+                                        <td width="31%" >Profondit&agrave; prelievo
+                                          (*)</td>
+                                        <td width="69%" colspan="2">
+                                         <select name="idProfondita" class="testoCampi">
+                                            <option value="-1">--------</option>
+                                              @@idProfondita
+                                                <option value="$$codice" $$selected>$$descrizione</option>
+                                              @@idProfondita
+                                          </select> ##errore1</td>
+                                      </tr>
+                                      <tr>
+                                        <td colspan="3" ><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                            <tr>
+                                              <td bgcolor="#669933"><img src="../layout/im/tra_pix.gif" width="1" height="1"></td>
+                                            </tr>
+                                          </table></td>
+                                      </tr>
+                                      <tr>
+                                        <td colspan="4"> <div align="center"><strong>Coltura
+                                            in atto o precedente: selezionare
+                                            la classe e poi la specie</strong></div></td>
+                                      </tr>
+                                      <tr>
+                                        <td>Classe coltura (*)</td>
+                                        <td colspan="2">
+                                          <select name="idColturaAttuale" class="testoCampi" onChange="caricaPagina();">
+                                            <option value="-1">--------</option>
+                                                    @@idColturaAttuale
+                                                      <option value="$$codice" $$selected>$$descrizione</option>
+                                                    @@idColturaAttuale
+                                          </select> </td>
+                                      </tr>
+                                      <tr>
+                                        <td>Specie coltura (*)</td>
+                                        <td colspan="2">
+                                         <select name="specieAttuale" class="testoCampi">
+                                            <option value="-1">--------</option>
+                                                    @@specieAttuale
+                                                      <option value="$$codice" $$selected>$$descrizione</option>
+                                                    @@specieAttuale
+                                          </select> </td>
+                                      </tr>
+                                      <tr>
+                                        <td colspan="3" ><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                            <tr>
+                                              <td bgcolor="#669933"><img src="../layout/im/tra_pix.gif" width="1" height="1"></td>
+                                            </tr>
+                                          </table></td>
+                                      </tr>
+                                      <tr>
+                                        <td colspan="4" bordercolor="#844F00">
+                                          <div align="center"><strong>Nuovo tipo
+                                            di coltura prevista: selezionare la
+                                            classe e poi la specie</strong></div></td>
+                                      </tr>
+                                      <tr>
+                                        <td bordercolor="#844F00">Classe coltura
+                                          (*)</td>
+                                        <td colspan="2" bordercolor="#844F00">
+                                          <select name="idColturaPrevista" class="testoCampi" onChange="caricaPagina();">
+                                            <option value="-1">--------</option>
+                                                    @@idColturaPrevista
+                                                      <option value="$$codice" $$selected>$$descrizione</option>
+                                                    @@idColturaPrevista
+                                          </select> ##errore2</td>
+                                      </tr>
+                                      <tr>
+                                        <td >Specie coltura (*)</td>
+                                        <td colspan="2">
+                                         <!-- <select name="speciePrevista" class="testoCampi" onChange="caricaPagina();">   -->
+                                         <select name="speciePrevista" class="testoCampi" >
+                                            <option value="-1">--------</option>
+                                              @@speciePrevista
+                                                <option value="$$codice" $$selected>$$descrizione</option>
+                                              @@speciePrevista
+                                          </select> ##errore3</td>
+                                      </tr>
+                                      <!--
+                                      <tr>
+                                        <td >Variet&agrave; specie prevista</td>
+                                        <td colspan="2">
+                                         <select name="idVarieta" class="testoCampi">
+                                            <option value="-1">--------</option>
+                                              @@idVarieta
+                                                <option value="$$codice" $$selected>$$descrizione</option>
+                                              @@idVarieta
+                                          </select> </td>
+                                      </tr>
+                                      <tr>
+                                        <td >Porta innesto</td>
+                                        <td colspan="2">
+                                         <select name="idInnesto" class="testoCampi">
+                                            <option value="-1">--------</option>
+                                              @@idInnesto
+                                                <option value="$$codice" $$selected>$$descrizione</option>
+                                              @@idInnesto
+                                          </select> </td>
+                                      </tr>
+                                      <tr>
+                                        <td >Sistema allevamento</td>
+                                        <td colspan="2">
+                                         <select name="idSistemaAllevamento" class="testoCampi">
+                                            <option value="-1">--------</option>
+                                              @@idSistemaAllevamento
+                                                <option value="$$codice" $$selected>$$descrizione</option>
+                                              @@idSistemaAllevamento
+                                          </select> </td>
+                                      </tr> -->
+                                      <tr>
+                                        <td colspan="3" ><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                            <tr>
+                                              <td bgcolor="#669933"><img src="../layout/im/tra_pix.gif" width="1" height="1"></td>
+                                            </tr>
+                                          </table></td>
+                                      </tr>
+                                    </table>
+                                    <table width="100%" border="0" cellpadding="2" cellspacing="2">
+                                      <tr>
+                                        <td >Nuovo impianto (*) </td>
+                                        <td > <input type="radio" name="nuovoImpianto" ##disabledNuovoImpianto value="S" ##checkedSi onClick="disabilitaText(document.terrenoDati.annoImpianto);">
+                                          Si
+                                          <input type="radio" name="nuovoImpianto" ##disabledNuovoImpianto value="N" ##checkedNo onClick="abilitaText(document.terrenoDati.annoImpianto);">
+                                          No </td>
+                                      </tr>
+                                      <tr>
+                                        <td width="31%" >Anno dell'impianto</td>
+                                        <td width="69%"> <input name="annoImpianto" type="text" class="testoCampi" size="4" maxlength="4" value="##annoImpianto">
+                                        ##errore4
+                                        </td>
+                                      </tr>
+                                      <tr>
+                                        <td >Superficie appezzamento</td>
+                                        <td>
+                                         <select name="superficieAppezzamento" class="testoCampi">
+                                            <option value="-1">--------</option>
+                                              @@superficieAppezzamento
+                                                <option value="$$codice" $$selected>$$descrizione</option>
+                                              @@superficieAppezzamento
+                                          </select> ##errore5</td>
+                                      </tr>
+                                      <tr>
+                                        <td >Produzione stimata (q/ha)</td>
+                                        <td> <input name="produzioneQha" type="text" class="testoCampi" size="6" maxlength="6" value="##produzioneQha" onBlur="value=dotCheck(value)">
+                                        ##errore6
+                                        </td>
+                                      </tr>
+                                      <tr>
+                                        <td >Giacitura (*) </td>
+                                        <td> <input type="radio" name="giacitura" value="P" ##checkedPiano onClick="disabilitaCombo(document.terrenoDati.idEsposizione);">
+                                          Piano
+                                          <input type="radio" name="giacitura" value="A" ##checkedAcclive onClick="abilitaCombo(document.terrenoDati.idEsposizione);">
+                                          Acclive </td>
+                                      </tr>
+                                      <tr>
+                                        <td >Direzione di esposizione<br>
+                                          del terreno rispetto al sole <span class="testoCampi">(nel
+                                          caso di Acclive) </span></td>
+                                        <td>
+                                         <select name="idEsposizione" class="testoCampi">
+                                            <option value="-1">--------</option>
+                                              @@idEsposizione
+                                                <option value="$$codice" $$selected>$$descrizione</option>
+                                              @@idEsposizione
+                                          </select> ##errore7</td>
+                                      </tr>
+                                      <tr>
+                                        <td >Presenza di pietre o ghiaie (*)</td>
+                                        <td> <input type="radio" name="scheletro" value="S" ##checkedPietre onClick="abilitaText(document.terrenoDati.percentualePietre);">
+                                          Si
+                                          <input type="radio" name="scheletro" value="N" ##checkedGhiaie onClick="disabilitaText(document.terrenoDati.percentualePietre);">
+                                          No </td>
+                                      </tr>
+                                      <tr>
+                                        <td >Percentuale presenza pietre</td>
+                                        <td> <input name="percentualePietre" type="text" class="testoCampi" size="3" maxlength="3" value="##percentualePietre">
+                                        ##errore8
+                                        </td>
+                                      </tr>
+                                      <tr>
+                                        <td >Interramento stoppie (*)</td>
+                                        <td> <input type="radio" name="stoppie" value="S" ##checkedStoppieSi>
+                                          Si
+                                          <input type="radio" name="stoppie" value="N" ##checkedStoppieNo>
+                                          No </td>
+                                      </tr>
+                                      <tr>
+                                        <td >Concimazione organica (*)</td>
+                                        <td>
+                                         <select name="tipoConcimazione" class="testoCampi" onChange="caricaPagina();">
+                                            <option value="-1">--------</option>
+                                              @@tipoConcimazione
+                                                <option value="$$codice" $$selected>$$descrizione</option>
+                                              @@tipoConcimazione
+                                          </select> ##errore9</td>
+                                      </tr>
+                                      <tr>
+                                        <td >Concime utilizzato (*) <br>
+                                          <span class="testoCampi">(se concimazione
+                                          abituale o saltuaria)</span></td>
+                                        <td>
+                                         <select name="idConcime" class="testoCampi">
+                                            <option value="-1">--------</option>
+                                              @@idConcime
+                                                <option value="$$codice" $$selected>$$descrizione</option>
+                                              @@idConcime
+                                          </select> ##errore10</td>
+                                      </tr>
+                                      <tr>
+                                        <td >Stato del terreno</td>
+                                        <td>
+                                         <select name="idLavorazioneTerreno" class="testoCampi">
+                                            <option value="-1">--------</option>
+                                              @@idLavorazioneTerreno
+                                                <option value="$$codice" $$selected>$$descrizione</option>
+                                              @@idLavorazioneTerreno
+                                          </select> </td>
+                                      </tr>
+                                      <tr>
+                                        <td height="18" >Tipo di irrigazione effettuata</td>
+                                        <td height="18">
+                                          <select name="idIrrigazione" class="testoCampi">
+                                            <option value="-1">--------</option>
+                                              @@idIrrigazione
+                                                <option value="$$codice" $$selected>$$descrizione</option>
+                                              @@idIrrigazione
+                                          </select> </td>
+                                      </tr>
+                                      <tr>
+                                        <td height="18" >Modalit&agrave; di coltivazione (*)</td>
+                                        <td height="18">
+                                          <select name="codiceModalitaColtivazione" class="testoCampi">
+                                            <option value="-1">--------</option>
+                                              @@codiceModalitaColtivazione
+                                                <option value="$$codice" $$selected>$$descrizione</option>
+                                              @@codiceModalitaColtivazione
+                                          </select> ##errore11</td>
+                                      </tr>
+                                    </table>
+                                    </form>
+                                    <br>
+                                    <table width="100%" border="0" align="center" cellpadding="2" cellspacing="2">
+                                      <tr>
+                                        <td>I dati contrassegnati con (*) sono
+                                          obbligatori.</td>
+                                      </tr>
+                                    </table> <br>
+                                    <table width="490" border="0" align="center" cellpadding="0" cellspacing="5">
+                                      <tr>
+                                        <td><div align="right"><a href="../view/fattura.jsp"><img src="../layout/im/b_tornaIndietro.gif" alt="torna indietro" width="150" height="16" border="0"></a></div></td>
+                                        <td><a href="javascript:if (salva(document.terrenoDati)) document.terrenoDati.submit();"><img src="../layout/im/b_confermaProsegui.gif" alt="conferma e prosegui" width="150" height="16" border="0"></a></td>
+                                      </tr>
+                                    </table>
+                                    <br>
+                                  </td>
+                                </tr>
+                              </table>
+                              </td>
+                          </tr>
+                        </table>
+                      </td>
+                      <td bgcolor="#669933"><img src="../layout/im/tra_pix.gif" width="2" height="1"></td>
+                      <td background="../layout/im/pix-gri-ban.gif"><img src="../layout/im/tra_pix.gif" width="1" height="1"></td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr bgcolor="#333333">
+          <td><img src="../layout/im/banner_inf.jpg" width="618" height="14" border="0" alt="CSI-Piemonte l'amministrazione piemontese alla portata di un clic"></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<span class="testoneroCopia"></span><span class="testonero"></span>
+</body>
+</html>

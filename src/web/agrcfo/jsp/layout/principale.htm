@@ -1,0 +1,151 @@
+<html>
+<head>
+<title>Servizio AGRICHIM</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<META HTTP-EQUIV="Pragma" CONTENT="no-cache">
+<META HTTP-EQUIV="Cache-Control" CONTENT="no-cache">
+<script>var messaggio="Sei sicuro?";</script>
+<script src="../layout/js/gestione.js"></script>
+<link href="../layout/css/format.css" rel="stylesheet" type="text/css">
+</head>
+<body bgcolor="#CCCCCC">
+<table summary="Questa tabella serve per formattare la pagina"  width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr align="center" valign="middle">
+    <td>
+      <table summary="Questa tabella serve per formattare la pagina" width="720" border="0" cellspacing="0" cellpadding="0" bgcolor="#FFFFFF">
+        <tr>
+          <td>
+            <table summary="Questa tabella serve per formattare la pagina" width="720" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td><img src="../layout/im/ban_sup##rupar.gif" width="475" height="40" alt="##nomeRete"></td>
+              </tr>
+
+              <tr valign="top" align="right">
+                <td>
+                  <table width="719" border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                      <td background="../layout/im/pix-gri-ban.gif" width="1" height="2"><img src="../layout/im/tra_pix.gif" width="1" height="1"></td>
+                      <td width="2" height="2" bgcolor="#319E84"><img src="../layout/im/tra_pix.gif" width="2" height="2"></td>
+                      <td width="135" height="2" bgcolor="#319E84">
+                        <div align="right"><img src="../layout/im/agricoltura.gif" alt="agricoltura" width="89" height="14">
+                        </div>
+                      </td>
+                      <td width="585" height="2" bgcolor="#669933">&nbsp;&nbsp;
+                        <img src="../layout/im/agrichim.gif" alt="servizio agrichim" width="173" height="14" align="top">
+                      </td>
+                      <td height="1" bgcolor="#669933"><img src="../layout/im/tra_pix.gif" width="2" height="1"></td>
+                      <td background="../layout/im/pix-gri-ban.gif" height="1"><img src="../layout/im/tra_pix.gif" width="1" height="1"></td>
+                    </tr>
+                    <tr>
+                      <td background="../layout/im/pix-gri-ban.gif" width="1"><img src="../layout/im/tra_pix.gif" width="1" height="1"></td>
+                      <td bgcolor="#319E84" width="2"><img src="../layout/im/tra_pix.gif" width="2" height="1"></td>
+                      <td colspan="2">
+                        <table width="100%" border="0" cellspacing="0" cellpadding="1">
+                          <tr background="../layout/im/pix-gri-ban.gif">
+                            <td background="../layout/im/pix-gri-ban.gif">
+                              <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                <tr>
+                                  <td width="134" valign="top" bgcolor="#669933">
+                                    <div align="center"> <br>
+                                      <table width="124" height="50" border="0" align="center" cellpadding="0" cellspacing="5" background="../layout/im/sfondo_tab1.gif">
+                                        <tr>
+                                          <td><p class="testoUtente"><strong>Utente:<br>
+                                              ##nomeUtente </strong></p></td>
+                                        </tr>
+                                      </table>
+                                      <br>
+                                      <a href="../controller/nuovaRichiesta.jsp"><img src="../layout/im/tit_sx_richiesta_off.gif" alt="nuova richiesta" width="124" height="29" border="0"></a>
+                                      <br>
+                                      <br>
+                                      <img src="../layout/im/tit_sx_bozze_on.gif" alt="visualizza bozze" width="124" height="29" border="0"><br>
+                                      <a href="../controller/elencoCampioni.jsp"><br>
+                                      <img src="../layout/im/tit_sx_ricerca_off.gif" alt="ricerca" width="124" height="29" border="0"></a><br>
+                                      <a href="../controller/elencoPagamenti.jsp"><br>
+                                      <img src="../layout/im/tit_sx_elencoPagamenti_off.gif" width="124" height="29" border="0" alt="pagamenti"></a><br>
+                                      <a href="javascript:pop('../view/anagraficaUtentePOP.jsp',700,500);"><br>
+                                      <img src="../layout/im/tit_sx_anagraficaUtente_off.gif" alt="anagrafica utente" width="124" height="29" border="0"></a><br>
+                                      <a href="../controller/logout.jsp"><br>
+                                      <img src="../layout/im/tit_sx_logout_off.gif" alt="logout" width="124" height="29" border="0"></a>
+                                      <br>
+                                    </div>
+
+
+
+                                  </td>
+                                  <td width="577" height="450" valign="baseline" bgcolor="#F2F1EA"><br>
+                                    <br>
+                                    @@elencoNo
+                                    <div align="center">
+                                      <h2>Nessuna bozza di richiesta presente nella base dati</h2><br>
+                                    </div>
+                                    @@elencoNo
+                                    @@elencoSi
+                                    <div align="center">
+                                      <h2>Elenco richieste di analisi in bozza</h2><br>
+                                    </div>
+                                    <table width="100%" border="0" cellpadding="2" cellspacing="2">
+                                      <tr>
+                                        <td></td>
+                                        <td bgcolor="#669933">N. Richiesta</td>
+                                        <td bgcolor="#669933">Data</td>
+                                        <td bgcolor="#669933">Materiale</td>
+                                        <td bgcolor="#669933">Descrizione etichetta</td>
+                                        <td bgcolor="#669933">Proprietario</td>
+                                        <td bgcolor="#669933">Richiedente</td>
+                                      </tr>
+                                      <form name="elencoCampioni" method="post" action="../controller/modificaRichiesta.jsp">
+                                        <input type="hidden" name="cancella" value="">
+                                        @@principale
+                                        <tr>
+                                          <td>
+                                            <input type="radio" name="radiobutton" value="$$idRichiesta" $$checked>
+                                          </td>
+                                          <td class="testoCampi">$$idRichiesta</td>
+                                          <td class="testoCampi">$$data</td>
+                                          <td class="testoCampi">$$descMateriale</td>
+                                          <td class="testoCampi">$$descrizioneEtichetta</td>
+                                          <td class="testoCampi">$$proprietario</td>
+                                          <td class="testoCampi">$$richiedente</td>
+                                        </tr>
+                                        @@principale
+                                      </form>
+                                    </table>
+                                    <br>
+                                    <table width="100%" border="0" cellspacing="2" cellpadding="2">
+                                      <tr>
+                                        <td><div align="right"><a href="javascript:document.elencoCampioni.submit();"><img src="../layout/im/b_prosegui.gif" alt="prosegui" width="150" height="16" border="0"></a></div></td>
+                                        <td><a href="javascript: if ( confirm(messaggio) ) popGes('../controller/eliminaRichiesta.jsp',document.elencoCampioni,'canc');"><img src="../layout/im/b_cancella.gif" alt="cancella" width="150" height="16" border="0"></a></td>
+                                      </tr>
+                                    </table> </td>
+                                    @@elencoSi
+                                </tr>
+                              </table>
+                              </td>
+                          </tr>
+                        </table>
+                      </td>
+                      <td bgcolor="#669933"><img src="../layout/im/tra_pix.gif" width="2" height="1"></td>
+                      <td background="../layout/im/pix-gri-ban.gif"><img src="../layout/im/tra_pix.gif" width="1" height="1"></td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr bgcolor="#333333">
+          <td><img src="../layout/im/banner_inf.jpg" width="618" height="14" border="0" alt="CSI-Piemonte l'amministrazione piemontese alla portata di un clic"></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<span class="testoneroCopia"></span><span class="testonero"></span>
+</body>
+@@datiNonCompleti
+<script>
+pop('../view/anagraficaUtentePOP.jsp',700,500);
+//alert("Dati anagrafici non completi!\nSi prega di aggiornarli, grazie!");
+</script>
+@@datiNonCompleti
+</html>

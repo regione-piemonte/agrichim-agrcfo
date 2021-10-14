@@ -1,0 +1,66 @@
+<porta-delegata name="agrichimfo.PolicyEnforcerHelper">
+  <services>
+    <service
+      name="PolicyEnforcerHelper"
+      public-interface-class="it.csi.iride2.policy.interfaces.PolicyEnforcerHelperService">
+      <operations>
+        <operation name="findApplications" type="synch-call">
+          <param-list>
+          </param-list>
+          <ret-val type="it.csi.iride2.policy.entity.Application[]"/>
+        </operation>
+        <operation name="findUseCasesForApplication" type="synch-call">
+          <param-list>
+            <param name="app" type="it.csi.iride2.policy.entity.Application" />
+          </param-list>
+          <ret-val type="it.csi.iride2.policy.entity.UseCase[]"/>
+        </operation>
+        <operation name="findActorsForApplication" type="synch-call">
+          <param-list>
+            <param name="app" type="it.csi.iride2.policy.entity.Application" />
+          </param-list>
+          <ret-val type="it.csi.iride2.policy.entity.Actor[]"/>
+        </operation>
+        <operation name="isApplicationEsistente" type="synch-call">
+          <param-list>
+            <param name="app" type="it.csi.iride2.policy.entity.Application" />
+          </param-list>
+          <ret-val type="boolean"/>
+        </operation>
+        <operation name="isUseCaseEsistente" type="synch-call">
+          <param-list>
+            <param name="useCase" type="it.csi.iride2.policy.entity.UseCase" />
+          </param-list>
+          <ret-val type="boolean"/>
+        </operation>
+        <operation name="isActorEsistente" type="synch-call">
+          <param-list>
+            <param name="actor" type="it.csi.iride2.policy.entity.Actor" />
+          </param-list>
+          <ret-val type="boolean"/>
+        </operation>
+        <operation name="findActorsForUseCase" type="synch-call">
+          <param-list>
+            <param name="useCase" type="it.csi.iride2.policy.entity.UseCase" />
+          </param-list>
+          <ret-val type="it.csi.iride2.policy.entity.Actor[]"/>
+        </operation>
+      </operations>
+    </service>
+  </services>
+  <config>
+    <url-pa>non_usato</url-pa>
+    <pluggable-pd-list chooser-class="it.csi.csi.porte.FixedDelegateChooser">
+      <pluggable-pd
+        name="agrichimfo.PolicyEnforcerHelper.policyEnf"
+        class="it.csi.csi.porte.ejb.PortaDelegataEJB"
+        url-pa="iride2/policy/PolicyEnforcementPoint_PA" >
+        <properties>
+          <property name="java.naming.provider.url" value="@@defPDUtilityEJB.url@@" />
+          <property name="java.naming.factory.initial" value="weblogic.jndi.WLInitialContextFactory" />
+        </properties>
+      </pluggable-pd>
+    </pluggable-pd-list>
+    <queue-manager url="non_usato"/>
+  </config>
+</porta-delegata>

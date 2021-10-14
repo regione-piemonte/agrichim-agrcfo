@@ -1,0 +1,152 @@
+/*! jQuery UI - v1.10.2 - 2013-04-30
+* http://jqueryui.com
+* Includes: jquery#maintoolbar .ui.core.css, jquery#maintoolbar .ui.button.css
+* 
+* Copyright 2013 jQuery Foundation and other contributors Licensed MIT */
+
+
+/* Interaction states ----------------------------------*/
+/*
+#maintoolbar .ui-state-default,
+#maintoolbar .ui-widget-content .ui-state-default,
+#maintoolbar .ui-widget-header .ui-state-default {
+	border: 1px solid transparent;
+	background: none;
+	font-weight: normal;
+	color: #555555;
+}
+
+#maintoolbar .ui-state-hover,
+#maintoolbar .ui-widget-content .ui-state-hover,
+#maintoolbar .ui-widget-header .ui-state-hover,
+#maintoolbar .ui-state-focus,
+#maintoolbar .ui-widget-content .ui-state-focus,
+#maintoolbar .ui-widget-header .ui-state-focus {
+	border: 1px solid #999999;
+	background: #ffffff url(images/ui-bg_highlight-soft_100_ffffff_1x100.png) 50% 50% repeat-x;
+}
+*/
+#maintoolbar .ui-state-active,
+#maintoolbar .ui-widget-content .ui-state-active,
+#maintoolbar .ui-widget-header .ui-state-active,
+#maintoolbar .ui-state-down{
+	/*border: 1px solid #aaaaaa;*/
+	background: #a00 50% 50%;
+}
+/*
+fieldset {border: 1px solid #CCCCCC;}
+
+#dia_metadataexplorer .ui-widget-content .ui-state-hover
+{
+	border: 1px solid #999999;
+	background: #ddd;
+}
+
+
+.ui-icon,
+.ui-widget-content .ui-icon {
+	background-image: url(images/icone_geoportale.png);
+}
+.ui-widget-header .ui-icon {
+	background-image: url(images/icone_geoportale.png);
+}
+.ui-state-default .ui-icon {
+	background-image: url(images/icone_geoportale.png);
+}
+.ui-state-hover .ui-icon,
+.ui-state-focus .ui-icon {
+	background-image: url(images/icone_geoportale.png);
+}
+.ui-state-active .ui-icon {
+	background-image: url(images/icone_geoportale.png);
+}
+.ui-state-highlight .ui-icon {
+	background-image: url(images/icone_geoportale.png);
+}
+.ui-state-error .ui-icon,
+.ui-state-error-text .ui-icon {
+	background-image: url(images/icone_geoportale.png);
+}
+
+
+#dia_me_form button {width: 80px;}
+
+#tabs .ui-widget-header {
+    border-top-left-radius: 0px !important;
+    border-top-right-radius: 0px !important;
+    border-bottom-left-radius: 0px !important;
+    border-bottom-right-radius: 0px !important;
+}
+
+#maintoolbar button{
+	border: 1px solid #3b3b3b !important;
+	border-left-color: #6b6b6b !important;
+	border-top-color: #939393 !important;
+	border-radius: 5px;
+	margin: 0px;
+}
+#maintoolbar2 label{
+	border: 1px solid #3b3b3b !important;
+	border-left-color: #6b6b6b !important;
+	border-top-color: #939393 !important;
+	border-radius: 5px;
+	margin: 0px;
+}
+#maintoolbar, #maintoolbar2{
+	padding: 2px;
+	border: 1px solid #3b3b3b !important;
+	border-left-color: #6b6b6b !important;
+	border-top-color: #939393 !important;
+	border-radius: 5px;
+}
+
+
+
+#maintoolbar .ui-button-icon-only .ui-icon {
+    margin: 0px !important;
+    position: absolute !important;
+    top: 0px !important;
+	left: 0px !important;
+}
+button.ui-button-icon-only {
+    width: 32px;
+	height: 32px;
+}
+.ui-icon{
+	height: 30px;
+	width: 30px;
+}
+
+#maintoolbar .ui-state-default .ui-icon {
+	background-image: url(images/icone_toolbar_veronica.png) !important;
+}
+#maintoolbar .ui-icon-arrow-4 {
+	background-position: -180px 0px;
+}
+
+#maintoolbar .ui-icon-extlink{
+    background-position: -90px 0px;
+}
+#maintoolbar .ui-icon-arrow-4-diag{
+    background-position: -150px 0px;
+}
+#maintoolbar .ui-icon-arrowthick-1-w{
+    background-position: -60px 0px;
+}
+#maintoolbar .ui-icon-arrowthick-1-e{
+    background-position: -30px 0px;
+}
+#maintoolbar .ui-icon-minusthick{
+    background-position: -120px 0px;
+}
+#maintoolbar .ui-icon-info{
+    background-position: -120px 0px;
+}
+#maintoolbar .ui-icon-circle-zoomin{
+    background-position: -210px 0px;
+}
+#maintoolbar .ui-icon-circle-zoomout{
+    background-position: -240px 0px;
+}
+*/
+

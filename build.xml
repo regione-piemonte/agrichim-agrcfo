@@ -1,0 +1,664 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+		Copyright 2006 (c) CSI Piemonte.
+
+        build.xml file per compilazione, rilascio e deploy. del
+
+        Per una lista completa dei tasks eseguibili usare l'argomento di
+        ant -projecthelp quando si richiama questo build.xml.
+
+-->
+
+<project name="agrichimfo" xmlns:ivy="antlib:fr.jayasoft.ivy.ant" default="default">
+	<description>Build file di progetto</description>
+
+	<echo message="Loading build properties..." />
+  <property environment="env" />
+    
+	<loadproperties srcfile="buildfiles/build.properties"/>
+  <loadproperties srcfile="buildfiles/${target}.properties"/>
+
+	<property name="lib" location="lib" />
+
+	<target name="default" description="Eseguire il build per
+		l'environment specificato a linea di comando con -Dtarget=${target}
+		o per tutti gli environment (se non specificato).">
+
+		<condition property="first-call" value="distribution">
+			<not>
+				<equals arg1="${target}" arg2="$${target}" />
+			</not>
+		</condition>
+
+		<!-- condition property="first-call" value="all-targets"-->
+		<condition property="first-call" value="about">
+			<equals arg1="${target}" arg2="$${target}" />
+		</condition>
+
+		<echo message="target: ${target}" />
+		<echo message="first-call: ${first-call}" />
+
+		<antcall target="${first-call}" />
+	</target>
+
+
+	<target name="all-targets" description="Esegue il build per le varie distribuzioni in sequenza.">
+
+		<antcall target="distribution">
+			<param name="target" value="dev" />
+		</antcall>
+
+		<antcall target="distribution">
+			<param name="target" value="test" />
+		</antcall>
+
+		<antcall target="distribution">
+			<param name="target" value="coll" />
+		</antcall>
+
+		<antcall target="distribution">
+			<param name="target" value="prod" />
+		</antcall>
+	</target>
+
+
+	<target name="package-all" description="esegue il packaging di ogni componente del prodotto" >
+  	<!-- loadproperties srcfile="buildfiles/${target}.properties"/ -->
+		<antcall target="package-war" />
+	</target>
+
+	<target name="init" description="Inizializza lo script Ant.">
+		<tstamp />
+		<condition property="target" value="dev">
+			<equals arg1="${target}" arg2="$${target}" />
+		</condition>
+		<mkdir dir="${build}/classes" />
+		<mkdir dir="${build}/archives/${target}" />
+		<mkdir dir="${dist}/${target}" />
+		<mkdir dir="${build}/javadoc" />
+		<mkdir dir="${build}/jsp" />
+	</target>
+
+
+	<target name="resolve-dependencies" description="carica le librerie dal repository remoto"  unless="lib.keep">
+		<ivy:configure file="buildfiles/ivyconf.xml" />
+		<ivy:resolve file="buildfiles/ivy.xml" />
+	</target>
+
+
+	<target name="load-dependencies" depends="resolve-dependencies"
+			description="Risolve le dipendenze esterne." unless="lib.keep">
+    <ivy:retrieve pattern="lib/[artifact].[type]" />
+	</target>
+
+        <target name="make-classpaths" depends="load-dependencies"
+			description="Crea tutte le variabili classpath necessarie.
+                        	Bisogna prima avere tutte le librerie necessarie in ${lib}
+				altrimenti non funziona niente">
+
+		<fileset dir="${lib}" id="library.ref" includes="${library.names.internal}" />
+		<pathconvert property="library.classpath.internal.javac" refid="library.ref" pathsep=";"/>
+		<pathconvert property="library.classpath.internal.ear" refid="library.ref" pathsep=" ">
+			<map from="${lib}\" to="lib/"/>
+			<map from="${lib}/" to="lib/"/>
+		</pathconvert>
+
+		<fileset dir="${lib}" id="library.ref.external" includes="${library.names.external}" />
+		<pathconvert property="library.classpath.external.javac" refid="library.ref.external" pathsep=";"/>
+
+		<echo/>
+		<echo>library.names.internal=${library.names.internal}</echo>
+		<echo>library.classpath.internal.javac=${library.classpath.internal.javac}</echo>
+		<echo>library.classpath.internal.ear=${library.classpath.internal.ear}</echo>
+		<echo/>
+		<echo>library.names.external=${library.names.external}</echo>
+		<echo>library.classpath.external.javac=${library.classpath.external.javac}</echo>
+	</target>
+
+
+	<target name="compile-all" description="Compila tutti i sorgenti."
+		depends="init, make-classpaths" >
+
+		<echo message="===> Target: ${target}" />
+
+		<javac srcdir="${src}/java"
+			destdir="${build}/classes"
+			optimize="on"
+			deprecation="on"
+			compiler="modern"
+			debug="on" debuglevel="lines,vars,source"
+      encoding="ISO-8859-15">
+			<!--classpath refid="library.ref"/-->
+			<classpath path="${library.classpath.internal.javac};${library.classpath.external.javac}"/>
+		</javac>
+
+		<copy todir="${build}/classes">
+			<fileset dir="${src}/java" excludes="**/*.java*,**/*.jbx*"/>
+		</copy>
+
+	</target>
+
+	<target name="presentation-jar" description="Genera il jar per il package presentation.">
+		<jar destfile="${build}/archives/${target}/${component}_presentation.jar"
+			basedir="${build}/classes"
+			includes="it/csi/${project}/presentation/**">
+			<manifest>
+				<attribute name="Class-Path" value="${library.classpath.generated.ear} ${library.classpath.internal.ear}"/>				
+				<attribute name="Built-By" value="${user.name}" />
+				<attribute name="Built-Date" value="${DSTAMP}" />
+				<attribute name="Target" value="${target}" />
+			</manifest>
+		</jar>
+	</target>
+
+
+	<target name="commons-jar" description="Genera il jar per le classi comuni.">
+      		<mkdir dir="${temp}" />
+
+		<jar destfile="${build}/archives/${target}/${component}_commons.jar"
+			basedir="${build}/classes"
+			includes="it/csi/${project}/dto/**,
+			          it/csi/${project}/exception/**,
+			          it/csi/${project}/util/**">
+			<manifest>
+				<attribute name="Class-Path" value="${library.classpath.generated.ear} ${library.classpath.internal.ear}"/>
+				<attribute name="Built-By" value="${user.name}" />
+				<attribute name="Built-Date" value="${DSTAMP}" />
+				<attribute name="Target" value="${target}" />
+			</manifest>
+		</jar>
+	</target>
+
+	<!-- pre-compilazione delle jsp -->
+	<target name="compile-jsp" description="compila le jsp per il rilascio del war"
+			if="jsp.precompile" unless="web.disabled">
+		<ant target="compile-jsp-weblogic" />
+	</target>
+
+	<target name="compile-jsp-weblogic" description="compila le jsp per weblogic">
+
+		<echo message="Compiling jsp to ${build}/jsp ..." />
+
+		<mkdir dir="${temp}/WEB-INF/lib" />
+		<mkdir dir="${temp}/WEB-INF/classes" />
+
+		<!-- Copio tutta la parte web in temp -->
+		<copy todir="${temp}">
+			<fileset dir="${web}" excludes="${target-war-exclude}" />
+		</copy>
+
+		<!-- copio le classi in temp/WEB-INF/classes -->
+		<copy todir="${temp}/WEB-INF/classes">
+			<fileset dir="${build}/classes">
+				<include name="**" />
+			</fileset>
+		</copy>
+
+		<path id="libraryPrecompile.ref">
+			<fileset dir = "${env.JAVA_HOME_SERVER}/lib">
+				<include name="**/*.jar" />
+			</fileset>
+			<fileset dir="lib">
+				<include name="**/*.jar" />
+				<include name="**/*.zip" />
+			</fileset>
+		</path>
+
+    <echo message="inizio precompilazione" />
+		<java classname="weblogic.appc"
+          classpathref="libraryPrecompile.ref"
+          failonerror="true"
+          fork="true"
+          maxmemory="1024M"
+          output="${build}/precompile.log">
+        <arg line="-output ${build}/jsp -keepgenerated -compiler javac -verbose ${temp}" />
+	  </java>
+
+	</target>
+
+
+	<target name="environment-config" description="Predispone le configurazioni dipendenti dall'ambiente.">
+            <copy todir="${temp}">
+                    <fileset dir="${conf}/ear">
+                      <include name="application.xml" />
+                    </fileset>
+            </copy>
+	</target>
+
+
+	<!-- Configurazione dei file -->
+	<target name="config">
+		<mkdir dir="${temp}/WEB-INF" />
+
+    <!-- imposta il filtro da utilizzare per rimpiazzare i segnaposto automaticamente durante la copia dei file -->
+    <echo message="Uso file di property buildfiles/${target}.properties"/>
+    <filterset id="replacetags" begintoken="@@" endtoken="@@">
+      <filtersfile file="buildfiles/${target}.properties"/>
+    </filterset>
+
+		<!-- copio i file xml necessari in ${temp}/WEB-INF -->
+		<copy todir="${temp}/WEB-INF" >
+			<fileset dir="${conf}/war/WEB-INF" excludes="${target-war-exclude}" />
+      <filterset refid="replacetags"/>
+		</copy>
+
+		<!-- copio stylereport.properties e papua config in ${build}/classes/ -->
+		<copy todir="${build}/classes">
+			<fileset dir="${conf}/application" includes="stylereport.properties" />
+			<fileset dir="${conf}/application" includes="sigwgssrvSigwgssrv.wsdl" />
+			<fileset dir="${conf}/application" includes="config.properties" />
+		</copy>
+
+		<antcall target="__declusterize" />
+    
+	</target>
+
+	<!-- Eliminazione del tag distributable del web.xml per ambienti a singolo server -->
+	<target name="__declusterize" if="noCluster">
+    <replace file="${temp}/WEB-INF/web.xml" token="&lt;distributable/&gt;" value=""/>
+	</target>
+
+	<!-- Creazione dell'archivio war -->
+	<target name="package-war" if="web.enabled"
+		depends="config, compile-all, compile-jsp"
+		description="Rilascia il web archive per lo strato web.">
+
+		<!--war destfile="${build}/archives/${target}/${war.file}"
+                     webxml="conf/war/web.xml"
+                     roundup= "false"-->
+		<!--war destfile="${build}/archives/${target}/${war.file}"
+                     webxml="${conf}/war/web.xml"
+                     roundup= "false"-->
+
+		<echo message="target-war-exclude: ${target-war-exclude}" />
+		<echo message="library.names.internal: ${library.names.internal}" />
+
+		<copy todir="${temp}/web">
+			<fileset dir="${web}" excludes="**/web.xml, **/jboss-web.xml, **/defPDPEPEJB.xml, **/defPDUtilityEJB.xml, **/pdAnagService.xml, ${target-war-exclude}" />
+		</copy>
+		<replaceregexp 
+			file="${temp}/WEB-INF/pdAnagService.xml" 
+			match="&lt;property[ ]+name=&quot;java.naming.provider.url&quot;[ ]+value=&quot;(.*)" 
+			replace="&lt;property name=&quot;java.naming.provider.url&quot; value=&quot;${pd.smrgaasv.url}&quot; />" 
+			byline="true" />
+		
+		<replaceregexp match="/\*[ ]*CODICE_PER_ACCEDERE_SENZA_SISTEMA_DI_AUTENTICAZIONE_BEGIN[ ]*\*/(.*)/\*[ ]*CODICE_PER_ACCEDERE_SENZA_SISTEMA_DI_AUTENTICAZIONE_END[ ]*\*/"
+					   replace=""
+					   flags="s"
+					   byline="false">
+					   <fileset dir="${temp}" includes="**/**"/>
+		</replaceregexp>
+		
+		<replaceregexp match="(\\b)*papuaserv.profilazione.rest.baseurl(.)+" replace="papuaserv.profilazione.rest.baseurl=${papuaserv.profilazione.rest.baseurl}" flags="m" byline="true">
+			<fileset dir="${build}/classes" includes="config.properties" />
+		</replaceregexp>
+
+		<war destfile="${build}/archives/${target}/${war.file}"
+                     webxml="${temp}/WEB-INF/web.xml"
+                     roundup= "false">
+
+			<fileset dir="${temp}/web" excludes="**/web.xml, **/jboss-web.xml, **/defPDPEPEJB.xml, **/defPDUtilityEJB.xml, **/pdAnagService.xml, ${target-war-exclude}">
+				<!-- esclude i file creati e copiati da JBuilder -->
+				<exclude name="WEB-INF/classes/**"/>
+				<exclude name="WEB-INF/lib/**"/>
+			</fileset>			
+			<webinf dir="${temp}/WEB-INF" includes="jboss-web.xml, defPDPEPEJB.xml, defPDUtilityEJB.xml, pdAnagService.xml" />
+			<classes dir="${build}/jsp" excludes="${target-war-exclude}" />
+			<!-- classes dir="${build}/classes" excludes="**/*.java" / -->
+			<classes dir="${build}/classes" includes="**" />
+			<lib dir="${lib}" includes="${library.names.internal}" />
+
+			<manifest>
+				<!--attribute name="Class-Path" value="commons.jar lib/util-perf-1.0.0.jar lib/struts-1.2.7.jar lib/antlr-2.7.4.jar lib/commons-beanutils-1.7.0.jar lib/commons-digester-1.6.jar lib/commons-fileupload-1.0.jar lib/commons-logging-1.0.4.jar lib/commons-validator-1.1.4.jar lib/jakarta-oro-2.0.7.jar"/-->
+				<!-- attribute name="Class-Path" value="${library.classpath.generated.ear} ${library.classpath.internal.ear}"/ -->
+				<attribute name="Class-Path" value="${library.classpath.internal.ear}"/>
+				<attribute name="Dependencies" value="org.apache.cxf export, org.apache.cxf.impl export"/>
+				<attribute name="Built-By" value="${user.name}" />
+				<attribute name="Built-Date" value="${DSTAMP}" />
+				<attribute name="Target" value="${target}" />
+			</manifest>
+		</war>
+
+	</target>
+
+
+	<target name="integration-jar" description="Genera il jar per lo strato integration." >
+
+		<jar jarfile="${build}/archives/${target}/${component}_integration.jar">
+			<fileset dir="${build}/classes">
+				<include name="it/csi/${project}/integration/**"/>
+			</fileset>
+
+			<manifest>
+				<!--attribute name="Class-Path" value="commons.jar lib/util-perf-1.0.0.jar"/-->
+				<attribute name="Class-Path" value="${library.classpath.generated.ear} ${library.classpath.internal.ear}"/>
+				<attribute name="Built-By" value="${user.name}" />
+				<attribute name="Built-Date" value="${DSTAMP}" />
+				<attribute name="Target" value="${target}" />
+			</manifest>
+		</jar>
+	</target>
+
+
+	<target name="package-ear"  description="costruisce l&apos;ear"
+		depends="compile-all, commons-jar, package-war, integration-jar, presentation-jar, build_jaws, environment-config">
+
+		<mkdir dir="${temp}/${target}/lib" />
+		<copy todir="${temp}/${target}/lib">
+			<!--fileset dir="${lib}"
+				includes="**/*.jar, **/*.zip"
+				excludes="**/weblogic*.jar, **/log4j-1.2.8.jar, **/*.xml" /-->
+			<fileset dir="${lib}"
+				includes="${library.names.internal}"
+				excludes="**/weblogic-*.jar, **/log4j-*.jar, **/*.xml" />
+		</copy>
+
+		<ear appxml="${temp}/application.xml" destfile="${build}/archives/${target}/${component}.ear">
+			<fileset dir="${build}/archives/${target}" includes="*.jar,*.war" />
+			<fileset dir="${temp}/${target}" >
+				<include name="**/*"/>
+			</fileset>
+			<manifest>
+				<attribute name="Built-By" value="${user.name}" />
+				<attribute name="Built-Date" value="${DSTAMP}" />
+				<attribute name="Target" value="${target}" />
+			</manifest>
+		</ear>
+
+
+		<echo/>
+		<antcall target="__make_zip" />
+		<antcall target="__copy_ear" />
+		<antcall target="__weblogic_deploy" />
+
+		<delete dir="${temp}" />
+	</target>
+
+	<target name="__copy_ear" if="copyear">
+		<copy todir="${copyear}" file="${build}/archives/${target}/${component}.ear" verbose="true" />
+	</target>
+
+	<!-- Parte Java Webstart -->
+	<target name="build_jaws" if="jaws.enabled">
+		  <antcall target="__build_jaws" />
+	</target>
+
+	<target name="__build_jaws" description="costruisce il war per il client jaws"
+
+		depends="__jaws_init, __client_jaws_jar, __build_business_client_jar, __sign_jar_jaws">
+		<!--
+			1. Costruisco il jar del client
+			2. Costruisco un jar della parte business con le interfacce
+			3. Sposto tutti i jar in una cartella per firmarli
+			4. Costruisco il war
+		-->
+
+		<!-- al momento non utilizziamo la JnlpDownloadServlet -->
+		<!--copy todir="${temp}/${target}/jaws/WEB-INF/lib">
+			<fileset dir="buildfiles" includes="jnlp-servlet.jar, jardiff.jar" />
+			<fileset dir="${lib}" includes="jaxp-1.2.2.jar" />
+		</copy-->
+
+		<copy todir="${temp}/${target}/jaws">
+			<fileset dir="${jaws}" includes="*.jsp, *.html" />
+		</copy>
+
+		<copy todir="${temp}/${target}/jaws/app">
+			<fileset dir="${conf}/war/jaws" includes="*.jnlp" />
+			<!--fileset dir="${conf}/war/jaws" includes="version.xml" /-->
+		</copy>
+
+		<replace file="${temp}/${target}/jaws/app/client.jnlp"
+					value="${jaws.url.http}/project-jaws/" token="@1@"/>
+
+		<war destfile="${build}/archives/${target}/${jaws.war}"
+			webxml="conf/war/jaws/web.xml" roundup="false">
+			<fileset dir="${temp}/${target}/jaws" includes="**" />
+		</war>
+		<delete dir="${temp}/${target}/jaws" />
+	</target>
+
+	<target name="__jaws_init">
+		<mkdir dir="${temp}/${target}/jaws/WEB-INF/lib" />
+		<mkdir dir="${temp}/${target}/jaws/app" />
+	</target>
+
+	<!-- Costruisco il jar del client  -->
+	<target name="__client_jaws_jar">
+
+		<jar jarfile="${temp}/${target}/jaws/app/${jaws.client.jar}">
+			<fileset dir="${build}/classes">
+				<include name="it/csi/${project}/client/**" />
+			</fileset>
+			<fileset dir="${build}/classes/"  includes="jaws.properties"/>
+			<fileset dir="${conf}/war/jaws" includes="log4j.properties" />
+		</jar>
+
+	</target>
+
+	<!-- Costruisco un jar della parte business con le interfacce -->
+	<target name="__build_business_client_jar" description="Genera il jar per lo strato business utilizzato dal client." >
+
+		<!-- File di properties per la configurazione del delegate -->
+		<!--copy todir="${temp}/${target}/jaws" file="conf/delegate/delegate.properties" />
+		<replace file="${temp}/${target}/jaws/delegate.properties" token="@INIT_CONTEXT@" value="${jaws.initialContextFactory}" />
+		<replace file="${temp}/${target}/jaws/delegate.properties" token="@URL_T3@" value="${jaws.url.t3}" />
+		<replace file="${temp}/${target}/jaws/delegate.properties" token="@COD_FISC_EJB@" value="${jaws.codicefiscalemanager.ejb}" />
+		<replace file="${temp}/${target}/jaws/delegate.properties" token="@PIVA_EJB@" value="${jaws.partitaivamanager.ejb}" />
+		<replace file="${temp}/${target}/jaws/delegate.properties" token="@PERSONA_EJB@" value="${jaws.persona.ejb}" />
+		<replace file="${temp}/${target}/jaws/delegate.properties" token="@APP_NAME@" value="${component}" />
+		<move todir="${build}/classes/it/csi/${project}/business/delegate" file="${temp}/${target}/jaws/delegate.properties" /-->
+
+		<jar jarfile="${temp}/${target}/jaws/app/${jaws.business.jar}">
+			<fileset dir="${build}/classes">
+				<include name="it/csi/${project}/business/**"/>
+				<exclude name="it/csi/${project}/business/**/*Bean.class"/>
+			</fileset>
+			<metainf dir="${conf}/ejb" >
+				<patternset id="all-xml" >
+					<include name="**/*.xml"/>
+				</patternset>
+			</metainf>
+
+			<manifest>
+				<!--attribute name="Class-Path" value="commons.jar lib/util-perf-1.0.0.jar"/-->
+				<attribute name="Class-Path" value="${library.classpath.generated.ear} ${library.classpath.internal.ear}"/>
+				<attribute name="Built-By" value="${user.name}" />
+				<attribute name="Built-Date" value="${DSTAMP}" />
+				<attribute name="Target" value="${target}" />
+			</manifest>
+		</jar>
+		<delete file="${build}/classes/it/csi/${project}/business/delegate/delegate.properties" />
+	</target>
+
+	<!-- firmo tutti i jar -->
+	<!-- e' stato creato un keyStore di esempio i cui parametri sono definiti in build.properties -->
+	<target name="__sign_jar_jaws" description="firma i jar della parte java webstart">
+		<copy todir="${temp}/${target}/jaws/app">
+			<fileset dir="${build}/archives/${target}" includes="commons.jar, ${jaws.business.jar}" />
+			<fileset dir="${lib}" includes="weblogic-client*.jar, log4j*.jar, util-perf-1.0.0.jar" />
+		</copy>
+		<signjar alias="${signalias}" storepass="${storepass}" keypass="${keypass}" keystore="${keystore}">
+			<fileset dir="${temp}/${target}/jaws/app" includes="*.jar" />
+		</signjar>
+	</target>
+
+
+	<target name="distribution-jenkins"
+          description="Costruisce il tar per la distribuzione."
+          unless="env.XDOCLET_VERSION">
+
+		<echo>====== Creating distribution for ${target} ...</echo>
+		<echo>====== Basedir: ${build}/archives/${target} ... </echo>
+
+    <antcall target="clean-all" />
+    <antcall target="package-all" />
+
+		<tar tarfile="${dist}/${target}/${component}-${version}.tar"
+			basedir="${build}/archives/${target}" includes="${war.file}" >
+			<tarfileset dir="buildfiles">
+				<include name="readme.txt"/>
+			</tarfileset>
+		</tar>
+
+		<delete>
+			<fileset dir="${dist}/${target}" excludes="**/*.tar" />
+		</delete>
+
+	</target>
+
+	<target name="distribution-rm" if="env.XDOCLET_VERSION">
+    <antcall target="init" />
+		<delete dir="${dist}/${target}" />
+		<mkdir dir="${dist}/${target}" />
+		<tar tarfile="${dist}/${target}/${component}-${version}.tar" basedir="buildfiles" includes="ADAdeploy.txt" />
+	</target>
+
+	<target name="distribution">
+    <echo message="env.XDOCLET_VERSION = ${env.XDOCLET_VERSION}"/>
+    <antcall target="distribution-rm" />
+    <antcall target="distribution-jenkins" />
+	</target>
+
+
+	<!-- clean targets -->
+
+	<target name="clean-all"
+	    	description="Rimuove tutte le cartelle temporanee."
+    	depends="clean-archives, clean-dist, clean-cache, clean-classes, clean-javadoc, clean-jsp, clean-temp"/>
+
+	<!-- target name="clean-cache" unless="target"
+	    	description="Rimuove la cartella di cache di Ivy e la lib SOLO SE ${target} NON È SPECIFICATO." -->
+	<target name="clean-cache" description="Rimuove la cartella di cache di Ivy e la lib" unless="lib.keep">
+		<delete dir="${build}/cache" />
+		<delete dir="${lib}" />
+
+	</target>
+
+	<target name="clean-temp"
+    		description="Rimuove la cartella dei files temporanei di build.">
+
+		<delete dir="${temp}" />
+
+	</target>
+
+
+	<target name="clean-archives"
+	    	description="Rimuove la cartella degli archivi (war, ear, ...).">
+
+		<delete dir="${build}/archives"/>
+
+	</target>
+
+	<target name="clean-dist"
+	    	description="Rimuove la cartella della distribuzione.">
+
+		<delete dir="${dist}/${target}"/>
+
+	</target>
+
+
+
+	<target name="clean-classes"
+	    	description="Rimuove la cartella dei sorgenti compilati.">
+
+		<delete dir="${build}/classes"/>
+
+	</target>
+
+
+	<target name="clean-javadoc"
+			description="Rimuove la cartella temporanea dei javadoc.">
+
+		<delete dir="${build}/javadoc"/>
+
+	</target>
+
+
+	<target name="clean-jsp"
+			description="Rimuove la cartella temporanea delle jsp compilate.">
+
+		<delete dir="${build}/jsp"/>
+
+	</target>
+
+
+	<target name="_clean-web-inf"
+			description="Rimuove il contenuto di lib e classes della web application (per run locali).">
+
+		<delete dir="${web}/WEB-INF/classes" />
+		<delete dir="${web}/WEB-INF/lib" />
+
+	</target>
+
+
+	<!-- imported tasks from other files -->
+
+	<target name="javadoc" depends="init"
+    		description="Genera la documentazione javadoc.">
+
+		<ant antfile="buildfiles/build.javadoc.xml" target="javadoc"/>
+
+	</target>
+
+
+	<target name="_copy-to-web-inf"
+			description="Copia le classi e la lib sotto WEB-INF (per run locali)."
+                        depends="_clean-web-inf, compile-all">
+		<!-- BACO -->
+		<!--copy todir="${web}/web/conc/WEB-INF/classes"-->
+		<copy todir="${web}/WEB-INF/classes">
+			<fileset dir="${build}/classes">
+				<include name="**/*"/>
+			</fileset>
+		</copy>
+
+		<!-- MODIFICA -->
+		<!-- copy todir="${src}/web/conc/WEB-INF/lib" -->
+		<copy todir="${web}/WEB-INF/lib">
+			<fileset dir="${lib}">
+				<exclude name="weblogic*.jar"/>
+			</fileset>
+		</copy>
+
+	</target>
+
+
+	<target name="about" description="Visualizza l'elenco dei target pubblici dello script." >
+		<loadproperties srcfile="buildfiles/build.properties" />
+		<loadfile property="about" srcfile="buildfiles/about.txt" />
+		<echo message="${about}" />
+	</target>
+
+	<target name="about-custom" description="Visualizza l'elenco di tutti i target, pubblici e privati (equivalente a 'ant -projecthelp')">
+		<loadproperties srcfile="buildfiles/build.properties" />
+		<loadfile property="about-custom" srcfile="buildfiles/about-custom.txt" />
+		<echo message="${about-custom}" />
+		<java classname="org.apache.tools.ant.Main">
+			<arg value="-projecthelp" />
+		</java>
+	</target>
+
+	<target name="show-vars" depends="init"
+	          description="Visualizza tutte le variabili impostate nei file di properties e/o da linea di comando">
+		<echo message="*****************************************"/>
+		<echo message="********  ${component} environment  *******" />
+		<echo message="*****************************************"/>
+		<echoproperties />
+		<echo />
+		<echo />
+		<echo message="*****************************************"/>
+		<echo message="********    java properties      *******" />
+		<echo message="*****************************************"/>
+		<echoproperties prefix="java."/>
+
+	</target>
+
+	<target name="__make_zip" if="makezip" description="crea lo zip contenente i sorgenti">
+		<zip destfile="${dist}/${component}-${version}.zip"
+				basedir="." includes="build.xml,buildfiles/**,src/**,conf/**" excludes="**/.svn/**, **/*.bak" >
+		</zip>
+	</target>
+
+</project>

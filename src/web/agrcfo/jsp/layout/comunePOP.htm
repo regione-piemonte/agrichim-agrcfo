@@ -1,0 +1,81 @@
+<html>
+<head>
+<title>Servizio AGRICHIM</title>
+<META HTTP-EQUIV="Pragma" CONTENT="no-cache">
+<META HTTP-EQUIV="Cache-Control" CONTENT="no-cache">
+<script>
+function conferma()
+{
+  var msg="";
+  if ( document.selezionaComune.idProvinciaSearch.value == "-1" )
+    msg=msg+"Selezionare una provincia\n";
+  if ( document.selezionaComune.comune.value == "-1" )
+    msg=msg+"Selezionare un comune\n";
+
+  if ( msg != "" )
+  {
+    alert( "Dati incompleti\n\n"+msg );
+  }
+  else
+  {
+    window.opener.leggiComune(document.selezionaComune.comune);
+    window.close();
+  }
+}
+
+// se flagFocus=true, viene invocato window.opener.focus()
+// all'unLoad della pagina
+var flagFocus=true;
+</script>
+<link href="../layout/css/format.css" rel="stylesheet" type="text/css">
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"></head>
+
+<body text="#000000" onLoad="window.focus();" onUnload="if (flagFocus) window.opener.focus();">
+<form name="selezionaComune" method="post" action="../view/comunePOP.jsp">
+  <table width="361" border="0" cellpadding="2" cellspacing="2" class="boxborder">
+    <tr>
+      <td width="357">
+        <div align="center">
+          <h2>Seleziona il comune <strong><br>
+            <br>
+            </strong> </h2>
+          <table width="100%" border="0">
+            <tr>
+              <td width="11%">Provincia</td>
+              <td width="89%">
+                <select name="idProvinciaSearch" size="1" class="testoCampi" onChange="flagFocus=false; document.selezionaComune.submit();">
+                  <option value="-1">--------</option>
+                  @@provincia
+                  <option value="$$idProvincia" $$selected>$$siglaProvincia</option>
+                  @@provincia
+                </select>
+              </td>
+            </tr>
+            <tr>
+              <td>Comune</td>
+              <td>
+                <select name="comune" class="testoCampi">
+                  <option value="-1">--------</option>
+                  @@comune
+                  <option value="$$codiceIstat" $$selected>$$descrizione</option>
+                  @@comune
+                </select>
+              </td>
+            </tr>
+          </table>
+          <br>
+          <table width="100%" border="0" cellspacing="2" cellpadding="2">
+            <tr>
+              <td><div align="right"><a href="javascript:conferma();"><img src="../layout/im/b_conferma.gif" alt="conferma" width="150" height="16" border="0"></a></div></td>
+              <td><a href="javascript:window.close();"><img src="../layout/im/b_annulla.gif" alt="annulla" width="150" height="16" border="0"></a></td>
+            </tr>
+          </table>
+          <br>
+          <br>
+        </div>
+      </td>
+    </tr>
+  </table>
+</form>
+</body>
+</html>

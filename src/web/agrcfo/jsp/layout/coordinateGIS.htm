@@ -1,0 +1,769 @@
+<html>
+<head>
+<title>Servizio AGRICHIM</title>
+<META HTTP-EQUIV="Pragma" CONTENT="no-cache">
+<META HTTP-EQUIV="Cache-Control" CONTENT="no-cache">
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<script src="../layout/js/gestione.js"></script>
+<script src="../layout/js/isNumber.js"></script>
+<script src="../layout/js/fase2.js"></script>
+<script>
+ var figlio;
+</script>
+<link href="../layout/css/format.css" rel="stylesheet" type="text/css">
+
+
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    
+  
+  
+	<script type="text/javascript" src="/assets/application/agrichim/gis/js/ricerche/ric_comuni_sez_pr.js"></script>
+
+	<link rel="stylesheet" type="text/css" href="/assets/application/agrichim/gis/css/jquery-ui-1.10.2.toolbar.css"/>
+	<link rel="stylesheet" type="text/css" href="/assets/application/agrichim/gis/css/style.css"/>
+	<link rel="stylesheet" type="text/css" href="/assets/application/agrichim/gis/css/ol_style.css"/>
+	<link rel="stylesheet" type="text/css" href="/assets/application/agrichim/gis/lib/tablesorter/blue/style.css"/>
+	<link rel="stylesheet" type="text/css" href="/assets/application/agrichim/gis/css/jqlayout-csi.css"/>
+
+<!-- 	# google api -->
+	<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?v=3.9&sensor=false"></script>
+	
+<!-- 	# JS -->
+<!-- 	# multilingua -->
+    <script type="text/javascript" src="/assets/application/agrichim/gis/js/lang/IT.js"></script>
+	<script type="text/javascript" src="/assets/application/agrichim/gis/js/lang/translate.js"></script>
+<!-- 	# librerie -->
+	<script type="text/javascript" src="/assets/application/agrichim/gis/lib/openlayers/OpenLayers-2.12.js"></script>
+	<script type="text/javascript" src="/assets/application/agrichim/gis/lib/openlayers/oloverride_updatesize.js"></script>	
+	<script type="text/javascript" src="/assets/application/agrichim/gis/lib/proj4js/lib/proj4js-compressed.js"></script>
+	
+	<script type="text/javascript" src="/assets/application/agrichim/gis/lib/proj4js/lib/defs/EPSG32632.js"></script>
+	<script type="text/javascript" src="/assets/application/agrichim/gis/lib/proj4js/lib/defs/EPSG900913.js"></script>
+	
+	<script type="text/javascript" src="/assets/application/agrichim/gis/lib/jquery/jquery-1.9.0.min.js"></script>
+	
+<!-- 	# per caricare dinamicamente js e css -->
+	<script type="text/javascript" src="/assets/application/agrichim/gis/lib/jquery/rloader1.5.4_fin.js"></script>
+	
+	<script type="text/javascript" src="/assets/application/agrichim/gis/lib/jquery/jquery.tmpl.js"></script>
+	<script type="text/javascript" src="/assets/application/agrichim/gis/lib/jquery/jquery-ui-1.10.0/js/jquery-ui-1.10.0.custom.min.js"></script>
+	<script type="text/javascript" src="/assets/application/agrichim/gis/lib/jquery/jquery.multi-accordion-1.5.3.js"></script>
+	<script type="text/javascript" src="/assets/application/agrichim/gis/lib/jquery/jquery.selectableScroll.js"></script>
+	<script type="text/javascript" src="/assets/application/agrichim/gis/lib/jquery/jquery.cookie.js"></script>
+	<link rel="stylesheet" type="text/css" href="/assets/application/agrichim/gis/lib/dynatree/skin/ui.dynatree.css"/>
+	<script type="text/javascript" src="/assets/application/agrichim/gis/lib/dynatree/jquery.dynatree.min.js"></script>
+	<script type="text/javascript" src="/assets/application/agrichim/gis/lib/tablesorter/table_sort.js"></script>
+	<script type="text/javascript" src="/assets/application/agrichim/gis/lib/tablesorter/gml.js"></script>
+	<script type="text/javascript" src="/assets/application/agrichim/gis/lib/csi/debug.js"></script>
+	<script type="text/javascript" src="/assets/application/agrichim/gis/lib/csi/libcsi.js"></script>
+	<script type="text/javascript" src="/assets/application/agrichim/gis/lib/csi/wmsutils.js"></script>
+	<script type="text/javascript" src="/assets/application/agrichim/gis/lib/csi/urlize.js"></script>
+	<script type="text/javascript" src="/assets/application/agrichim/gis/lib/csi/fullscreen.js"></script>
+	<!-- script type="text/javascript" src="/assets/application/agrichim/gis/lib/csi/json2.js"></script -->
+	
+<!-- 	# mapquery -->
+	<script type="text/javascript" src="/assets/application/agrichim/gis/lib/mapquery/jquery.mapquery.core.js"></script>
+	
+	<script type="text/javascript" src="/assets/application/agrichim/gis/lib/mapquery/jquery.mapquery.csiLayerManagerSimpleTree.js"></script>
+	<script type="text/javascript" src="/assets/application/agrichim/gis/lib/mapquery/jquery.mapquery.csiLayerManagerMinimal.js"></script>
+	
+	<script type="text/javascript" src="/assets/application/agrichim/gis/lib/mapquery/jquery.mapquery.legend.js"></script>
+	<script type="text/javascript" src="/assets/application/agrichim/gis/lib/mapquery/jquery.mapquery.mqMousePosition.js"></script>
+	<script type="text/javascript" src="/assets/application/agrichim/gis/lib/mapquery/jquery.mapquery.csiCore.js"></script>
+	<script type="text/javascript" src="/assets/application/agrichim/gis/lib/mapquery/jquery.mapquery.csiToolbar.js"></script>
+	<script type="text/javascript" src="/assets/application/agrichim/gis/lib/mapquery/jquery.mapquery.csiLangSelector.js"></script>
+	<script type="text/javascript" src="/assets/application/agrichim/gis/lib/mapquery/jquery.mapquery.csiPanPanel.js"></script>
+	<script type="text/javascript" src="/assets/application/agrichim/gis/lib/mapquery/jquery.mapquery.csiScaleLine.js"></script>
+	<script type="text/javascript" src="/assets/application/agrichim/gis/lib/mapquery/jquery.mapquery.csiMetadataExplorer.js"></script>
+	<script type="text/javascript" src="/assets/application/agrichim/gis/lib/mapquery/jquery.mapquery.csiAddress.js"></script>
+	<script type="text/javascript" src="/assets/application/agrichim/gis/lib/mapquery/jquery.mapquery.mqZoomSlider.js"></script>
+	<script type="text/javascript" src="/assets/application/agrichim/gis/lib/mapquery/jquery.mapquery.csiMappeSecondarie.js"></script>
+	<script type="text/javascript" src="/assets/application/agrichim/gis/lib/mapquery/jquery.mapquery.mqOverviewMap.js"></script>
+	
+	<script type="text/javascript" src="/assets/application/agrichim/gis/lib/jquery-layout/jquery.layout-1.3.0.min.js"></script>
+<!-- 	# jqGrid -->
+	<link rel="stylesheet" type="text/css" href="/assets/application/agrichim/gis/lib/jqGrid/css/ui.jqgrid.css"/>
+	<script type="text/javascript" src="/assets/application/agrichim/gis/lib/jqGrid/i18n/grid.locale-en.js"></script>
+	<script type="text/javascript" src="/assets/application/agrichim/gis/lib/jqGrid/jquery.jqGrid.min.js"></script>
+
+<!--     # Controlli -->
+    <script type="text/javascript" src="/assets/application/agrichim/gis/js/controls/ctrl_shiftBBOX.js"></script>
+	<script type="text/javascript" src="/assets/application/agrichim/gis/js/controls/ctrl_infoAllPopup.js"></script>
+	<script type="text/javascript" src="/assets/application/agrichim/gis/js/controls/ctrl_infoAll.js"></script>
+	<script type="text/javascript" src="/assets/application/agrichim/gis/js/controls/ctrl_Editing.js"></script>
+	<script type="text/javascript" src="/assets/application/agrichim/gis/js/controls/ctrl_CustomMeasure.js"></script>
+	<script type="text/javascript" src="/assets/application/agrichim/gis/js/controls/ctrl_infoRicerca.js"></script>
+	<script type="text/javascript" src="/assets/application/agrichim/gis/js/controls/csi.control.js"></script>
+
+<!-- 	# personalizzazioni del progetto -->
+    <script>
+      var timestamp = (new Date).getTime();
+      var scriptVeronica = $("<script>");
+      scriptVeronica.attr({
+              type: 'text/javascript',
+              src: '/assets/application/agrichimfo/js/veronicaJSON.js?' + timestamp
+      });
+      $("head").append( scriptVeronica );
+
+      var linkOverlay = $("<link>");
+      linkOverlay.attr({
+              rel: 'stylesheet',
+              type: 'text/css',
+              href: '/assets/application/agrichimfo/css/overlay.css?' + timestamp
+      });
+      $("head").append( linkOverlay );
+    </script>
+
+	<link rel="stylesheet" type="text/css" href="/assets/application/agrichim/gis/project/project.css"/>
+	<script type="text/javascript" src="/assets/application/agrichim/gis/project/project.js"></script>
+
+<!-- 	# js principali -->
+	<script type="text/javascript" src="/assets/application/agrichim/gis/js/main.js"></script>
+	<script type="text/javascript" src="/assets/application/agrichim/gis/js/utils.js"></script>
+	<script type="text/javascript" src="/assets/application/agrichim/gis/js/layout.js"></script>
+	<script type="text/javascript" src="/assets/application/agrichim/gis/js/mq_cookies.js"></script>
+
+
+
+
+<script type="text/javascript">
+
+	var WMSdaAggiungere = null;
+	var idSezioniSelezionate = "-1";
+	var zoomInizialeRequest = null;
+	var tematismiDefault=[];
+	
+	var zoomComune = "";//"406313.34891831,5006810.3558836,410595.63876658,5012183.8061259";
+	var zoomCoordinate = "";//453253.83379365,5021016.0289379";
+	
+	function pulisciDatiCatastali()
+	{
+		document.coordinate.foglio.value='';
+		document.coordinate.sezione.value='';
+		document.coordinate.particellaCatastale.value='';
+		document.coordinate.subparticella.value='';
+	}
+	
+	function pulisciCoordinateBoagaGradiUtm()
+	{
+		pulisciCoordinateBoaga();
+		pulisciCoordinateGradi();
+		pulisciCoordinateUtm();
+		coordinate.tipoGeoreferenziazione.value='M';
+	}
+	
+	function pulisciCoordinateUtm()
+	{
+		document.coordinate.coordinataNordUtm.value='';
+		document.coordinate.coordinataEstUtm.value='';
+	}
+	
+	function pulisciCoordinateBoaga()
+	{
+		document.coordinate.coordinataNordBoaga.value='';
+		document.coordinate.coordinataEstBoaga.value='';
+	}
+	
+	function pulisciCoordinateGradi()
+	{
+		document.coordinate.gradiEst.value = '';
+		document.coordinate.minutiEst.value = '';
+		document.coordinate.secondiEst.value = '';
+		document.coordinate.decimaliEst.value = '';
+		document.coordinate.gradiNord.value = '';
+		document.coordinate.minutiNord.value = '';
+		document.coordinate.secondiNord.value = '';
+		document.coordinate.decimaliNord.value = '';
+	}
+	
+	function pulisciCoordinateBoagaGradi()
+	{
+		pulisciCoordinateBoaga();
+		pulisciCoordinateGradi();
+		pulisciDatiCatastali();
+		document.coordinate.tipoGeoreferenziazione.value='M';
+	}
+	
+	function pulisciCoordinateBoagaUtm()
+	{
+		pulisciCoordinateBoaga();
+		pulisciCoordinateUtm();
+		pulisciDatiCatastali();
+		document.coordinate.tipoGeoreferenziazione.value='M';
+	}
+	
+	function pulisciCoordinateGradiUtm()
+	{
+		pulisciCoordinateUtm();
+		pulisciCoordinateGradi();
+		pulisciDatiCatastali();
+		document.coordinate.tipoGeoreferenziazione.value='M';
+	}
+
+</script>
+
+
+<script type="text/javascript">
+  var margine=1000;
+  $(document).ready(function()
+  {
+    //$('.dumbBoxWrap').hide();
+    //Show modal box
+    $('#btn_openModal').click(
+      function()
+      {
+       	zoomCoordinate = document.coordinate.coordinataEstUtm.value+","+document.coordinate.coordinataNordUtm.value;
+        if (zoomCoordinate==",")
+        {
+          zoomCoordinate="";
+          for(c in comuni)
+  				{
+  					if(document.coordinate.Comune.value == comuni[c][1])
+  					{
+  						zoomComune = comuni[c][2]+","+comuni[c][3]+","+comuni[c][4]+","+comuni[c][5];
+              break;
+  					}                
+  				}  
+        }
+        else
+        {
+          aggiungiMarkatore(document.coordinate.coordinataEstUtm.value, document.coordinate.coordinataNordUtm.value);
+      	  zoomComune = (parseInt(document.coordinate.coordinataEstUtm.value)-margine)+","+(parseInt(document.coordinate.coordinataNordUtm.value)-margine)+","+(parseInt(document.coordinate.coordinataEstUtm.value)+margine)+","+(parseInt(document.coordinate.coordinataNordUtm.value)+margine);
+        } 
+        /* alert("zoomCoordinate="+zoomCoordinate); */
+        /* alert("zoomComune="+zoomComune); */          
+          
+        projectAfterCreationMap();
+        
+        $('.dumbBoxWrap').show();
+      }
+    );
+
+   //Hide modal box
+   $('.dumbBoxWrap').hide();     	
+   
+   var coordGradi=$('input:radio[name=coordGradi]:checked').val();
+   
+   if (coordGradi=='DD')
+   {
+     $("#tblGradiEst").css("width","310");
+     $("#tblGradiNord").css("width","310");
+     $( "#minutiEst" ).hide();
+     $( "#textMinutoEst" ).hide();
+     $( "#secondiEst" ).hide();
+     $( "#textSecondoEst" ).hide();
+     $( "#minutiNord" ).hide();
+     $( "#textMinutoNord" ).hide();
+     $( "#secondiNord" ).hide();
+     $( "#textSecondoNord" ).hide();
+   }
+   if (coordGradi=='DM')
+   {
+     $("#tblGradiEst").css("width","360px");
+     $("#tblGradiNord").css("width","360px");
+     $( "#minutiEst" ).show();
+     $( "#textMinutoEst" ).show();
+     $( "#minutiNord" ).show();
+     $( "#textMinutoNord" ).show();
+     $( "#secondiEst" ).hide();
+     $( "#textSecondoEst" ).hide();
+     $( "#secondiNord" ).hide();
+     $( "#textSecondoNord" ).hide();
+   }
+   if (coordGradi=='DMS')
+   {
+     $("#tblGradiEst").css("width","390px");
+     $("#tblGradiNord").css("width","390px");
+     $("#minutiEst" ).show();
+     $("#textMinutoEst" ).show();
+     $("#secondiEst" ).show();
+     $("#textSecondoEst" ).show();
+     $("#minutiNord" ).show();
+     $("#textMinutoNord" ).show();
+     $("#secondiNord" ).show();
+     $("#textSecondoNord" ).show();
+   }
+
+   $('input:radio[name=coordGradi]').click(function()
+   {
+	  var coordGradiOld=$( "#coordGradiOld" ).val();
+	  var coodGradSel=$('input:radio[name=coordGradi]:checked').val();
+	  var gradiEst=$( "#gradiEst" ).val();
+	  var gradiNord=$( "#gradiNord" ).val();  
+	  var decimaliNord=$( "#decimaliNord" ).val();  
+	  var decimaliEst=$( "#decimaliEst" ).val();  
+    var minutiNord=$( "#minutiNord" ).val();  
+	  var minutiEst=$( "#minutiEst" ).val();  
+    var secondiNord=$( "#secondiNord" ).val();  
+	  var secondiEst=$( "#secondiEst" ).val();  
+	  
+	  if (coordGradiOld=='DD' && coodGradSel=='DM') 
+	  { 
+		  if (isNumber(decimaliEst))
+			  conversioneDDtoDM(decimaliEst,$( "#minutiEst" ), $( "#decimaliEst" ));
+		  
+		  if (isNumber(decimaliNord))
+			  conversioneDDtoDM(decimaliNord,$( "#minutiNord" ), $( "#decimaliNord" ));
+	  }
+    
+    if (coordGradiOld=='DM' && coodGradSel=='DD') 
+	  { 
+		  if (isNumber(decimaliEst) && isNumber(minutiEst) && isNumber(gradiEst))
+			  conversioneDMtoDD(gradiEst, minutiEst, decimaliEst,$( "#gradiEst" ), $( "#minutiEst" ), $( "#decimaliEst" ));
+		  
+		  if (isNumber(decimaliNord) && isNumber(minutiNord) && isNumber(gradiNord))
+			  conversioneDMtoDD(gradiNord, minutiNord, decimaliNord,$( "#gradiNord" ), $( "#minutiNord" ), $( "#decimaliNord" ));
+	  }
+    
+    if (coordGradiOld=='DMS' && coodGradSel=='DD')                                                                         
+	  {
+      if (isNumber(decimaliEst) && isNumber(minutiEst) && isNumber(secondiEst) && isNumber(gradiEst))
+			  conversioneDMStoDD(gradiEst, minutiEst, secondiEst, decimaliEst,$( "#gradiEst" ), $( "#minutiEst" ), $( "#secondiEst" ), $( "#decimaliEst" ));
+		  
+		  if (isNumber(decimaliNord) && isNumber(minutiNord) && isNumber(secondiNord) && isNumber(gradiNord))
+			  conversioneDMStoDD(gradiNord, minutiNord, secondiNord, decimaliNord,$( "#gradiNord" ), $( "#minutiNord" ), $( "#secondiNord" ), $( "#decimaliNord" ));
+    }
+    
+    if (coordGradiOld=='DD' && coodGradSel=='DMS')                                                                         
+	  {
+      if (isNumber(decimaliEst))
+			  conversioneDDtoDMS(decimaliEst, $( "#minutiEst" ), $( "#secondiEst" ), $( "#decimaliEst" ));
+		  
+		  if (isNumber(decimaliNord))
+			  conversioneDDtoDMS(decimaliNord, $( "#minutiNord" ), $( "#secondiNord" ), $( "#decimaliNord" ));
+    }
+    
+    if (coordGradiOld=='DM' && coodGradSel=='DMS') 
+    {
+      if (isNumber(decimaliEst) )
+			  conversioneDMtoDMS(decimaliEst, $( "#secondiEst" ), $( "#decimaliEst" ));
+        
+      if (isNumber(decimaliNord) )
+			  conversioneDMtoDMS(decimaliNord, $( "#secondiNord" ), $( "#decimaliNord" ));
+    }
+    
+    if (coordGradiOld=='DMS' && coodGradSel=='DM')                                                                         
+	  {
+      if (isNumber(decimaliEst) && isNumber(minutiEst) && isNumber(secondiEst))
+			  conversioneDMStoDM(minutiEst, secondiEst, decimaliEst, $( "#minutiEst" ), $( "#secondiEst" ), $( "#decimaliEst" ));
+		  
+		  if (isNumber(decimaliNord) && isNumber(minutiNord) && isNumber(secondiNord))
+			  conversioneDMStoDM(minutiNord, secondiNord, decimaliNord, $( "#minutiNord" ), $( "#secondiNord" ), $( "#decimaliNord" ));
+    }
+    
+      
+    
+    $( "#coordGradiOld" ).val(coodGradSel);
+	  
+	  
+      if (coodGradSel=='DD')
+      {
+        $("#tblGradiEst").css("width","310");
+        $("#tblGradiNord").css("width","310");
+        $( "#minutiEst" ).hide();
+        $( "#textMinutoEst" ).hide();
+        $( "#secondiEst" ).hide();
+        $( "#textSecondoEst" ).hide();
+        $( "#minutiNord" ).hide();
+        $( "#textMinutoNord" ).hide();
+        $( "#secondiNord" ).hide();
+        $( "#textSecondoNord" ).hide();
+      }
+      if (coodGradSel=='DM')
+      {
+        $("#tblGradiEst").css("width","360px");
+        $("#tblGradiNord").css("width","360px");
+        $( "#minutiEst" ).show();
+        $( "#textMinutoEst" ).show();
+        $( "#minutiNord" ).show();
+        $( "#textMinutoNord" ).show();
+        $( "#secondiEst" ).hide();
+        $( "#textSecondoEst" ).hide();
+        $( "#secondiNord" ).hide();
+        $( "#textSecondoNord" ).hide();
+      }
+      if (coodGradSel=='DMS')
+      {
+        $("#tblGradiEst").css("width","390px");
+        $("#tblGradiNord").css("width","390px");
+        $("#minutiEst" ).show();
+        $("#textMinutoEst" ).show();
+        $("#secondiEst" ).show();
+        $("#textSecondoEst" ).show();
+        $("#minutiNord" ).show();
+        $("#textMinutoNord" ).show();
+        $("#secondiNord" ).show();
+        $("#textSecondoNord" ).show();
+      }
+
+    });
+    
+  });
+</script>
+</head>
+<body bgcolor="#CCCCCC">
+<table summary="Questa tabella serve per formattare la pagina"  width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr align="center" valign="middle">
+    <td>
+      <table summary="Questa tabella serve per formattare la pagina" width="640" border="0" cellspacing="0" cellpadding="0" bgcolor="#FFFFFF">
+        <tr>
+          <td>
+            <table summary="Questa tabella serve per formattare la pagina" width="640" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td><img src="../layout/im/ban_sup##rupar.gif" width="475" height="40" alt="##nomeRete"></td>
+              </tr>
+
+              <tr valign="top" align="right">
+                <td width="720">
+                  <table width="719" border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                      <td background="../layout/im/pix-gri-ban.gif" width="1" height="2"><img src="../layout/im/tra_pix.gif" width="1" height="1"></td>
+                      <td width="2" height="2" bgcolor="#319E84"><img src="../layout/im/tra_pix.gif" width="2" height="2"></td>
+                      <td width="135" height="2" bgcolor="#319E84">
+                        <div align="right"><img src="../layout/im/agricoltura.gif" alt="agricoltura" width="89" height="14">
+                        </div>
+                      </td>
+                      <td width="585" height="2" bgcolor="#669933">&nbsp;&nbsp;
+                        <img src="../layout/im/agrichim.gif" alt="servizio agrichim" width="173" height="14" align="top">
+                      </td>
+                      <td height="1" bgcolor="#669933"><img src="../layout/im/tra_pix.gif" width="2" height="1"></td>
+                      <td background="../layout/im/pix-gri-ban.gif" height="1"><img src="../layout/im/tra_pix.gif" width="1" height="1"></td>
+                    </tr>
+                    <tr>
+                      <td background="../layout/im/pix-gri-ban.gif" width="1"><img src="../layout/im/tra_pix.gif" width="1" height="1"></td>
+                      <td bgcolor="#319E84" width="2"><img src="../layout/im/tra_pix.gif" width="2" height="1"></td>
+                      <td colspan="2">
+                        <table width="100%" border="0" cellspacing="0" cellpadding="1">
+                          <tr background="../layout/im/pix-gri-ban.gif">
+                            <td background="../layout/im/pix-gri-ban.gif">
+                              <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                <tr>
+                                  <td width="134" valign="top" bgcolor="#669933">
+                                    <div align="center"> <br>
+                                      <table width="124" height="50" border="0" align="center" cellpadding="0" cellspacing="5" background="../layout/im/sfondo_tab1.gif">
+                                        <tr>
+                                          <td><p class="testoUtente"><strong>Utente:<br>
+                                              ##nomeUtente </strong></p></td>
+                                        </tr>
+                                      </table>
+                                      <br>
+                                      <img src="../layout/im/tit_sx_richiesta_on.gif" alt="nuova richiesta" width="124" height="29">
+                                      <br>
+                                      <a href="../view/principale.jsp"><br>
+                                      <img src="../layout/im/tit_sx_visBozze_off.gif" width="124" height="29" border="0" alt="visualizza bozze"></a><br>
+                                      <a href="../controller/elencoCampioni.jsp"><br>
+                                      <img src="../layout/im/tit_sx_ricerca_off.gif" alt="ricerca" width="124" height="29" border="0"></a><br>
+                                      <a href="../controller/elencoPagamenti.jsp"><br>
+                                      <img src="../layout/im/tit_sx_elencoPagamenti_off.gif" width="124" height="29" border="0" alt="pagamenti"></a><br>
+                                      <a href="javascript:pop('../view/anagraficaUtentePOP.jsp',700,500);"><br>
+                                      <img src="../layout/im/tit_sx_anagraficaUtente_off.gif" alt="anagrafica utente" width="124" height="29" border="0"></a><br>
+                                      <a href="../controller/logout.jsp"><br>
+                                      <img src="../layout/im/tit_sx_logout_off.gif" alt="logout" width="124" height="29" border="0"></a>
+                                      <br>
+                                    </div>
+
+
+
+                                  </td>
+                                  <td width="577" height="450" valign="baseline" bgcolor="#F2F1EA">
+                                    <table width="98%" border="0" align="center" cellpadding="0" cellspacing="5">
+                                      <tr>
+                                        <td><h1><strong>Richiesta nuova analisi
+                                            </strong></h1></td>
+                                      </tr>
+                                      <tr>
+                                        <td><h2><strong>Coordinate geografiche
+                                            del punto di prelievo - Fase 2 </strong></h2></td>
+                                      </tr>
+                                    </table>
+                                    <br>
+									<table width="560" border="0" cellspacing="0" cellpadding="0" align="center">
+                                      <tr valign="top">
+                                        <td width="70" class="pul">Fase 1 <br>
+                                          identificazione campione</td>
+                                        <td width="70" class="pulselect"><span class="faseselect">Fase
+                                          2 </span><br>
+                                          coordinate<br>
+                                          geografiche</td>
+                                        <td width="70" class="pul">Fase 3 <br>
+                                          anagrafica richiedente</td>
+                                        <td width="70" class="pul">Fase 4 <br>
+                                          fattura commerciale</td>
+                                        <td width="70" class="pul">Fase 5 <br>
+                                          dati del campione</td>
+                                        <td width="70" class="pul">Fase 6 <br>
+                                          analisi richiesta</td>
+                                        <td width="70" class="pul">Fase 7 <br>
+                                          conferma<br>
+                                          dati</td>
+                                      </tr>
+                                    </table>
+                                    <br>
+                                  <form id="coordinate" name="coordinate" method="get">
+
+                                  <input type="hidden" name="name" value="##nomeServerGIS">
+                                  <input type="hidden" name="Cmd" value="##nomeComandoGIS">
+                                  <input type="hidden" name="jsessionid" value="##idSession">
+                                  <input type="hidden" name="Comune" value="##comuneAppezzamento">
+                                  <input type="hidden" name="url" value="##urlRitorno">
+
+                                  <input type="hidden" name="piemonte" value="##piemonte">
+                                  <input type="hidden" name="tipoGeoreferenziazione" value="##tipoGeoreferenziazione">
+                                  <input type="hidden" name="comuneAppezzamento" value="##comuneAppezzamento">
+                                   <input type="hidden" name="metodo" value="">
+                                    <table width="98%" border="0" align="center" cellpadding="2" cellspacing="2">
+                                    @@errore
+                                    <tr>
+                                      <td colspan="2" class="testoERRORE">I dati contrassegnati da &nbsp;<img src="../layout/im/ko.gif">&nbsp;
+                                      non sono stati inseriti correttamente
+                                        <br>
+                                        <br>
+                                      </td>
+                                    </tr>
+                                    @@errore
+                                    
+                                    @@erroreCongruenzaSigmater
+                                    <tr>
+                                      <td colspan="2" class="testoERRORE">Le coordinate UTM inserite non risultano congruenti con i dati catastali
+                                      indicati (comune, sezione, foglio e particella)
+                                        <br>
+                                        <br>
+                                      </td>
+                                    </tr>
+                                    @@erroreCongruenzaSigmater
+                                    
+                                    @@erroreCongruenzaSigmaterCatastali
+                                    <tr>
+                                      <td colspan="2" class="testoERRORE">I dati catastali inseriti non sono coerenti con il comune di prelievo indicato
+                                        <br>
+                                        <br>
+                                      </td>
+                                    </tr>
+                                    @@erroreCongruenzaSigmaterCatastali
+                                      <tr>
+                                        <td colspan="2" > <div align="center">
+                                            <b>Dati zona del prelievo</b> </div></td>
+                                      </tr>
+                                      <tr>
+                                        <td>Comune</td>
+                                        <td> <input name="comuneAppezzamentoDescr" type="text" class="testoCampi" size="50" maxlength="40" style="BACKGROUND-COLOR: #F0F0EF; COLOR: #808080" value="##comune" onFocus="window.focus()">
+                                        </td>
+                                      </tr>
+                                      <tr>
+                                        <td >Localit&agrave;</td>
+                                        <td > <input name="localitaAppezzamento" type="text" class="testoCampi" size="50" maxlength="40" value="##localitaAppezzamento">
+                                        ##errore1</td>
+                                      </tr>
+                                      <tr><td colspan="2">&nbsp;</td></tr>
+                                      @@gis
+                                      <tr>
+                                      <td>
+                                        <!-- <input type="image" src="../layout/im/b_coordinate.gif" alt="scegli le coordinate" width="57" height="66" onClick="document.coordinate.target='gis'; figlio=window.open('',document.coordinate.target,'scrollbars=yes,left=0,top=0,resizable=yes,width='+820+',height='+470+',status=no,location=no,toolbar=no'); document.coordinate.action='/assets/application/agrichim/gis/index.jsp'; document.coordinate.submit();"> -->
+                                        <a id="btn_openModal"><img src="../layout/im/b_coordinate.gif" alt="scegli le coordinate" width="57" height="66"></a>
+                                      </td>
+                                      <td >
+                                        Cliccare sull'icona del Piemonte per selezionare le coordinate del punto di prelievo.
+                                        <br>In alternativa è possibile inserire manualmente i dati catastali (Foglio e Particella) 
+                                        o i dati delle coordinate (UTM/Gauss Boaga/geografiche) rilevati autonomamente.
+                                      </td>
+                                      </tr>
+                                      <tr><td colspan="2">&nbsp;</td></tr>
+                                      @@gis
+                                      </table>
+                                    <table width="98%" border="0" align="center" cellpadding="2" cellspacing="2">
+                                      <tr>
+                                        <td width="33%" >Sezione</td>
+                                        <td colspan="3"> <input name="sezione" onKeyPress="pulisciCoordinateBoagaGradiUtm();" type="text" class="testoCampi" size="30" maxlength="30" value="##sezione">
+                                        ##errore2</td>
+                                      </tr>
+                                      <tr>
+                                        <td width="33%">Foglio</td>
+                                        <td> <input name="foglio" onKeyPress="pulisciCoordinateBoagaGradiUtm();" type="text" class="testoCampi" size="4" maxlength="4" value="##foglio">
+                                        ##errore3</td>
+                                      </tr>
+                                      <tr>
+                                        <td >Particella catastale principale</td>
+                                        <td> <input name="particellaCatastale" onKeyPress="pulisciCoordinateBoagaGradiUtm();" type="text" class="testoCampi" size="5" maxlength="5" value="##particellaCatastale">
+                                        ##errore4</td>
+                                      </tr>
+                                      <tr>
+                                        <td width="31%">Altre particelle secondarie</td>
+                                        <td> <input name="subparticella" type="text" class="testoCampi" size="18" maxlength="20" value="##subparticella">
+                                        ##errore5</td>
+                                      </tr>
+                                      <tr>
+                                        <td >Coord. Nord UTM</td>
+                                        <td> <input id="coordinataNordUtm" name="coordinataNordUtm" type="text" class="testoCampi" size="6" maxlength="7" value="##coordinataNordUtm"
+                                          onKeyPress="pulisciCoordinateBoagaGradi();">
+                                          <!-- @@disableNordUTM style="BACKGROUND-COLOR: #F0F0EF; COLOR: #808080" onFocus="window.focus();" @@disableNordUTM -->
+                                          ##errore8</td>
+                                        <td >Coord. Est UTM</td>
+                                        <td> <input id="coordinataEstUtm" name="coordinataEstUtm" type="text" class="testoCampi" size="5" maxlength="6" value="##coordinataEstUtm"
+                                          onKeyPress="pulisciCoordinateBoagaGradi();">
+                                          <!-- @@disableEstUTM style="BACKGROUND-COLOR: #F0F0EF; COLOR: #808080" onFocus="window.focus();" @@disableEstUTM -->
+                                          ##errore9</td>
+                                      </tr>
+                                      <tr>
+                                       <td><a href="javascript:if (salva(document.coordinate,'si')) { if (window.figlio!=null) window.figlio.close(); document.coordinate.target=''; document.coordinate.metodo.value='calcolaUTM'; document.coordinate.action='../controller/coordinateGIS.jsp'; document.coordinate.submit();}" class="pulsante">Calcola Coord. UTM</a></td>
+                                       <td colspan="3"> Calcolo coord. UTM tramite dati catastali o coord. geografiche </td> 
+                                      </tr>
+                                      <tr>
+                                      <td colspan="4">
+                                      Le coordinate inserite manualmente si possono verificare sulla mappa (icona Piemonte).
+                                      </td>
+                                      </tr>
+                                      <tr>
+                                        <td >Coord. Nord GAUSS-BOAGA</td>
+                                        <td> <input name="coordinataNordBoaga" type="text" class="testoCampi" size="6" maxlength="7" value="##coordinataNordBoaga"
+                                          onKeyPress="pulisciCoordinateGradiUtm();">
+                                          ##errore6</td>
+                                        <td >Coord. Est GAUSS-BOAGA</td>
+                                        <td> <input name="coordinataEstBoaga" type="text" class="testoCampi" size="6" maxlength="7" value="##coordinataEstBoaga"
+                                          onKeyPress="pulisciCoordinateGradiUtm();">
+                                          ##errore7</td>
+                                      </tr>
+                                    </table>
+                                    <br>
+                                    <input type="hidden" name="coordGradiOld" id="coordGradiOld" value="##coordGradiOld">
+                                    <table width="98%" border="0" align="center" cellpadding="2" cellspacing="2">
+                                      <tr>
+                                        <td>Coord. Gradi&nbsp;&nbsp;</td>
+                                        <td colspan="3"> 
+									      <input type="radio" name="coordGradi" value="DD" ##checkedGradiDecimali>
+									      Gradi decimali&nbsp;&nbsp;&nbsp;&nbsp;
+									      <input type="radio" name="coordGradi" value="DM" ##checkedGradiMinuti>
+									      Gradi e minuti decimali&nbsp;&nbsp;&nbsp;&nbsp;
+									      <input type="radio" name="coordGradi" value="DMS" ##checkedGradiMinutiSecondi>
+									      Gradi, minuti e secondi  
+									    </td>
+                                      </tr>
+                                    </table>
+                                    <table id="tblGradiNord" width="390" border="0" align="left">
+									  <tr>
+									    <td width="189">
+									  		<span style="position: relative; left:7px;">Coord. Nord Gradi</span>
+									  	</td>
+									  	<td>
+									  		<input type="text" id="gradiNord" name="gradiNord" value="##gradiNord" size="1" maxlength="4" class="testoCampi"
+									  		onKeyPress="pulisciCoordinateBoagaUtm();"><span style="position: relative; left:1px; top: -5px;" id="textGradoNord">°</span>
+									  	</td>
+									  	<td>
+									  		<input type="text" id="minutiNord" name="minutiNord"  value="##minutiNord" size="1" maxlength="2" class="testoCampi"
+									  		onKeyPress="pulisciCoordinateBoagaUtm();"><span style="position: relative; left:1px; top: -5px;" id="textMinutoNord">'</span>
+									  	</td>
+									  	<td>
+									  		<input type="text" id="secondiNord" name="secondiNord"  value="##secondiNord" size="1" maxlength="2" class="testoCampi"
+									  		onKeyPress="pulisciCoordinateBoagaUtm();"><span style="position: relative; left:1px; top: -5px;" id="textSecondoNord">"</span>
+									  	</td>
+									  	<td>
+									  		<span style="position: relative; right:5px; top: 6px;" id="textVirgolaNord">,</span><input type="text" id="decimaliNord" name="decimaliNord"  value="##decimaliNord" size="6" maxlength="6" class="testoCampi"
+									  		onKeyPress="pulisciCoordinateBoagaUtm();">
+									  	</td>
+									  </tr>
+									</table>
+									<br />
+									<table id="tblGradiEst" width="390" border="0" align="left">
+									  <tr>
+									    <td width="189">
+									  		<span style="position: relative; left:7px;">Coord. Est Gradi</span>
+									  	</td>
+									  	<td>
+									  		<input type="text" id="gradiEst" name="gradiEst"  value="##gradiEst" size="1" maxlength="4" class="testoCampi"
+									  		onKeyPress="pulisciCoordinateBoagaUtm();"><span style="position: relative; left:1px; top: -5px;" id="textGradoEst">°</span>
+									  	</td>
+									  	<td>
+									  		<input type="text" id="minutiEst" name="minutiEst"  value="##minutiEst" size="1" maxlength="2" class="testoCampi"
+									  		onKeyPress="pulisciCoordinateBoagaUtm();"><span style="position: relative; left:1px; top: -5px;" id="textMinutoEst">'</span>
+									  	</td>
+									  	<td>
+									  		<input type="text" id="secondiEst" name="secondiEst"  value="##secondiEst" size="1" maxlength="2" class="testoCampi"
+									  		onKeyPress="pulisciCoordinateBoagaUtm();"><span style="position: relative; left:1px; top: -5px;" id="textSecondoEst">"</span>
+									  	</td>
+									  	<td>
+									  		<span style="position: relative; right:5px; top: 6px;" id="textVirgolaEst">,</span><input type="text" id="decimaliEst" name="decimaliEst"  value="##decimaliEst" size="6" maxlength="6" class="testoCampi"
+									  		onKeyPress="pulisciCoordinateBoagaUtm();">
+									  	</td>
+									  </tr>
+									</table>
+                                    <br>
+                                    <br>
+                                    <table width="490" border="0" align="center" cellpadding="0" cellspacing="5">
+                                      <tr>
+                                        <td><div align="right"><a href="../view/tipoCampione.jsp"><img src="../layout/im/b_tornaIndietro.gif" alt="torna indietro" width="150" height="16" border="0"></a></div></td>
+                                        <td><a href="javascript:if (salva(document.coordinate,'no')) { if (window.figlio!=null) window.figlio.close(); document.coordinate.target='' ;document.coordinate.action='../controller/coordinateGIS.jsp'; document.coordinate.submit();}"><img src="../layout/im/b_confermaProsegui.gif" alt="conferma e prosegui" width="150" height="16" border="0"></a></td>
+                                      </tr>
+                                      
+                                    </table>
+                                  </form>
+                                    <br>
+                                  </td>
+                                </tr>
+                              </table>
+                              </td>
+                          </tr>
+                        </table>
+                      </td>
+                      <td bgcolor="#669933"><img src="../layout/im/tra_pix.gif" width="2" height="1"></td>
+                      <td background="../layout/im/pix-gri-ban.gif"><img src="../layout/im/tra_pix.gif" width="1" height="1"></td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr bgcolor="#333333">
+          <td><img src="../layout/im/banner_inf.jpg" width="618" height="14" border="0" alt="CSI-Piemonte l'amministrazione piemontese alla portata di un clic"></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<span class="testoneroCopia"></span><span class="testonero"></span>
+
+    <div class="dumbBoxWrap">
+      <div class="dumbBoxOverlay">&nbsp;</div>
+      <div class="vertical-offset">
+        <div class="dumbBox">
+        
+      		<div id="div_mappa">
+      		
+      			<div class="ui-layout-north">
+      				<div id="maintoolbar" class="ui-widget-header ui-corner-all"></div>
+              <!-- L'introduzione può essere composta da tre righe al massimo --> 
+              <div id="introduzione">##dicituraIntroduttivaGIS</div>
+      			</div>
+            
+      			
+      			<div class="ui-layout-center">
+      				
+      				<div id="map" class="map"></div>
+      				<button id="buttonToc">livelli grafici</button>
+      				
+      				<div id="zoomslider" class="mq-widget"></div>
+      				<div id="langSelector"></div>
+      				
+      				<div id="layermanagergn" style="display: block"></div>
+      				
+      				<div id="dia_info">
+      					<div id="divInfo"></div>
+      				</div>
+      				
+      				<div id="overview"></div>
+      			</div>
+      		    
+      			<div class="ui-layout-south">
+      				<button id="btn_selezionaCoord">Seleziona coordinate</button>				
+      				<button id="btn_closeModal">Chiudi</button>				
+      				<div id="mouseposition" class="mq-widget"></div>
+      		    </div>
+      			
+      			
+      		</div>
+    
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

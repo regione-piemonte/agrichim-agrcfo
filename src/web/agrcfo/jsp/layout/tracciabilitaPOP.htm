@@ -1,0 +1,81 @@
+<html>
+<head>
+<title>Servizio AGRICHIM</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<META HTTP-EQUIV="Pragma" CONTENT="no-cache">
+<META HTTP-EQUIV="Cache-Control" CONTENT="no-cache">
+<link href="../layout/css/format.css" rel="stylesheet" type="text/css">
+</head>
+
+<body onload="window.focus();" onunload="window.opener.focus()">
+<table width="90%" border="0" class="boxborder">
+  <tr>
+    <td width="80%"> <div align="center">
+        <h2>Stato della richiesta<strong> <br>
+          </strong> </h2>
+      </div>
+      <table width="100%" border="0">
+        <tr>
+          <td>
+            @@EtichettaCampione
+            <table width="100%" border="0">
+              <tr>
+                <td width="48%"> Numero della richiesta</td>
+                <td colspan="2"> $$idRichiesta</td>
+              </tr>
+              <tr>
+              <td> Numero campione / Anno </td>
+              <td colspan="2"> $$numAnno</td>
+            </tr>
+              <tr>
+                <td> Materiale</td>
+                <td colspan="2"> $$descMateriale</td>
+              </tr>
+              <tr>
+                <td> Etichetta</td>
+                <td colspan="2"> $$descrizioneEtichetta</td>
+              </tr>
+              <tr>
+                <td> Ragione sociale proprietario</td>
+                <td colspan="2">$$proprietario</td>
+              </tr>
+              @@anomalia
+              <tr>
+                <td colspan="3"><strong>ATTENZIONE</strong>: la richiesta di analisi
+                  risulta <b>$$anomalia</b> (vedere le note)</td>
+              </tr>
+              @@anomalia
+              <tr>
+                <td>
+                  <div align="center"><b>Data</b></div>
+                </td>
+                <td width="30%"><b> Azione</b></td>
+                <td width="22%"><b> Note</b></td>
+              </tr>
+              @@tracciatura
+              <tr>
+                <td>
+                  <div align="center">$$data</div>
+                </td>
+                <td>$$azione</td>
+                <td>$$note</td>
+              </tr>
+              @@tracciatura
+            </table>
+            @@EtichettaCampione
+            <table width="100%" border="0" cellspacing="2" cellpadding="2">
+              <tr>
+                <td><div align="center"><a href="javascript:window.close();"><img src="../layout/im/b_chiudi.gif" alt="chiudi" width="150" height="16" border="0"></a></div></td>
+              </tr>
+            </table>
+            <p>&nbsp;</p>
+            </td>
+        </tr>
+      </table>
+
+    </td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+</body>
+</html>

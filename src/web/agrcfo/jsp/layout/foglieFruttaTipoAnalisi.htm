@@ -1,0 +1,257 @@
+<html>
+<head>
+<title>Servizio AGRICHIM</title>
+<META HTTP-EQUIV="Pragma" CONTENT="no-cache">
+<META HTTP-EQUIV="Cache-Control" CONTENT="no-cache">
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<script src="../layout/js/gestione.js"></script>
+<script src="../layout/js/testLength.js"></script>
+<script src="../layout/js/printf.js"></script>
+<script src="../layout/js/costoAnalisi.js"></script>
+<link href="../layout/css/format.css" rel="stylesheet" type="text/css">
+</head>
+<body bgcolor="#CCCCCC" onload="costoTotale(document.foglieFruttaTipoAnalisi)">
+<table summary="Questa tabella serve per formattare la pagina"  width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr align="center" valign="middle">
+    <td>
+      <table summary="Questa tabella serve per formattare la pagina" width="720" border="0" cellspacing="0" cellpadding="0" bgcolor="#FFFFFF">
+        <tr>
+          <td>
+            <table summary="Questa tabella serve per formattare la pagina" width="720" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td><img src="../layout/im/ban_sup##rupar.gif" width="475" height="40" alt="##nomeRete"></td>
+              </tr>
+
+              <tr valign="top" align="right">
+                <td width="720">
+                  <table width="719" border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                      <td background="../layout/im/pix-gri-ban.gif" width="1" height="2"><img src="../layout/im/tra_pix.gif" width="1" height="1"></td>
+                      <td width="2" height="2" bgcolor="#319E84"><img src="../layout/im/tra_pix.gif" width="2" height="2"></td>
+                      <td width="135" height="2" bgcolor="#319E84">
+                        <div align="right"><img src="../layout/im/agricoltura.gif" alt="agricoltura" width="89" height="14">
+                        </div>
+                      </td>
+                      <td width="585" height="2" bgcolor="#669933">&nbsp;&nbsp;
+                        <img src="../layout/im/agrichim.gif" alt="servizio agrichim" width="173" height="14" align="top">
+                      </td>
+                      <td height="1" bgcolor="#669933"><img src="../layout/im/tra_pix.gif" width="2" height="1"></td>
+                      <td background="../layout/im/pix-gri-ban.gif" height="1"><img src="../layout/im/tra_pix.gif" width="1" height="1"></td>
+                    </tr>
+                    <tr>
+                      <td background="../layout/im/pix-gri-ban.gif" width="1"><img src="../layout/im/tra_pix.gif" width="1" height="1"></td>
+                      <td bgcolor="#319E84" width="2"><img src="../layout/im/tra_pix.gif" width="2" height="1"></td>
+                      <td colspan="2">
+                        <table width="100%" border="0" cellspacing="0" cellpadding="1">
+                          <tr background="../layout/im/pix-gri-ban.gif">
+                            <td background="../layout/im/pix-gri-ban.gif">
+                              <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                <tr>
+                                  <td width="134" valign="top" bgcolor="#669933">
+                                    <div align="center"> <br>
+                                      <table width="124" height="50" border="0" align="center" cellpadding="0" cellspacing="5" background="../layout/im/sfondo_tab1.gif">
+                                        <tr>
+                                          <td><p class="testoUtente"><strong>Utente:<br>
+                                              ##nomeUtente </strong></p></td>
+                                        </tr>
+                                      </table>
+                                      <br>
+                                      <img src="../layout/im/tit_sx_richiesta_on.gif" alt="nuova richiesta" width="124" height="29"><br>
+                                      <a href="../view/principale.jsp"><br>
+                                      <img src="../layout/im/tit_sx_visBozze_off.gif" alt="visualizza bozze" width="124" height="29" border="0"></a><br>
+                                      <a href="../controller/elencoCampioni.jsp"><br>
+                                      <img src="../layout/im/tit_sx_ricerca_off.gif" alt="ricerca" width="124" height="29" border="0"></a><br>
+                                      <a href="../controller/elencoPagamenti.jsp"><br>
+                                      <img src="../layout/im/tit_sx_elencoPagamenti_off.gif" width="124" height="29" border="0" alt="pagamenti"></a><br>
+                                      <a href="javascript:pop('../view/anagraficaUtentePOP.jsp',700,500);"><br>
+                                      <img src="../layout/im/tit_sx_anagraficaUtente_off.gif" alt="anagrafica utente" width="124" height="29" border="0"></a><br>
+                                      <a href="../controller/logout.jsp"><br>
+                                      <img src="../layout/im/tit_sx_logout_off.gif" alt="logout" width="124" height="29" border="0"></a>
+                                      <br>
+                                    </div>
+
+
+
+                                  </td>
+                                  <td width="577" height="450" valign="baseline" bgcolor="#F2F1EA"><table width="98%" border="0" align="center" cellpadding="0" cellspacing="5">
+                                      <tr>
+                                        <td><h1><strong>Inserimento anagrafica
+                                            campione </strong></h1></td>
+                                      </tr>
+                                      <tr>
+                                        <td><h2>Analisi richiesta - Fase 6 </h2></td>
+                                      </tr>
+                                    </table>
+                                    <br>
+									<table width="560" border="0" cellspacing="0" cellpadding="0" align="center">
+                                      <tr valign="top">
+                                        <td width="70" class="pul">Fase 1 <br>
+                                          identificazione campione</td>
+                                        <td width="70" class="pul">Fase 2<br>
+                                          coordinate geografiche</td>
+                                        <td width="70" class="pul">Fase 3 <br>
+                                          anagrafica richiedente</td>
+                                        <td width="70" class="pul">Fase 4<br>
+                                          fattura commerciale</td>
+                                        <td width="70" class="pul">Fase 5<br>
+                                          dati del<br>
+                                          campione</td>
+                                        <td width="70" class="pulselect"><span class="faseselect">Fase
+                                          6 </span> <br>
+                                          analisi<br>
+                                          richiesta</td>
+                                        <td width="70" class="pul">Fase 7 <br>
+                                          conferma<br>
+                                          dati</td>
+                                      </tr>
+                                    </table>
+                                    <br>
+                                    <form name="foglieFruttaTipoAnalisi" method="post" action="../controller/tipoAnalisi.jsp">
+                                     <input name="page" type="hidden" value="foglieFruttaTipoAnalisi.jsp">
+                                     <input type="hidden" name="ANA_PACCHETTO_TIPO" value="##ANA_PACCHETTO_TIPO">
+                                     <input type="hidden" name="ANA_PACCHETTO_MICROELEMENTI" value="##ANA_PACCHETTO_MICROELEMENTI">
+
+                                    <table width="100%" border="0" align="center" cellpadding="2" cellspacing="2">
+                                      <tr>
+                                        <td colspan="3">
+                                          <p><strong>Informazioni relative al
+                                            tipo di analisi richiesta. </strong></p>
+                                          <p>Se si vogliono conoscere le tariffe
+                                            applicate dal Laboratorio Agrochimico
+                                            Regionale <a href="#" onClick="popPdf('/assets/application/agrichimfo/dwd/prezzario.pdf',647,480,'pdf');" class="testoLink">consultare
+                                            il prezzario</a>.<br>
+                                            <br>
+                                          </p>
+                                        </td>
+                                      </tr>
+                                      @@errore
+                                       <tr>
+                                        <td colspan="3" class="testoERRORE">Attenzione: per poter proseguire bisogna selezionare almeno una richiesta.
+                                        <br>
+                                        <br>
+                                        </td>
+                                       </tr>
+                                      @@errore
+                                      <tr>
+                                        <td colspan="3"> <strong>Analisi richieste</strong>
+                                        </td>
+                                      </tr>
+                                      <tr>
+                                        <td>Costo complessivo</td>
+                                        <td colspan="2" valign="top">
+                                          <input name="costoAnalisiTot" type="hidden" class="testoCampi">
+                                          <input name="costoAnalisi" type="text" class="testoCampi" value="##costoComplessivo" style="BACKGROUND-COLOR: #F0F0EF; COLOR: #000000" disabled>&nbsp;&#8364;&nbsp;&nbsp;
+                                          <a href="javascript:popCostiDet('../view/costoAnalisiPOP.jsp',document.foglieFruttaTipoAnalisi,##pagina);" class="pulsante">Visualizza
+                                          dettaglio costi</a>
+                                        </td>
+                                      </tr>
+                                      <tr>
+                                        <td valign="top">Analisi
+                                          Tipo </td>
+                                        <td colspan="2"> <input type="radio" name="Tipo" value=true ##checkedTipoSi onClick="analisiTipo(document.foglieFruttaTipoAnalisi);">
+                                          Si
+                                          <input type="radio" name="Tipo" value=false ##checkedTipoNo onClick="analisiTipo(document.foglieFruttaTipoAnalisi);">
+                                          No </td>
+                                      </tr>
+                                      <tr>
+                                        <td valign="top" width="26%" ></td>
+                                        <td colspan="2" valign="top">
+                                          <input type="checkbox" name="N" value="##checkN" ##checkedN onClick="aggiornaCostoCheckboxTipo(document.foglieFruttaTipoAnalisi)">
+                                          ##LabelN
+                                          <input type="checkbox" name="P" value="##checkP" ##checkedP onClick="aggiornaCostoCheckboxTipo(document.foglieFruttaTipoAnalisi)">
+                                          ##LabelP
+                                          <input type="checkbox" name="K" value="##checkK" ##checkedK onClick="aggiornaCostoCheckboxTipo(document.foglieFruttaTipoAnalisi)">
+                                          ##LabelK </td>
+                                      </tr>
+                                      <tr valign="top">
+                                        <td valign="top" width="26%" ></td>
+                                        <td colspan="2">
+                                          <input type="checkbox" name="Mg" value="##checkMg" ##checkedMg onClick="aggiornaCostoCheckboxTipo(document.foglieFruttaTipoAnalisi)">
+                                          ##LabelMg
+                                          <input type="checkbox" name="Ca" value="##checkCa" ##checkedCa onClick="aggiornaCostoCheckboxTipo(document.foglieFruttaTipoAnalisi)">
+                                          ##LabelCa <br>
+                                          <br>
+                                        </td>
+                                      </tr>
+                                      @@microelementi
+                                      <tr>
+                                        <td rowspan="2" valign="top">Analisi completa
+                                          microelementi</td>
+                                        <td colspan="2" valign="top">
+                                          <input type="radio" name="Micro" value=true ##checkedAnalisiCompletaSi onClick="analisiCompletaMicroelementi(document.foglieFruttaTipoAnalisi);">
+                                          Si
+                                          <input type="radio" name="Micro" value=false ##checkedAnalisiCompletaNo onClick="analisiCompletaMicroelementi(document.foglieFruttaTipoAnalisi);">
+                                          No </td>
+                                      </tr>
+                                      <tr valign="top">
+                                        <td colspan="2">
+                                          <input type="checkbox" name="Fe" value="$$checkFe" ##checkedFe onClick="aggiornaCostoCheckboxMicro(document.foglieFruttaTipoAnalisi)">
+                                          $$LabelFe
+                                          <input type="checkbox" name="Mn" value="$$checkMn" ##checkedMn onClick="aggiornaCostoCheckboxMicro(document.foglieFruttaTipoAnalisi)">
+                                          $$LabelMn
+                                          <input type="checkbox" name="Zn" value="$$checkZn" ##checkedZn onClick="aggiornaCostoCheckboxMicro(document.foglieFruttaTipoAnalisi)">
+                                          $$LabelZn
+                                          <input type="checkbox" name="Cu" value="$$checkCu" ##checkedCu onClick="aggiornaCostoCheckboxMicro(document.foglieFruttaTipoAnalisi)">
+                                          $$LabelCu
+                                          <input type="checkbox" name="B" value="$$checkB" ##checkedB onClick="aggiornaCostoCheckboxMicro(document.foglieFruttaTipoAnalisi)">
+                                          $$LabelB
+                                          <br>
+                                          <br>
+                                        </td>
+                                      </tr>
+                                      @@microelementi
+                                      <tr>
+                                        <td valign="top" >Analisi dell'umidit&agrave;</td>
+                                        <td colspan="2" valign="top">
+                                          <input type="checkbox" name="Um" value="##checkUm" ##checkedUm onClick="aggiornaCostoCheckbox(document.foglieFruttaTipoAnalisi)">
+                                          ##LabelUm <br>
+                                          <br>
+                                        </td>
+                                      </tr>
+                                      <tr>
+                                        <td valign="top" >Note<br>
+                                          <span class="testoCampi">(aggiungere
+                                          informazioni aggiuntive o segnalare
+                                          problemi)</span></td>
+                                        <td colspan="2" valign="top">
+                                          <textarea name="note" cols="60" class="testoCampi" onKeyPress="return testLength(note,512,'false');" onBlur="testLength(note,512,'true');">##note</textarea>
+                                        </td>
+                                      </tr>
+                                    </table>
+                                    </form>
+                                    <br>
+                                    <br>
+                                    <br>
+                                    <table width="490" border="0" align="center" cellpadding="0" cellspacing="5">
+                                      <tr>
+                                        <td><div align="right"><a href="../view/foglieFruttaDati.jsp"><img src="../layout/im/b_tornaIndietro.gif" alt="torna indietro" width="150" height="16" border="0"></a></div></td>
+                                        <td><a href="javascript:invia(document.foglieFruttaTipoAnalisi);"><img src="../layout/im/b_confermaProsegui.gif" alt="conferma e prosegui" width="150" height="16" border="0"></a></td>
+                                      </tr>
+                                    </table>
+                                    <br>
+                                  </td>
+                                </tr>
+                              </table>
+                              </td>
+                          </tr>
+                        </table>
+                      </td>
+                      <td bgcolor="#669933"><img src="../layout/im/tra_pix.gif" width="2" height="1"></td>
+                      <td background="../layout/im/pix-gri-ban.gif"><img src="../layout/im/tra_pix.gif" width="1" height="1"></td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr bgcolor="#333333">
+          <td><img src="../layout/im/banner_inf.jpg" width="618" height="14" border="0" alt="CSI-Piemonte l'amministrazione piemontese alla portata di un clic"></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<span class="testoneroCopia"></span><span class="testonero"></span>
+</body>
+</html>

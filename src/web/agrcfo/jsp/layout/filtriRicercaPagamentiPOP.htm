@@ -1,0 +1,126 @@
+<html>
+<head>
+<title>Servizio AGRICHIM</title>
+<META HTTP-EQUIV="Pragma" CONTENT="no-cache">
+<META HTTP-EQUIV="Cache-Control" CONTENT="no-cache">
+<script src="../layout/js/verificaData.js"></script>
+<script src="../layout/js/isNumber.js"></script>
+<script src="../layout/js/filtriRicerca.js"></script>
+<script src="../layout/js/codiceFiscale.js"></script>
+<script src="../layout/js/partitaIVA.js"></script>
+<link href="../layout/css/format.css" rel="stylesheet" type="text/css">
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"></head>
+
+<body onload="window.focus();" onunload="window.opener.focus()">
+<form name="ricerca" method="post" action="../controller/filtriRicercaPagamentiPOP.jsp">
+  <table width="100%" border="0" align="center" cellpadding="2" cellspacing="2" class="boxborder">
+    <tr>
+      <td colspan="3"><div align="center">
+          <h2>Filtri di ricerca<strong><br>
+            </strong></h2>
+        </div></td>
+    </tr>
+    <tr>
+      <td width="38%">Numero della richiesta</td>
+      <td colspan="2">da
+        <input name="idRichiestaDa" type="text" class="testoCampi" size="9" maxlength="9" value="##idRichiestaDa">
+        a
+        <input name="idRichiestaA" type="text" class="testoCampi" size="9" maxlength="9" value="##idRichiestaA">
+      </td>
+    </tr>
+    <tr>
+      <td width="38%" rowspan="2">Data di richiesta analisi</td>
+      <td width="19%">successiva al </td>
+      <input type="hidden" name="dataDa" value="">
+      <td width="43%"> <input name="dataDaGiorno" value="##dataDaGiorno" type="text" class="testoCampi" size="2" maxlength="2">
+        /
+        <input name="dataDaMese" type="text" value="##dataDaMese" class="testoCampi" size="2" maxlength="2">
+        /
+        <input name="dataDaAnno" type="text" value="##dataDaAnno" class="testoCampi" size="4" maxlength="4">
+      </td>
+    </tr>
+    <tr>
+      <td>precedente al </td>
+      <input type="hidden" name="dataA" value="">
+      <td> <input name="dataAGiorno" type="text" value="##dataAGiorno" class="testoCampi" size="2" maxlength="2">
+        /
+        <input name="dataAMese" type="text" value="##dataAMese" class="testoCampi" size="2" maxlength="2">
+        /
+        <input name="dataAAnno" type="text" value="##dataAAnno" class="testoCampi" size="4" maxlength="4">
+      </td>
+    </tr>
+    <tr>
+      <td width="38%">Tipo di materiale</td>
+      <td colspan="2"> <select name="tipoMateriale" class="testoCampi">
+          <option value="">----------------------</option>
+        @@tipoMateriale
+          <option value="$$codiceMateriale" $$selected>$$descrizione</option>
+        @@tipoMateriale
+       </select> </td>
+    </tr>
+    <tr>
+      <td width="38%">Codice fiscale o Partita IVA</td>
+      <td colspan="2"><input name="codiceFiscale" value="##codiceFiscale" type="text" class="testoCampi" size="25" maxlength="16">
+      </td>
+    </tr>
+    <tr>
+      <td width="38%">Cognome o Ragione sociale proprietario <span class="testoCampi">(ricerca
+        per chiave parziale: digitare almeno 2 caratteri)</span></td>
+      <td colspan="2"> <input name="cognome" value="##cognome" type="text" class="testoCampi" size="60" maxlength="60">
+      </td>
+    </tr>
+    <tr>
+      <td width="38%">Nome</td>
+      <td colspan="2"> <input name="nome" value="##nome" type="text" class="testoCampi" size="40" maxlength="40">
+      </td>
+    </tr>
+    <tr>
+      <td width="38%">Etichetta <span class="testoCampi"><br>
+        (ricerca per chiave parziale: digitare almeno 4 caratteri)</span></td>
+      <td colspan="2"> <input name="etichetta" value="##etichetta" type="text" class="testoCampi" size="40" maxlength="40">
+      </td>
+    </tr>
+    @@utenteTecnico
+    <tr>
+      <td width="38%">Visualizza solo i propri campioni o tutti quelli della organizzazione
+        di appartenenza </td>
+      <td colspan="2"> <p>
+          <input type="radio" name="organizzazione" value="false" ##checkedPropri>
+          Solo i propri campioni<br>
+          <input type="radio" name="organizzazione" value="true" ##checkedTutti>
+          Tutti</p></td>
+    </tr>
+    @@utenteTecnico
+    <tr>
+      <td width="38%">Codice Avviso <span class="testoCampi"></span></td>
+      <td colspan="2"> <input name="iuv" value="##iuv" type="text" class="testoCampi" size="40" maxlength="40">
+      </td>
+    </tr>
+    <tr>
+      <td>Stato pagamento analisi</td>
+      <td colspan="2">
+        <select name="statoPagamento">
+          <option value="">------------</option>
+          <option value="S" ##selectedPagata>Pagata</option>
+          <option value="N" ##selectedDaPagare>Da Pagare</option>
+          <option value="G" ##selectedGratuita>Gratuita</option>
+        </select> </td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+      <td colspan="3"><table width="100%" border="0" cellspacing="2" cellpadding="2">
+          <tr>
+            <td><div align="right"><a href="javascript:if (ricercaElenco(document.ricerca)) document.ricerca.submit();"><img src="../layout/im/b_ricerca.gif" alt="ricerca" width="150" height="16" border="0"></a></div></td>
+            <td><a href="javascript:window.close();"><img src="../layout/im/b_chiudi.gif" alt="chiudi" width="150" height="16" border="0"></a></td>
+          </tr>
+        </table>
+        <br>
+      </td>
+    </tr>
+  </table>
+</form>
+</body>
+</html>

@@ -1,0 +1,191 @@
+p, td, div{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10pt;
+	color: #000000;
+	}
+
+
+h1 {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12pt;
+	font-weight: bold;
+	text-align: center;
+	margin: 4px;
+	color: #336600;
+	}
+
+h2 {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10pt;
+	font-weight: bold;
+	text-align: center;
+	margin: 4px;
+	color: #CC6666;
+	}
+
+	h3 {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10pt;
+	font-weight: bold;
+	text-align: center;
+	margin: 4px;
+	color: #000000;
+	}
+
+.paginazione {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10pt;
+	font-weight: bold;
+	margin: 4px;
+	color: #C46B03;
+	}
+
+/********classi iter procedura e area dati e pulsanti***********/
+
+.pul{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 8pt;
+	background: #DE8636;
+	border-top: 1px solid #EDAD75;
+	border-bottom: 1px solid #CB6D21;
+	border-left: 1px solid #EDAD75;
+	border-right: 1px solid #CB6D21;
+	color: #FFFFFF;
+    text-decoration: none;
+	}
+	
+.pul_pag{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 8pt;
+    background: #DE8636;
+    /*border-top: 1px solid #EDAD75;
+    border-bottom: 1px solid #CB6D21;
+    border-left: 1px solid #EDAD75;
+    border-right: 1px solid #CB6D21;*/
+    color: #FFFFFF;
+    text-decoration: none;
+    }
+
+.pulselect{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 8pt;
+	color: #006600;
+	line-height: 1em;
+	background: #FFE193;
+	border-top: 1px solid #FFF1CF;
+	border-bottom: 1px solid #FFA300;
+	border-left: 1px solid #FFF1CF;
+	border-right: 1px solid #FFA300;
+	padding: 2px;
+	text-decoration: none;
+}
+
+
+.fase{
+	width: 100%;
+	color: #FFF;
+	text-decoration: none;
+	font-weight: bold;
+	border-bottom: 1px solid #EB9E4F;
+	padding: 0px 2px 0px 2px;
+	}
+a.fase:hover{
+	color: #FFE193;
+	}
+
+a.iter:link, a.iter:visited, a.iter:hover{
+	width: 100%;
+	color: #FFF;
+	line-height: 1em;
+	text-decoration: none;
+	padding: 2px 2px 2px 2px;
+	}
+a.iter:hover{
+	color: #FFE193;
+	}
+
+
+.faseselect{
+	width: 100%;
+	font-weight: bold;
+	border-bottom: 1px solid #FFF;
+	margin-bottom: 3px;
+	}
+
+a.pulsante:link, a.pulsante:visited, a.pulsante:hover {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 8pt;
+	text-align: center;
+	color: #006600;
+	width: 100px;
+	line-height: 1em;
+	text-decoration: none;
+	background: #FFCC99;
+	border-top: 1px solid #FFFFCC;
+	border-bottom: 1px solid #CC9900;
+	border-left: 1px solid #FFFFCC;
+	border-right: 1px solid #CC9900;
+	padding: 1px;
+	}
+a.pulsante:hover{
+	color: #DE8636;
+	}
+
+/************* Titoli *************/
+.titolo1{
+	background: #669933;
+	width: 100%;
+	color: #FFF;
+	font-weight: bold;
+	font-size: 10pt;
+	line-height: 2em;
+	letter-spacing: 1;
+	text-align: center;
+	}
+
+.boxborder{/*larghezza in percentuale o volendo esatta*/
+	border: 1px solid #669933;
+	padding: 10px;
+	width: 99%;
+	}.testoCampi {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	color: #000000;
+	text-decoration: none;
+}
+.testoUtente {
+
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	color: #666666;
+	text-decoration: none;
+}
+.testoLink {
+
+
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #CC6666;
+	text-decoration: none;
+}
+
+/* Visibility Hidden */
+.Hidden {
+    display: none;
+}
+/* Visibility Visible */
+.Visible {
+    display: block;
+}
+
+.testoERRORE {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #FF0000;
+	text-decoration: none;
+	font-weight: bold;
+
+}
+.privacy{
+	font-size:6px;
+}

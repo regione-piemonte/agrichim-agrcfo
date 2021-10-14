@@ -1,0 +1,193 @@
+<html>
+<head>
+<title>Servizio AGRICHIM</title>
+<META HTTP-EQUIV="Pragma" CONTENT="no-cache">
+<META HTTP-EQUIV="Cache-Control" CONTENT="no-cache">
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<script src="../layout/js/gestione.js"></script>
+<link href="../layout/css/format.css" rel="stylesheet" type="text/css">
+</head>
+<body bgcolor="#CCCCCC">
+<table summary="Questa tabella serve per formattare la pagina"  width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr align="center" valign="middle">
+    <td>
+      <table summary="Questa tabella serve per formattare la pagina" width="720" border="0" cellspacing="0" cellpadding="0" bgcolor="#FFFFFF">
+        <tr>
+          <td>
+            <table summary="Questa tabella serve per formattare la pagina" width="720" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td><img src="../layout/im/ban_sup##rupar.gif" width="475" height="40" alt="##nomeRete"></td>
+              </tr>
+
+              <tr valign="top" align="right">
+                <td>
+                  <table width="719" border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                      <td background="../layout/im/pix-gri-ban.gif" width="1" height="2"><img src="../layout/im/tra_pix.gif" width="1" height="1"></td>
+                      <td width="2" height="2" bgcolor="#319E84"><img src="../layout/im/tra_pix.gif" width="2" height="2"></td>
+                      <td width="135" height="2" bgcolor="#319E84">
+                        <div align="right"><img src="../layout/im/agricoltura.gif" alt="agricoltura" width="89" height="14">
+                        </div>
+                      </td>
+                      <td width="585" height="2" bgcolor="#669933">&nbsp;&nbsp;
+                        <img src="../layout/im/agrichim.gif" alt="servizio agrichim" width="173" height="14" align="top">
+                      </td>
+                      <td height="1" bgcolor="#669933"><img src="../layout/im/tra_pix.gif" width="2" height="1"></td>
+                      <td background="../layout/im/pix-gri-ban.gif" height="1"><img src="../layout/im/tra_pix.gif" width="1" height="1"></td>
+                    </tr>
+                    <tr>
+                      <td background="../layout/im/pix-gri-ban.gif" width="1"><img src="../layout/im/tra_pix.gif" width="1" height="1"></td>
+                      <td bgcolor="#319E84" width="2"><img src="../layout/im/tra_pix.gif" width="2" height="1"></td>
+                      <td colspan="2">
+                        <table width="100%" border="0" cellspacing="0" cellpadding="1">
+                          <tr background="../layout/im/pix-gri-ban.gif">
+                            <td background="../layout/im/pix-gri-ban.gif">
+                              <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                <tr>
+                                  <td width="135" valign="top" bgcolor="#669933">
+                                    <div align="center"> <br>
+                                      <table width="124" height="50" border="0" align="center" cellpadding="0" cellspacing="5" background="../layout/im/sfondo_tab1.gif">
+                                        <tr>
+                                          <td><p class="testoUtente"><strong>Utente:<br>
+                                              ##nomeUtente </strong></p></td>
+                                        </tr>
+                                      </table>
+                                      <br>
+                                      <a href="../controller/nuovaRichiesta.jsp"><img src="../layout/im/tit_sx_richiesta_off.gif" alt="nuova richiesta" width="124" height="29" border="0"></a>
+                                      <br>
+                                      <a href="../view/principale.jsp"><br>
+                                      <img src="../layout/im/tit_sx_visBozze_off.gif" alt="visualizza bozze" width="124" height="29" border="0"></a><br>
+                                      <a href="../controller/elencoCampioni.jsp"><br>
+                                      <img src="../layout/im/tit_sx_ricerca_off.gif" alt="ricerca" width="124" height="29" border="0"></a><br>
+                                      <a href="../controller/elencoPagamenti.jsp"><br>
+                                      <img src="../layout/im/tit_sx_elencoPagamenti_off.gif" width="124" height="29" border="0" alt="pagamenti"></a><br>
+                                      <a href="javascript:pop('../view/anagraficaUtentePOP.jsp',700,500);"><br>
+                                      <img src="../layout/im/tit_sx_anagraficaUtente_off.gif" alt="anagrafica utente" width="124" height="29" border="0"></a><br>
+                                      <a href="../controller/logout.jsp"><br>
+                                      <img src="../layout/im/tit_sx_logout_off.gif" alt="logout" width="124" height="29" border="0"></a>
+                                      <br>
+                                    </div>
+
+
+
+                                  </td>
+                                  <td width="585" height="450" valign="baseline" bgcolor="#F2F1EA"><br>
+                                    <table width="98%" border="0" align="center" cellpadding="2" cellspacing="2">
+                                      <tr>
+                                        <td colspan="2"> <b>La richiesta di analisi
+                                          del campione è stata correttamente inoltrata
+                                          al laboratorio di analisi.</b>
+                                          <h4 align="center" class="testoLink">&nbsp;</h4>
+                                          <h2 align="center">Il numero identificativo assegnato alla richiesta
+                                            è</h2>
+                                          <div align="center">
+                                            <h1>##numeroIdentificativo <br>
+                                            </h1>
+                                          </div>
+                                          <div align="center"> Visualizza la <a href="#" onClick="pop('../report/anagraficaCampione##tipoMateriale.pdf?idRichiesta=##numeroIdentificativo',647,480,'pdf');" class="testoLink">scheda
+                                            di accompagnamento</a> del campione
+                                          </div>
+                                          <div align="center"><br>
+                                            L'importo da pagare &egrave; pari
+                                            a <b>&euro; ##totale</b> (IVA inclusa).
+                                            <br>
+                                            <p>Puoi procedere a pagare l'analisi cliccando sul pulsante sottostante</p>
+                                            <!--Ricordiamo che il versamento può essere
+                                            effettuato nelle <!-- 2 > modalit&agrave;: -->
+                                          </div>
+                                          <br>
+<!--                                           <div align="center"><strong>##VBCC</strong></div> -->
+<!--                                           <p align="center">oppure</p> -->
+<!--                                           <div align="center"><strong>##BOBA</strong></div> -->
+<!--                                           <p align="center">oppure</p> -->
+<!--                                           <div align="center"><strong>##GFEP</strong></div> -->
+                                          
+<!--                                           <p align="center">oppure</p> -->
+                                          <div align="center"><a href="#" onClick="javascript:if (confirm('Pagare con PagoPA?')) document.pagoPAform.submit();"><img src="../layout/im/pagoPApaga.jpg" alt="Pagamento con PagoPA" width="253" height="63" border="0"></a></div>
+                                          
+                                          <div align="left">
+                                          <br>
+                                          <p>Se intendi prenotare nuove analisi (anche duplicando la richiesta appena inserita) <a href="../controller/elencoCampioni.jsp" class="testoLink">clicca qui</a> e vai alla funzione di ricerca richieste.</p>
+                                          <p>Se intendi pagare cumulativamente pi&ugrave; richieste <a href="../controller/elencoPagamenti.jsp" class="testoLink">clicca qui</a> e vai alla funzione dei pagamenti.</p>
+                                          <p>Per gli Enti Pubblici la modalit&agrave; di pagamento &egrave; tramite 
+                                          <a href="#" onClick="javascript:alert('Per Enti Pubblici soggetti al sistema di Tesoreria Unica (L.27/2012) la modalità di pagamento e\':\ntramite GIROFONDI sul conto 031930\nCausale: Contributo per analisi chimiche.\nE\' consigliato contattare preventivamente il laboratorio prima di portare i campioni di terreno.')" class="testoLink">GIROFONDI</a>.</p>
+                                          </div>
+<!--                                           <p align="left"><br> -->
+<!--                                             Il campione dovr&agrave; essere consegnato -->
+<!--                                             al laboratorio accompagnato da:</p> -->
+<!--                                           <p>1) <b>etichetta della scheda di accompagnamento da allegare al campione</b> </p> -->
+<!--                                           <p>2) la copia della <b>ricevuta di pagamento<br> -->
+<!--                                             </b></p> -->
+<!--                                           <p>Grazie.</p> -->
+                                           <div align="left">
+                                           <p>Una volta effettuato il pagamento, il campione, accompagnato dalla sua etichetta, pu&ograve; quindi essere consegnato o spedito al laboratorio per l'analisi.</p>
+                                           </div>
+<!--             <p class="likTesto">&nbsp;</p> -->
+<!--                                           <p>E' possibile inserire una nuova richiesta -->
+<!--                                             di analisi ri-utilizzando i dati appena -->
+<!--                                             inseriti. Selezionare allo scopo l'operazione -->
+<!--                                             di <a href="javascript:if (confirm('Se si procede con la duplicazione della richiesta non sarà piu\' possibile effettuare il pagamento da questa funzione, ma si potra\' continuare nel pagamento ricercando la richiesta nell\'apposito menu\' di ricerca. Si conferma di voler proseguire nella duplicazione?'))  -->
+<!--                                                                                 window.location.href='../controller/copiaRichiesta.jsp?radiobutton=##numeroIdentificativo'" class="testoLink">duplicazione -->
+<!--                                             richiesta di analisi</a></p> -->
+            </td>
+                                      </tr>
+                                    </table>
+                                    <br>
+                                  </td>
+                                </tr>
+                              </table>
+                              </td>
+                          </tr>
+                        </table>
+                      </td>
+                      <td bgcolor="#669933"><img src="../layout/im/tra_pix.gif" width="2" height="1"></td>
+                      <td background="../layout/im/pix-gri-ban.gif"><img src="../layout/im/tra_pix.gif" width="1" height="1"></td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr bgcolor="#333333">
+          <td><img src="../layout/im/banner_inf.jpg" width="618" height="14" border="0" alt="CSI-Piemonte l'amministrazione piemontese alla portata di un clic"></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<span class="testoneroCopia"></span><span class="testonero"></span>
+<!-- form con i dati di pagamento -->
+<form id="pagoPAform" name="pagoPAform" action="##pagoPaWebAppUrl" method="post">
+    <input type = "hidden" value = "##operazione" name="operazione" >
+    <input type = "hidden" value = "##cf" name = "cf"/>
+    <input type = "hidden" value = "##ruolo" name = "ruolo" />
+    <input type = "hidden" value = "##liv" name = "liv"/>
+    <input type = "hidden" value = "##idProcedimento_accesso" name = "idProcedimento_accesso" />
+    <input type = "hidden" value = "##idProcedimento" name = "idProcedimento" />
+    <input type = "hidden" value = "##idFruitore" name = "idFruitore" />
+    <input type = "hidden" value = "##codicePagamento" name = "codicePagamento" />
+    <input type = "hidden" value = "##importo" name = "importo" />
+    <input type = "hidden" value = "##pagatore_idAzienda" name = "pagatore.idAnagraficaAzienda" />
+    <input type = "hidden" value = "##pagatore_nome" name = "pagatore.nome" />
+    <input type = "hidden" value = "##pagatore_cognome" name = "pagatore.cognome" />
+    <input type = "hidden" value = "##pagatore_codiceFiscale" name = "pagatore.codiceFiscale" />
+    <input type = "hidden" value = "##pagatore_ragioneSociale" name = "pagatore.ragioneSociale" />
+    <input type = "hidden" value = "##pagatore_idUnicoPagatore" name="pagatore.idUnicoPagatore"  />
+    <input type = "hidden" value = "##pagatore_piva" name = "pagatore.piva" />
+    <input type = "hidden" value = "##pagatore_email" name = "pagatore.email" />
+    <input type = "hidden" value = "##pagatore_pec" name = "pagatore.pec" />
+    <input type = "hidden" value = "##versante_nome" name = "versante.nome" />
+    <input type = "hidden" value = "##versante_cognome" name = "versante.cognome" />
+    <input type = "hidden" value = "##versante_codiceFiscale" name = "versante.codiceFiscale" />
+    <input type = "hidden" value = "##versante_piva" name = "versante.piva" />
+    <input type = "hidden" value = "##versante_ragioneSociale" name = "versante.ragioneSociale" />
+    <input type = "hidden" value = "##versante_idUnicoPagatore" name="versante.idUnicoPagatore" />
+    <input type = "hidden" value = "##versante_email" name = "versante.email" />
+    <input type = "hidden" value = "##versante_pec" name = "versante.pec" />
+    <input type = "hidden" value = "##pageReferral" name = "pageReferral"/> 
+    <input type = "hidden" value = "##pageUrlAnnulla" name = "pageUrlAnnulla"/> 
+    <input type = "hidden" value = "##tipoPagamento" name = "tipoPagamento"/> 
+</form>
+</body>
+</html>
